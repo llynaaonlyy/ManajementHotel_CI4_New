@@ -1,0 +1,8 @@
+/vendor/
+/writable/*
+!/writable/.htaccess
+/public/uploads/
+.env
+*.log
+backend-hotelku/wa-session/
+backend-hotelku/.wwebjs_cache/
