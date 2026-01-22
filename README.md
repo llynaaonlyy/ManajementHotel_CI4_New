@@ -1,3 +1,27 @@
+# 🏨 HotelKu - Hotel Booking System
+
+> Sistem pemesanan hotel online dengan fitur Forgot Password berbasis Python
+
+## 🎯 Quick Start
+
+### New: Forgot Password Service ✅
+
+Fitur Forgot Password sudah implemented dengan Python (Flask)!
+
+**Quick Setup:**
+1. Read: `START_HERE.txt`
+2. Setup: `home-ki-whatsappBlast/.env`
+3. Install: `pip install -r home-ki-whatsappBlast/requirements.txt`
+4. Test: `python home-ki-whatsappBlast/test_service.py`
+5. Run: `python home-ki-whatsappBlast/app.py`
+
+**Documentation:**
+- 📖 `QUICK_START.md` - 5 langkah cepat
+- 📖 `FORGOT_PASSWORD_SUMMARY.md` - Detail lengkap
+- 📖 `home-ki-whatsappBlast/SETUP_GUIDE.md` - Panduan setup
+
+---
+
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?

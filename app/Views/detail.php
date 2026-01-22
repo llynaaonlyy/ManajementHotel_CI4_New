@@ -14,6 +14,8 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
         }
         .logo {
             font-size: 28px;
@@ -349,6 +351,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Prevent carousel click propagation on back button
+        const backLink = document.querySelector('.top-bar a[href="/home"]');
+        if (backLink) {
+            backLink.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                window.location.href = '/home';
+            });
+        }
+
         // Hitung jumlah malam
         const checkinInput = document.getElementById('checkinDate');
         const checkoutInput = document.getElementById('checkoutDate');

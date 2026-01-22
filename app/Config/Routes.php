@@ -17,6 +17,8 @@ $routes->post('auth/login', 'Auth::processLogin');
 $routes->get('logout', 'Auth::logout');
 $routes->get('/auth/register', 'Auth::register');
 $routes->post('/auth/register/process', 'Auth::processRegister');
+$routes->get('auth/forgot-password', 'Auth::forgotPassword');
+$routes->get('forgot-password', 'Auth::forgotPassword');  // Alternative route
 
 // Admin & Staff Dashboard
 $routes->get('/admin/dashboard', 'Admin::dashboard');
@@ -64,7 +66,17 @@ $routes->get('forgot-password.html', 'Auth::forgotPassword');
 $routes->get('/profil', 'User::profil');
 $routes->post('/profil/update', 'User::updateProfil');
 $routes->post('/profil/delete', 'User::deleteAccount');
-$routes->get('/histori', 'User::histori'); 
+$routes->get('/histori', 'User::histori');
+
+// New Profile Routes
+$routes->get('profile', 'Profile::index');
+$routes->get('profile/edit', 'Profile::edit');
+$routes->post('profile/update', 'Profile::update');
+$routes->post('profile/change-password', 'Profile::changePassword');
+$routes->get('profile/delete', 'Profile::delete');
+
+// Auth logout
+$routes->get('auth/logout', 'Auth::logout'); 
 
 // Staff Update Status
 $routes->post('staff/update-status', 'Staff::updateStatus');

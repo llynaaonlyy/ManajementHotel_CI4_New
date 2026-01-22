@@ -102,4 +102,5 @@ class User extends BaseController
         
         return view('histori', $data);
     }
+
 }
