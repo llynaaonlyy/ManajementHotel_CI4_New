@@ -192,7 +192,7 @@
                     </a>
                 </p>
                 <p class="mt-3">
-                    <a href="/" style="color: #999; text-decoration: none;">
+                    <a href="/ana/ManajementHotel_CI4_New/public" style="color: #999; text-decoration: none;">
                         <i class="fas fa-arrow-left me-2"></i>Kembali ke Landing Page
                     </a>
                 </p>

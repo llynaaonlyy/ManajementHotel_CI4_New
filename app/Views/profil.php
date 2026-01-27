@@ -604,7 +604,7 @@
             </div>
             <div class="user-info">
                 <div class="greeting">Halo, Pengguna</div>
-                <a href="/ana/ManajementHotel_CI4_New/public/profile/edit" class="edit-link">
+                <a href="/ana/ManajementHotel_CI4_New/public/profile/edit_detail_akun" class="edit-link">
                     <i class="fas fa-edit"></i> Edit Detail Akun
                 </a>
             </div>
