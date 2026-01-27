@@ -522,12 +522,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/home" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/home" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -717,7 +717,7 @@
                                     </div>
                                     <small class="text-muted d-block mb-3">/ malam</small>
                                     <?php if ($tk['status'] === 'available'): ?>
-                                        <a href="#" 
+                                        <a href="/ana/ManajementHotel_CI4_New/public/#" 
                                         class="btn btn-pesan w-100 btn-booking"
                                         data-kamar-id="<?= $tk['id'] ?>">
                                             Pesan Sekarang
@@ -745,12 +745,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Prevent carousel click propagation on back button
-        const backLink = document.querySelector('.top-bar a[href="/home"]');
+        const backLink = document.querySelector('.top-bar a[href="/ana/ManajementHotel_CI4_New/public/home"]');
         if (backLink) {
             backLink.addEventListener('click', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                window.location.href = '/home';
+                window.location.href = '/ana/ManajementHotel_CI4_New/public/home';
             });
         }
 
@@ -785,7 +785,7 @@
                 const kamarId = this.dataset.kamarId;
                 const checkin = checkinInput.value;
                 const checkout = checkoutInput.value;
-                window.location.href = `/pemesanan/${kamarId}?checkin=${checkin}&checkout=${checkout}`;
+                window.location.href = `/ana/ManajementHotel_CI4_New/public/pemesanan/${kamarId}?checkin=${checkin}&checkout=${checkout}`;
             });
         });
 

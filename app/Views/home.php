@@ -470,7 +470,6 @@
             }
         }
         
-        /* Smooth transitions for all interactive elements */
         a, button, .card, .badge, .filter-btn {
             transition: all 0.3s ease;
         }
@@ -482,7 +481,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-3 col-6">
-                    <a href="/home" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
@@ -512,13 +511,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="/profil">
+                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">
                                         <i class="fas fa-user-circle me-2"></i>Profil
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="/logout">
+                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
                                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                                     </a>
                                 </li>
