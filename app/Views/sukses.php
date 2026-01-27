@@ -19,7 +19,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #764ba2;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -27,39 +27,6 @@
             padding: 20px;
             position: relative;
             overflow-x: hidden;
-        }
-        
-        /* Animated background particles */
-        body::before,
-        body::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        body::before {
-            top: -100px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-        
-        body::after {
-            bottom: -100px;
-            right: -100px;
-            animation-delay: 3s;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-30px) scale(1.1);
-            }
         }
         
         .success-container {
@@ -637,7 +604,7 @@
                 Detail pemesanan akan segera dikirim ke email Anda. Mohon bersabar dan jika sudah dikirim silakan cek untuk informasi lebih lanjut.
             </div>
 
-            <a href="/home" class="btn btn-primary btn-lg mt-3">
+            <a href="/ana/ManajementHotel_CI4_New/public/home" class="btn btn-primary btn-lg mt-3">
                 <span>
                     <i class="fas fa-home me-2"></i>Kembali ke Beranda
                 </span>
@@ -646,52 +613,10 @@
     </div>
 
     <script>
-        // Confetti effect
-        function createConfetti() {
-            const colors = ['#667eea', '#764ba2', '#4CAF50', '#FFC107', '#2196F3'];
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDelay = Math.random() * 2 + 's';
-                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => confetti.remove(), 5000);
-                }, i * 30);
-            }
-        }
-
-        // Trigger confetti on load
-        window.addEventListener('load', () => {
-            createConfetti();
-        });
-
         // Add hover effect to detail rows
         document.querySelectorAll('.detail-row').forEach((row, index) => {
             row.style.animationDelay = `${0.1 + index * 0.05}s`;
         });
-
-        // Copy booking code on click
-        document.querySelector('.booking-code h3').addEventListener('click', function() {
-            const code = this.textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                const originalText = this.textContent;
-                this.textContent = 'Disalin!';
-                this.style.fontSize = '28px';
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.fontSize = '36px';
-                }, 1500);
-            });
-        });
-
-        // Add tooltip to booking code
-        const bookingCode = document.querySelector('.booking-code');
-        bookingCode.title = 'Klik untuk menyalin kode booking';
-        bookingCode.style.cursor = 'pointer';
     </script>
 </body>
 </html>
