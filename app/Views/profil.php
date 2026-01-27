@@ -40,73 +40,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
-            animation: bgMove 15s ease infinite;
+            background: white;
             pointer-events: none;
             z-index: 0;
-        }
-
-        @keyframes bgMove {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-        }
-
-        .floating-elements {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .float-shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-        }
-
-        .float-shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            animation: float1 20s infinite ease-in-out;
-        }
-
-        .float-shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation: float2 25s infinite ease-in-out;
-        }
-
-        .float-shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 60%;
-            animation: float3 18s infinite ease-in-out;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(50px, 50px) rotate(180deg); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-30px, -40px) rotate(-180deg); }
-        }
-
-        @keyframes float3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, -30px) scale(1.2); }
         }
 
         /* Top Bar */
@@ -640,23 +576,18 @@
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="float-shape"></div>
-        <div class="float-shape"></div>
-        <div class="float-shape"></div>
-    </div>
 
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/home" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/home" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -673,7 +604,7 @@
             </div>
             <div class="user-info">
                 <div class="greeting">Halo, Pengguna</div>
-                <a href="/profile/edit" class="edit-link">
+                <a href="/ana/ManajementHotel_CI4_New/public/profile/edit" class="edit-link">
                     <i class="fas fa-edit"></i> Edit Detail Akun
                 </a>
             </div>
@@ -691,7 +622,7 @@
                 <span><i class="fas fa-question-circle me-2"></i>Bantuan</span>
                 <span class="arrow">›</span>
             </div>
-            <div class="menu-item" onclick="window.location.href='/histori'">
+            <div class="menu-item" onclick="window.location.href='/ana/ManajementHotel_CI4_New/public/histori'">
                 <span><i class="fas fa-history me-2"></i>Lihat Histori</span>
                 <span class="arrow">›</span>
             </div>
@@ -866,13 +797,13 @@
         }
 
         function logout() {
-            window.location.href = '/logout';
+            window.location.href = '/ana/ManajementHotel_CI4_New/public/logout';
         }
 
         function deleteAccount() {
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = '/profil/delete';
+            form.action = '/ana/ManajementHotel_CI4_New/public/profil/delete';
             
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';
