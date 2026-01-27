@@ -292,7 +292,7 @@
 
                 <div class="form-group">
                     <label for="telepon">Nomor Telepon</label>
-                    <input type="tel" id="telepon" name="telepon" value="<?php echo htmlspecialchars($user['telepon'] ?? ''); ?>" pattern="^[0-9]{10,15}$">
+                    <input type="tel" id="telepon" name="telepon" value="<?php echo htmlspecialchars($user['no_telp'] ?? ''); ?>" pattern="^[0-9]{10,15}$">
                     <span class="error-message" id="teleponError"></span>
                 </div>
 
@@ -307,16 +307,6 @@
         <div class="card">
             <div class="card-title">Info Pemilik Akun</div>
 
-            <div class="password-section">
-                <strong style="color: #1f2937;">Ubah Password</strong>
-                <p class="password-note">
-                    Untuk mengubah password, Anda harus terlebih dahulu memverifikasi password lama Anda. Jika Anda lupa password, silakan gunakan fitur "Lupa Sandi" di halaman login.
-                </p>
-                <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="showPasswordModal()">
-                    Ubah Password
-                </button>
-            </div>
-
             <div class="form-group" style="margin-top: 20px;">
                 <label>Tanggal Pembuatan Akun</label>
                 <div style="padding: 12px; background: #f9fafb; border-radius: 8px; color: #6b7280;">
@@ -326,61 +316,15 @@
         </div>
     </div>
 
-    <!-- Modal Ubah Password -->
-    <div id="modalPassword" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">Ubah Password</div>
-            
-            <form id="passwordForm" method="POST" action="<?php echo base_url('profile/change-password'); ?>">
-                <div class="form-group">
-                    <label for="oldPassword">Password Lama</label>
-                    <input type="password" id="oldPassword" name="old_password" required>
-                    <span class="error-message" id="oldPasswordError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="newPassword">Password Baru</label>
-                    <input type="password" id="newPassword" name="new_password" required>
-                    <span class="error-message" id="newPasswordError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Konfirmasi Password Baru</label>
-                    <input type="password" id="confirmPassword" name="confirm_password" required>
-                    <span class="error-message" id="confirmPasswordError"></span>
-                </div>
-
-                <div class="modal-buttons">
-                    <button type="button" class="modal-btn modal-btn-secondary" onclick="closePasswordModal()">Batal</button>
-                    <button type="submit" class="modal-btn modal-btn-primary">Ubah Password</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script>
-        function showPasswordModal() {
-            document.getElementById('modalPassword').classList.add('active');
-        }
-
-        function closePasswordModal() {
-            document.getElementById('modalPassword').classList.remove('active');
-            document.getElementById('passwordForm').reset();
-            clearPasswordErrors();
-        }
-
-        function clearPasswordErrors() {
-            document.getElementById('oldPasswordError').textContent = '';
-            document.getElementById('newPasswordError').textContent = '';
-            document.getElementById('confirmPasswordError').textContent = '';
-        }
 
         document.getElementById('profileForm')?.addEventListener('submit', function(e) {
             let isValid = true;
             
             const nama = document.getElementById('nama').value.trim();
             const email = document.getElementById('email').value.trim();
-            const telepon = document.getElementById('telepon').value.trim();
+            const no_telp = document.getElementById('no_telp').value.trim();
 
             if (nama.length < 3) {
                 document.getElementById('namaError').textContent = 'Nama harus minimal 3 karakter';
@@ -392,7 +336,7 @@
                 isValid = false;
             }
 
-            if (telepon && !/^[0-9]{10,15}$/.test(telepon)) {
+            if (no_telp && !/^[0-9]{10,15}$/.test(no_telp)) {
                 document.getElementById('teleponError').textContent = 'Nomor telepon harus 10-15 digit';
                 isValid = false;
             }

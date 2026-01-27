@@ -1,11 +1,11 @@
-<!-- File: app/Views/landing.php -->
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotelku - Platform Pemesanan Hotel, Villa & Apartemen Terbaik</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></style>
     <style>
         * {
             margin: 0;
@@ -13,6 +13,113 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-custom.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 8px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-nav-login {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea !important;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav-login:hover {
+            background: #667eea;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-nav-register {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white !important;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-nav-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -20,33 +127,82 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 100px;
+        }
+        
+        /* Animated background shapes */
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
         }
         
         .hero-section::before {
-            content: '';
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            left: -200px;
+            animation: float1 8s ease-in-out infinite;
+        }
+        
+        .hero-section::after {
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -150px;
+            animation: float2 10s ease-in-out infinite;
+        }
+        
+        @keyframes float1 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+        }
+        
+        @keyframes float2 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(-50px, -50px) scale(1.15);
+            }
+        }
+        
+        .hero-shape {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920') center/cover;
-            opacity: 0.1;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            animation: float 6s ease-in-out infinite;
         }
         
-        .navbar-custom {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            padding: 15px 0;
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
         }
         
         .hero-content {
@@ -54,88 +210,196 @@
             z-index: 2;
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 80px 0;
         }
         
         .hero-title {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
             animation: fadeInUp 1s ease;
+            line-height: 1.2;
         }
         
         .hero-subtitle {
-            font-size: 24px;
-            margin-bottom: 40px;
+            font-size: 26px;
+            margin-bottom: 50px;
             opacity: 0.95;
             animation: fadeInUp 1.2s ease;
+            font-weight: 400;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .btn-hero {
-            padding: 15px 50px;
+            padding: 18px 50px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 50px;
             border: none;
             margin: 10px;
-            transition: all 0.3s;
-            animation: fadeInUp 1.4s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-hero:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-hero span {
+            position: relative;
+            z-index: 1;
         }
         
         .btn-primary-custom {
             background: white;
             color: #667eea;
+            box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+            animation: fadeInUp 1.4s ease;
         }
         
         .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
-            background: #f8f9ff;
-            color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+            color: #ffffff;
         }
         
         .btn-outline-custom {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 3px solid white;
+            animation: fadeInUp 1.6s ease;
         }
         
         .btn-outline-custom:hover {
             background: white;
             color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
         }
         
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce-slow 2s infinite;
+        }
+        
+        @keyframes bounce-slow {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        .scroll-indicator i {
+            font-size: 36px;
+            color: white;
+            opacity: 0.7;
+        }
+        
+        /* Features Section */
         .features-section {
-            padding: 100px 0;
-            background: #f8f9fa;
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 60px;
         }
         
         .feature-card {
             text-align: center;
-            padding: 40px 30px;
+            padding: 50px 35px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
             height: 100%;
             margin-bottom: 30px;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
         }
         
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102,126,234,0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(102,126,234,0.25);
+            border-color: rgba(102, 126, 234, 0.3);
         }
         
         .feature-icon {
-            font-size: 60px;
+            font-size: 70px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .feature-title {
@@ -148,59 +412,54 @@
         .feature-desc {
             color: #666;
             font-size: 16px;
+            line-height: 1.7;
         }
         
+        /* Stats Section */
         .stats-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 80px 0;
+            padding: 100px 0;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            opacity: 0.5;
         }
         
         .stat-item {
             text-align: center;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: scale(1.1);
         }
         
         .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 10px;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: countUp 2s ease-out;
         }
         
-        .stat-label {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        
-        .cta-section {
-            padding: 100px 0;
-            background: white;
-            text-align: center;
-        }
-        
-        .cta-title {
-            font-size: 42px;
-            font-weight: 800;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .cta-subtitle {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
-        @keyframes fadeInUp {
+        @keyframes countUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -208,49 +467,240 @@
             }
         }
         
+        .stat-label {
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        
+        .cta-subtitle {
+            font-size: 22px;
+            color: #666;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+        
+        footer a {
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        footer a:hover {
+            color: #667eea !important;
+            transform: translateX(5px);
+        }
+        
+        footer hr {
+            border-color: rgba(255,255,255,0.2);
+            margin: 40px 0 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .cta-title {
+                font-size: 36px;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .navbar-custom {
+                padding: 15px 0;
+            }
+            
+            .logo {
+                font-size: 26px;
+            }
+            
+            .hero-section {
+                padding-top: 80px;
+            }
+            
             .hero-title {
                 font-size: 36px;
             }
+            
             .hero-subtitle {
                 font-size: 18px;
             }
+            
             .btn-hero {
-                padding: 12px 30px;
+                padding: 15px 35px;
                 font-size: 16px;
             }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+            }
+            
+            .feature-card {
+                padding: 40px 25px;
+            }
+            
+            .stat-number {
+                font-size: 42px;
+            }
+            
+            .stat-label {
+                font-size: 16px;
+            }
+            
+            .cta-title {
+                font-size: 28px;
+            }
+            
+            .cta-subtitle {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .btn-hero {
+                padding: 12px 25px;
+                font-size: 14px;
+                margin: 5px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .feature-icon {
+                font-size: 50px;
+            }
+            
             .stat-number {
                 font-size: 36px;
             }
+        }
+        
+        /* Smooth scroll padding */
+        section {
+            scroll-margin-top: 80px;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand logo" href="/">
-                <i class="fas fa-hotel"></i> Hotelku
+                <i class="fas fa-hotel me-2"></i>Hotelku
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="
-                    [poiuy">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
                         <a class="nav-link" href="#features">Fitur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary px-4 ms-2" href="auth/login">
+                        <a class="nav-link btn-nav-login" href="auth/login">
                             <i class="fas fa-sign-in-alt me-2"></i>Login
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary px-4 ms-2 text-black" href="auth/register">
+                        <a class="nav-link btn-nav-register" href="auth/register">
                             <i class="fas fa-user-plus me-2"></i>Daftar
                         </a>
                     </li>
@@ -261,23 +711,34 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Temukan Akomodasi Impian Anda
+                    Temukan Akomodasi<br>Impian Anda
                 </h1>
                 <p class="hero-subtitle">
                     Pesan hotel, villa, dan apartemen terbaik dengan mudah dan cepat
                 </p>
                 <div>
                     <a href="auth/register" class="btn btn-hero btn-primary-custom">
-                        <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+                        <span>
+                            <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+                        </span>
                     </a>
                     <a href="#features" class="btn btn-hero btn-outline-custom">
-                        <i class="fas fa-info-circle me-2"></i>Pelajari Lebih Lanjut
+                        <span>
+                            <i class="fas fa-info-circle me-2"></i>Pelajari Lebih Lanjut
+                        </span>
                     </a>
                 </div>
             </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -285,8 +746,8 @@
     <section class="features-section" id="features">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold mb-3">Mengapa Memilih Hotelku?</h2>
-                <p class="lead text-muted">Platform terbaik untuk memenuhi kebutuhan akomodasi Anda</p>
+                <h2 class="section-title">Mengapa Memilih Hotelku?</h2>
+                <p class="section-subtitle">Platform terbaik untuk memenuhi kebutuhan akomodasi Anda</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
@@ -365,24 +826,36 @@
             <div class="row">
                 <div class="col-md-3 col-6">
                     <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
                         <div class="stat-number">10,000+</div>
                         <div class="stat-label">Akomodasi</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                         <div class="stat-number">50,000+</div>
                         <div class="stat-label">Pengguna</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
                         <div class="stat-number">100+</div>
                         <div class="stat-label">Kota</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
                         <div class="stat-number">4.8/5</div>
                         <div class="stat-label">Rating</div>
                     </div>
@@ -396,10 +869,12 @@
         <div class="container">
             <h2 class="cta-title">Siap Memulai Perjalanan Anda?</h2>
             <p class="cta-subtitle">
-                Bergabunglah dengan ribuan pengguna yang sudah merasakan kemudahan booking akomodasi bersama Hotelku
+                Bergabunglah dengan ribuan pengguna yang sudah merasakan kemudahan<br>booking akomodasi bersama Hotelku
             </p>
             <a href="auth/register" class="btn btn-hero btn-primary-custom">
-                <i class="fas fa-user-plus me-2"></i>Daftar Gratis Sekarang
+                <span>
+                    <i class="fas fa-user-plus me-2"></i>Daftar Gratis Sekarang
+                </span>
             </a>
         </div>
     </section>
@@ -409,10 +884,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold mb-3">
+                    <h5>
                         <i class="fas fa-hotel me-2"></i>Hotelku
                     </h5>
-                    <p class="text-white-50">
+                    <p class="text-white-50 mb-4">
                         Platform pemesanan hotel, villa, dan apartemen terpercaya di Indonesia
                     </p>
                 </div>

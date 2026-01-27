@@ -37,6 +37,7 @@ $routes->post('/profil/delete', 'User::deleteAccount');
 
 // Profil staff
 $routes->get('/staff/profil_staff', 'Staff::profilStaff');
+$routes->post('profile/change-password', 'Profile::changePassword');
 
 // Pemesanan
 $routes->get('/pemesanan/(:num)', 'PemesananController::form/$1');

@@ -4,7 +4,7 @@ require_once 'config.php';
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /login.php");
     exit();
 }
 
@@ -28,7 +28,7 @@ if ($stmt->execute()) {
     session_destroy();
     
     // Redirect ke login dengan pesan
-    header("Location: login.php?msg=account_deleted");
+    header("Location: /login.php?msg=account_deleted");
     exit();
 } else {
     $stmt->close();
