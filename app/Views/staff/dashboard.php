@@ -129,12 +129,88 @@
             color: #333;
             margin-bottom: 25px;
         }
+        /* ===============================
+        MOBILE DASHBOARD FIX
+        =============================== */
         @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
+
+            /* Top bar */
+            .logo {
+                font-size: 20px;
             }
+
+            .user-name {
+                display: none;
+            }
+
+            /* Sidebar jadi horizontal menu */
+            .sidebar {
+                display: flex !important;
+                flex-direction: row;
+                overflow-x: auto;
+                min-height: auto;
+                padding: 0;
+                background: #2c3e50;
+            }
+
+            .sidebar a {
+                flex: 0 0 auto;
+                padding: 12px 16px;
+                font-size: 14px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                white-space: nowrap;
+                text-align: center;
+            }
+
+            .sidebar a i {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .sidebar a.active,
+            .sidebar a:hover {
+                background: none;
+                border-bottom: 3px solid #667eea;
+            }
+
+            /* Content */
             .content-area {
                 padding: 15px;
+            }
+
+            .page-title {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            /* Stat card */
+            .stat-card {
+                padding: 18px;
+                text-align: center;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            /* Table jadi scroll */
+            .table-responsive {
+                overflow-x: auto;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            .status-badge {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .btn-sm {
+                font-size: 12px;
+                padding: 5px 10px;
             }
         }
     </style>
@@ -179,7 +255,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-2 p-0 sidebar d-none d-md-block">
+            <div class="col-12 col-md-2 p-0 sidebar">
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
