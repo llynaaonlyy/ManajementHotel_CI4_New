@@ -91,6 +91,98 @@
         .timeline-item:last-child::after {
             display: none;
         }
+        /* ===============================
+        RESPONSIVE MOBILE FIX
+        =============================== */
+        @media (max-width: 768px) {
+
+            /* Top bar */
+            .top-bar {
+                padding: 10px 0;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .top-bar .col-6 {
+                width: 100%;
+                text-align: center;
+            }
+
+            .top-bar .text-end {
+                margin-top: 8px;
+                text-align: center !important;
+            }
+
+            /* Heading */
+            h2 {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            /* Card */
+            .detail-card {
+                padding: 20px;
+            }
+
+            /* Info row jadi vertikal */
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .info-label {
+                font-size: 13px;
+            }
+
+            .info-value {
+                font-size: 14px;
+            }
+
+            /* Status badge */
+            .status-badge {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+
+            /* Timeline */
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -18px;
+            }
+
+            .timeline-item::after {
+                left: -13px;
+            }
+
+            /* Images */
+            img.img-fluid {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Sidebar (Kelola Status) */
+            .col-lg-4 {
+                margin-top: 20px;
+            }
+
+            /* Button full width */
+            .btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            textarea,
+            select,
+            input {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body style="background: #f8f9fa;">
