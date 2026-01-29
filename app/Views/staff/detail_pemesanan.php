@@ -235,26 +235,43 @@
                 <!-- Ubah Status -->
                 <div class="detail-card">
                     <div class="section-title">Kelola Status</div>
+
+                    <?php
+                        $statusFinal = in_array($pemesanan['status'], ['confirmed', 'cancelled']);
+                    ?>
+
+                    <?php if($statusFinal): ?>
+                        <div class="alert alert-info">
+                            <i class="fas fa-lock me-2"></i>
+                            Status sudah <strong><?= ucfirst($pemesanan['status']) ?></strong> dan tidak dapat diubah.
+                        </div>
+                    <?php endif; ?>
+
                     <form action="/ana/ManajementHotel_CI4_New/public/staff/update-status" method="post">
                         <?= csrf_field() ?>
                         <input type="hidden" name="pemesanan_id" value="<?= $pemesanan['id'] ?>">
                         
                         <div class="mb-3">
                             <label class="form-label">Status Baru</label>
-                            <select class="form-select" name="status" required>
+                            <select class="form-select" name="status" required <?= $statusFinal ? 'disabled' : '' ?>>
                                 <option value="">Pilih Status</option>
-                                <option value="confirmed" <?= $pemesanan['status'] == 'confirmed' ? 'selected' : '' ?>>Confirmed</option>
-                                <option value="cancelled" <?= $pemesanan['status'] == 'cancelled' ? 'selected' : '' ?>>Cancelled</option>
+                                <option value="confirmed" <?= $pemesanan['status'] == 'confirmed' ? 'selected' : '' ?>>
+                                    Confirmed
+                                </option>
+                                <option value="cancelled" <?= $pemesanan['status'] == 'cancelled' ? 'selected' : '' ?>>
+                                    Cancelled
+                                </option>
                             </select>
                         </div>
                         
                         <div class="mb-3">
                             <label class="form-label">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" rows="3" 
-                            placeholder="Tambahkan keterangan (opsional)"></textarea>
+                            <textarea class="form-control" name="keterangan" rows="3"
+                                placeholder="Tambahkan keterangan (opsional)"
+                                <?= $statusFinal ? 'disabled' : '' ?>></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary w-100">
+                        <button type="submit" class="btn btn-primary w-100" <?= $statusFinal ? 'disabled' : '' ?>>
                             <i class="fas fa-save me-2"></i>Update Status
                         </button>
                     </form>
@@ -264,5 +281,12 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?php if(session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
+
 </body>
 </html>

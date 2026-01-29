@@ -97,41 +97,59 @@ class Staff extends BaseController
             return view('staff/detail_pemesanan', $data);
         }
     
-    public function updateStatus()
-    {
-        $pemesananId = $this->request->getPost('pemesanan_id');
-        $statusBaru = $this->request->getPost('status');
-        $keterangan = $this->request->getPost('keterangan');
-        
-        // Get pemesanan lama
-        $pemesanan = $this->pemesananModel->find($pemesananId);
-        if (!$pemesanan) {
-            return redirect()->back()->with('error', 'Pemesanan tidak ditemukan');
-        }
-        
-        $statusLama = $pemesanan['status'];
-        
-        // Update status
-        $this->pemesananModel->update($pemesananId, ['status' => $statusBaru]);
-        
-        // Log perubahan status
-        $db = \Config\Database::connect();
-        $db->table('pemesanan_status_log')->insert([
-            'pemesanan_id' => $pemesananId,
-            'status_lama' => $statusLama,
-            'status_baru' => $statusBaru,
-            'changed_by' => $this->session->get('user_id'),
-            'keterangan' => $keterangan
-        ]);
-        
-        // Kirim email jika status menjadi confirmed
-        if ($statusBaru == 'confirmed' && $statusLama != 'confirmed') {
-            $this->sendConfirmationEmail($pemesananId);
-        }
-        
-        return redirect()->to('/staff/pemesanan/' . $pemesananId)
-                        ->with('success', 'Status pemesanan berhasil diubah menjadi ' . $statusBaru);
+public function updateStatus()
+{
+    $pemesananId = $this->request->getPost('pemesanan_id');
+    $statusBaru  = $this->request->getPost('status');
+    $keterangan  = $this->request->getPost('keterangan');
+    
+    // Get pemesanan lama
+    $pemesanan = $this->pemesananModel->find($pemesananId);
+    if (!$pemesanan) {
+        return redirect()->back()->with('error', 'Pemesanan tidak ditemukan');
     }
+    
+    $statusLama = $pemesanan['status'];
+
+    /* =====================================================
+       🔒 PENGUNCI STATUS FINAL (TAMBAHAN UTAMA)
+       ===================================================== */
+    if (in_array($statusLama, ['confirmed', 'cancelled'])) {
+        return redirect()->back()
+            ->with('error', 'Status sudah ' . $statusLama . ' dan tidak dapat diubah.');
+    }
+
+    /* =====================================================
+       (OPSIONAL) VALIDASI STATUS BARU
+       ===================================================== */
+    if (!in_array($statusBaru, ['confirmed', 'cancelled'])) {
+        return redirect()->back()
+            ->with('error', 'Status tidak valid.');
+    }
+
+    // Update status
+    $this->pemesananModel->update($pemesananId, [
+        'status' => $statusBaru
+    ]);
+    
+    // Log perubahan status
+    $db = \Config\Database::connect();
+    $db->table('pemesanan_status_log')->insert([
+        'pemesanan_id' => $pemesananId,
+        'status_lama'  => $statusLama,
+        'status_baru'  => $statusBaru,
+        'changed_by'   => $this->session->get('user_id'),
+        'keterangan'   => $keterangan
+    ]);
+    
+    // Kirim email jika status menjadi confirmed
+    if ($statusBaru === 'confirmed') {
+        $this->sendConfirmationEmail($pemesananId);
+    }
+    
+    return redirect()->to('/staff/pemesanan/' . $pemesananId)
+        ->with('success', 'Status pemesanan berhasil diubah menjadi ' . ucfirst($statusBaru));
+}
     
     public function updateCatatanInternal()
     {
