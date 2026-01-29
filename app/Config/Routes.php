@@ -111,7 +111,7 @@ $routes->post('admin/kebijakan/save', 'Admin::kebijakanSave');
 $routes->get('admin/tipe-kamar', 'Admin::tipeKamar');
 $routes->get('admin/tipe-kamar/tambah', 'Admin::tipeKamarForm');
 $routes->get('admin/tipe-kamar/edit/(:num)', 'Admin::tipeKamarForm/$1');
-$routes->get('admin/tipe-kamar/save', 'Admin::tipeKamarSave');
+$routes->post('admin/tipe-kamar/save', 'Admin::tipeKamarSave');
 $routes->get('admin/tipe-kamar/delete/(:num)', 'Admin::tipeKamarDelete/$1');
     
 // Booking (Read Only)
