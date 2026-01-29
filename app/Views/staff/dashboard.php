@@ -47,22 +47,6 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .sidebar {
-            background: #2c3e50;
-            min-height: calc(100vh - 70px);
-            padding: 20px 0;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            display: block;
-            transition: all 0.3s;
-        }
-        .sidebar a:hover, .sidebar a.active {
-            background: #34495e;
-            border-left: 4px solid #667eea;
-        }
         .stat-card {
             background: white;
             border-radius: 15px;
@@ -130,87 +114,82 @@
             margin-bottom: 25px;
         }
         /* ===============================
-        MOBILE DASHBOARD FIX
+        SIDEBAR HAMBURGER MENU
         =============================== */
-        @media (max-width: 768px) {
 
-            /* Top bar */
-            .logo {
-                font-size: 20px;
-            }
+        /* Sidebar base */
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 240px;
+            height: calc(100vh - 70px);
+            background: linear-gradient(180deg, #5a67d8, #6b46c1);
+            padding-top: 20px;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+            z-index: 1050;
+        }
 
-            .user-name {
-                display: none;
-            }
+        /* Sidebar links */
+        .sidebar a {
+            color: #fff;
+            padding: 14px 22px;
+            display: block;
+            font-weight: 500;
+            text-decoration: none;
+        }
 
-            /* Sidebar jadi horizontal menu */
-            .sidebar {
-                display: flex !important;
-                flex-direction: row;
-                overflow-x: auto;
-                min-height: auto;
-                padding: 0;
-                background: #2c3e50;
-            }
+        .sidebar a i {
+            width: 20px;
+        }
 
-            .sidebar a {
-                flex: 0 0 auto;
-                padding: 12px 16px;
-                font-size: 14px;
-                border-left: none;
-                border-bottom: 3px solid transparent;
-                white-space: nowrap;
-                text-align: center;
-            }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255,255,255,0.15);
+            border-left: 4px solid #fff;
+        }
 
-            .sidebar a i {
-                display: block;
-                margin-bottom: 4px;
-            }
-
-            .sidebar a.active,
-            .sidebar a:hover {
-                background: none;
-                border-bottom: 3px solid #667eea;
-            }
-
-            /* Content */
+        /* Content desktop */
+        @media (min-width: 768px) {
             .content-area {
+                margin-left: 240px;
+            }
+        }
+
+        /* ===============================
+        MOBILE MODE
+        =============================== */
+        @media (max-width: 767px) {
+
+            /* Sidebar hidden by default */
+            .sidebar {
+                transform: translateX(-100%);
+                top: 0;
+                height: 100vh;
+                padding-top: 80px;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            /* Backdrop */
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 1040;
+            }
+
+            .sidebar-backdrop.show {
+                display: block;
+            }
+
+            .content-area {
+                margin-left: 0;
                 padding: 15px;
-            }
-
-            .page-title {
-                font-size: 20px;
-                text-align: center;
-            }
-
-            /* Stat card */
-            .stat-card {
-                padding: 18px;
-                text-align: center;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-
-            /* Table jadi scroll */
-            .table-responsive {
-                overflow-x: auto;
-            }
-
-            table {
-                font-size: 13px;
-            }
-
-            .status-badge {
-                font-size: 11px;
-                padding: 5px 10px;
-            }
-
-            .btn-sm {
-                font-size: 12px;
-                padding: 5px 10px;
             }
         }
     </style>
@@ -220,7 +199,12 @@
     <div class="top-bar">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-md-6 col-6">
+                <div class="col-md-6 col-6 d-flex align-items-center">
+                    <!-- Hamburger (mobile only) -->
+                    <button class="btn btn-link text-white d-md-none me-2" id="menuToggle">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+
                     <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
@@ -255,7 +239,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-12 col-md-2 p-0 sidebar">
+            <div class="sidebar" id="sidebar">
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
@@ -266,9 +250,10 @@
                     <i class="fas fa-users me-2"></i>Data Tamu
                 </a>
             </div>
+            <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
             <!-- Content Area -->
-            <div class="col-md-10 content-area">
+            <div class="content-area">
                 <?php if(session()->getFlashdata('success')): ?>
                     <div class="alert alert-success alert-dismissible fade show">
                         <i class="fas fa-check-circle me-2"></i>
@@ -368,5 +353,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const toggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+
+    toggle?.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+        backdrop.classList.toggle('show');
+    });
+
+    backdrop?.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        backdrop.classList.remove('show');
+    });
+    </script>
+
 </body>
 </html>
