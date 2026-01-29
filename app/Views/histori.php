@@ -116,12 +116,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 col-6">
-                    <a href="/home" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-md-6 col-6 text-end">
-                    <a href="/profil" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali ke Profil
                     </a>
                 </div>
@@ -148,7 +148,7 @@
                     <i class="fas fa-inbox"></i>
                     <h4 class="text-muted">Belum Ada Riwayat Pemesanan</h4>
                     <p class="text-muted">Anda belum pernah melakukan pemesanan di Hotelku</p>
-                    <a href="/home" class="btn btn-primary mt-3">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="btn btn-primary mt-3">
                         <i class="fas fa-search me-2"></i>Mulai Booking
                     </a>
                 </div>
@@ -248,7 +248,7 @@
                                     <div class="text-center">
                                         <label class="form-label">Bukti Pembayaran</label>
                                         <div>
-                                            <img src="/uploads/bukti_pembayaran/<?= esc($h['bukti_pembayaran']) ?>" 
+                                            <img src="/ana/ManajementHotel_CI4_New/public/uploads/bukti_pembayaran/<?= esc($h['bukti_pembayaran']) ?>" 
                                                  alt="Bukti Pembayaran" 
                                                  class="bukti-pembayaran img-fluid"
                                                  data-bs-toggle="modal" 

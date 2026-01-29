@@ -202,7 +202,7 @@
                 <?php if($pemesanan['bukti_pembayaran']): ?>
                     <div class="detail-card">
                         <div class="section-title">Bukti Pembayaran</div>
-                        <img src="/uploads/bukti_pembayaran/<?= esc($pemesanan['bukti_pembayaran']) ?>" 
+                        <img src="/ana/ManajementHotel_CI4_New/public/uploads/bukti_pembayaran/<?= esc($pemesanan['bukti_pembayaran']) ?>" 
                              class="img-fluid rounded" alt="Bukti Pembayaran">
                     </div>
                 <?php endif; ?>

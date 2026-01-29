@@ -553,14 +553,14 @@
             <?php if (!empty($foto)): ?>
                 <?php foreach ($foto as $index => $f): ?>
                     <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-                        <img src="<?= base_url('uploads/akomodasi/' . $f['foto']) ?>"
+                        <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $f['foto']) ?>"
                             class="d-block w-100 carousel-img"
                             alt="Foto <?= $index + 1 ?>">
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="carousel-item active">
-                    <img src="<?= base_url('uploads/akomodasi/' . $akomodasi['foto_utama']) ?>"
+                    <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $akomodasi['foto_utama']) ?>"
                         class="d-block w-100 carousel-img"
                         alt="Foto utama">
                 </div>
@@ -691,7 +691,7 @@
                         <div class="room-card fade-in">
                             <div class="row align-items-center">
                                 <div class="col-md-3">
-                                    <img src="<?= base_url('uploads/akomodasi/' . $tk['foto']) ?>"
+                                    <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $tk['foto']) ?>"
                                         class="img-fluid rounded"
                                         alt="<?= esc($tk['nama_tipe']) ?>">
                                 </div>

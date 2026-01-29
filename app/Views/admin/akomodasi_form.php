@@ -157,7 +157,7 @@
                         <div class="preview-container">
                             <?php foreach($foto as $f): ?>
                                 <div class="preview-item">
-                                    <img src="/uploads/akomodasi/<?= esc($f['foto']) ?>" alt="Foto">
+                                    <img src="/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/<?= esc($f['foto']) ?>" alt="Foto">
                                     <a href="/ana/ManajementHotel_CI4_New/public/admin/foto/delete/<?= $f['id'] ?>" 
                                        class="remove-btn"
                                        onclick="return confirm('Hapus foto ini?')">

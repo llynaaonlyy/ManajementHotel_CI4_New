@@ -126,7 +126,7 @@
 
                     <?php if ($tipe_kamar && $tipe_kamar['foto']) : ?>
                         <div class="mt-2">
-                            <img src="<?= base_url('uploads/akomodasi/' . $tipe_kamar['foto']) ?>"
+                            <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $tipe_kamar['foto']) ?>"
                                 style="max-width: 200px; border-radius: 10px;">
                         </div>
                     <?php endif; ?>
