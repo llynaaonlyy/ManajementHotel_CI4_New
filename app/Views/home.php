@@ -575,7 +575,7 @@
                                 <div class="card card-akomodasi">
                                     <div class="image-container">
                                         <?php if(!empty($item['foto_utama']) && file_exists('uploads/akomodasi/' . $item['foto_utama'])): ?>
-                                            <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $item['foto_utama']) ?>"
+                                            <img src="<?= base_url('uploads/akomodasi/' . $item['foto_utama']) ?>"
                                                 alt="<?= esc($item['nama']) ?>">
                                         <?php else: ?>
                                             <div class="default-image">
