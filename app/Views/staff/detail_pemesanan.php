@@ -235,7 +235,7 @@
                 <!-- Ubah Status -->
                 <div class="detail-card">
                     <div class="section-title">Kelola Status</div>
-                    <form action="/staff/update-status" method="post">
+                    <form action="/ana/ManajementHotel_CI4_New/public/staff/update-status" method="post">
                         <?= csrf_field() ?>
                         <input type="hidden" name="pemesanan_id" value="<?= $pemesanan['id'] ?>">
                         
