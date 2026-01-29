@@ -33,12 +33,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/admin/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku Admin
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/admin/akomodasi" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -61,7 +61,7 @@
             Kelola Kebijakan - <?= esc($akomodasi['nama']) ?>
         </h2>
 
-        <form action="/admin/kebijakan/save" method="post">
+        <form action="/ana/ManajementHotel_CI4_New/public/admin/kebijakan/save" method="post">
             <?= csrf_field() ?>
             <input type="hidden" name="akomodasi_id" value="<?= $akomodasi['id'] ?>">
             <input type="hidden" name="id" value="<?= $kebijakan['id'] ?? '' ?>">

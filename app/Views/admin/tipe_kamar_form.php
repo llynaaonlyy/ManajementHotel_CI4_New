@@ -32,12 +32,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/admin/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku Admin
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/admin/tipe-kamar" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -51,7 +51,7 @@
             <?= $tipe_kamar ? 'Edit' : 'Tambah' ?> Tipe Kamar
         </h2>
 
-        <form action="<?= site_url('admin/tipe-kamar/save') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('/ana/ManajementHotel_CI4_New/publicadmin/tipe-kamar/save') ?>" method="post" enctype="multipart/form-data">
 
             <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= $tipe_kamar['id'] ?? '' ?>">
@@ -136,7 +136,7 @@
                 <button type="submit" class="btn btn-primary px-5">
                     <i class="fas fa-save me-2"></i>Simpan
                 </button>
-                <a href="/admin/tipe-kamar" class="btn btn-secondary px-5">
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar" class="btn btn-secondary px-5">
                     <i class="fas fa-times me-2"></i>Batal
                 </a>
             </div>

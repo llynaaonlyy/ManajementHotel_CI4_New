@@ -75,7 +75,7 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/staff/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
@@ -88,13 +88,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="staff/profil_staff">
+                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/staff/profil_staff">
                                         <i class="fas fa-user-circle me-2"></i>Profil
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="/logout">
+                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
                                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                                     </a>
                                 </li>

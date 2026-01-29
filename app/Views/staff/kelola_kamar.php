@@ -84,7 +84,7 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/staff/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
@@ -97,13 +97,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="staff/profil_staff">
+                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/publicstaff/profil_staff">
                                         <i class="fas fa-user-circle me-2"></i>Profil
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="/logout">
+                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
                                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                                     </a>
                                 </li>
@@ -119,13 +119,13 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-2 p-0 sidebar d-none d-md-block">
-                <a href="/staff/dashboard">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
-                <a href="/staff/kelola-kamar" class="active">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar" class="active">
                     <i class="fas fa-bed me-2"></i>Kelola Kamar
                 </a>
-                <a href="/staff/data-tamu">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu">
                     <i class="fas fa-users me-2"></i>Data Tamu
                 </a>
             </div>
@@ -162,7 +162,7 @@
                                             <td><?= esc($tk['nama_tipe']) ?></td>
                                             <td>Rp <?= number_format($tk['harga_per_malam'], 0, ',', '.') ?></td>
                                             <td>
-                                                <form action="/staff/update-stok-kamar" method="post" class="d-inline-flex align-items-center">
+                                                <form action="/ana/ManajementHotel_CI4_New/public/staff/update-stok-kamar" method="post" class="d-inline-flex align-items-center">
                                                     <?= csrf_field() ?>
                                                     <input type="hidden" name="kamar_id" value="<?= $tk['id'] ?>">
                                                     <input type="number" name="stok_kamar" value="<?= $tk['stok_kamar'] ?>" 
@@ -177,7 +177,7 @@
                                                 <?= ucfirst($tk['status']) ?>
                                             </td>
                                             <td>
-                                                <form action="/staff/update-status-kamar" method="post">
+                                                <form action="/ana/ManajementHotel_CI4_New/public/staff/update-status-kamar" method="post">
                                                     <?= csrf_field() ?>
                                                     <input type="hidden" name="kamar_id" value="<?= $tk['id'] ?>">
                                                     <?php if($tk['status'] == 'available'): ?>

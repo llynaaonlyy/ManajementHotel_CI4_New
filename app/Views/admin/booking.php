@@ -133,7 +133,7 @@
 </head>
 <body>
     <div class="top-bar">
-            <a href="/admin/dashboard" class="logo">
+            <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
                 <i class="fas fa-hotel"></i> Hotelku Admin
             </a>
 
@@ -143,9 +143,9 @@
                     <?= esc($user['nama']) ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="/profil">Profil</a></li>
+                    <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">Profil</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+                    <li><a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -155,12 +155,12 @@
 
             <!-- SIDEBAR -->
             <aside class="sidebar d-none d-md-block">
-                <a href="/admin/dashboard"><i class="fas fa-home me-2"></i>Dashboard</a>
-                <a href="/admin/akomodasi"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
-                <a href="/admin/tipe-kamar"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
-                <a href="/admin/booking" class="active"><i class="fas fa-calendar-check me-2"></i>Data Booking</a>
-                <a href="/admin/users"><i class="fas fa-users me-2"></i>Manajemen User</a>
-                <a href="/admin/laporan"><i class="fas fa-file-pdf me-2"></i>Laporan</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard"><i class="fas fa-home me-2"></i>Dashboard</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/booking" class="active"><i class="fas fa-calendar-check me-2"></i>Data Booking</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/users"><i class="fas fa-users me-2"></i>Manajemen User</a>
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/laporan"><i class="fas fa-file-pdf me-2"></i>Laporan</a>
             </aside>
 
     <!-- CONTENT -->
@@ -206,7 +206,7 @@
                                 data-bs-target="#detail<?= $b['id'] ?>">
                             <i class="fas fa-eye"></i> Detail
                         </button>
-                        <a href="/admin/booking/delete/<?= $b['id'] ?>" 
+                        <a href="/ana/ManajementHotel_CI4_New/public/admin/booking/delete/<?= $b['id'] ?>" 
                            class="btn btn-sm btn-danger mt-2" 
                            onclick="return confirm('Apakah Anda yakin ingin menghapus booking ini? Tindakan ini tidak dapat dibatalkan!')">
                             <i class="fas fa-trash"></i> Hapus

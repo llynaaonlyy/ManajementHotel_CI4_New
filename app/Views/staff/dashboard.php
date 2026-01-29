@@ -145,7 +145,7 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-6 col-6">
-                    <a href="/staff/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
@@ -158,13 +158,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="profil_staff">
+                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil_staff">
                                         <i class="fas fa-user-circle me-2"></i>Profil
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item text-danger" href="/logout">
+                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
                                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                                     </a>
                                 </li>
@@ -180,13 +180,13 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-2 p-0 sidebar d-none d-md-block">
-                <a href="/staff/dashboard" class="active">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
-                <a href="/staff/kelola-kamar">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar">
                     <i class="fas fa-bed me-2"></i>Kelola Kamar
                 </a>
-                <a href="/staff/data-tamu">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu">
                     <i class="fas fa-users me-2"></i>Data Tamu
                 </a>
             </div>

@@ -62,12 +62,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/admin/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku Admin
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/admin/akomodasi" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -92,7 +92,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="/admin/akomodasi/save" method="post" enctype="multipart/form-data">
+        <form action="/ana/ManajementHotel_CI4_New/public/admin/akomodasi/save" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= $akomodasi['id'] ?? '' ?>">
 
@@ -158,7 +158,7 @@
                             <?php foreach($foto as $f): ?>
                                 <div class="preview-item">
                                     <img src="/uploads/akomodasi/<?= esc($f['foto']) ?>" alt="Foto">
-                                    <a href="/admin/foto/delete/<?= $f['id'] ?>" 
+                                    <a href="/ana/ManajementHotel_CI4_New/public/admin/foto/delete/<?= $f['id'] ?>" 
                                        class="remove-btn"
                                        onclick="return confirm('Hapus foto ini?')">
                                         <i class="fas fa-times"></i>
@@ -174,7 +174,7 @@
                 <button type="submit" class="btn btn-primary px-5">
                     <i class="fas fa-save me-2"></i>Simpan
                 </button>
-                <a href="/admin/akomodasi" class="btn btn-secondary px-5">
+                <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="btn btn-secondary px-5">
                     <i class="fas fa-times me-2"></i>Batal
                 </a>
             </div>

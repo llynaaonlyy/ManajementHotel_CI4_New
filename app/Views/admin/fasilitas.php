@@ -45,12 +45,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/admin/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku Admin
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/admin/akomodasi" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                 <i class="fas fa-plus me-2"></i>Tambah Fasilitas Baru
             </div>
             <div class="card-body">
-                <form action="/admin/fasilitas/save" method="post">
+                <form action="/ana/ManajementHotel_CI4_New/public/admin/fasilitas/save" method="post">
                     <?= csrf_field() ?>
                     <input type="hidden" name="akomodasi_id" value="<?= $akomodasi['id'] ?>">
                     
@@ -129,7 +129,7 @@
                                 data-bs-target="#editModal<?= $f['id'] ?>">
                             <i class="fas fa-edit"></i> Edit
                         </button>
-                        <a href="/admin/fasilitas/delete/<?= $f['id'] ?>" 
+                        <a href="/ana/ManajementHotel_CI4_New/public/admin/fasilitas/delete/<?= $f['id'] ?>" 
                            class="btn btn-sm btn-danger"
                            onclick="return confirm('Hapus fasilitas ini?')">
                             <i class="fas fa-trash"></i> Hapus
@@ -145,7 +145,7 @@
                                 <h5 class="modal-title">Edit Fasilitas</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
-                            <form action="/admin/fasilitas/save" method="post">
+                            <form action="/ana/ManajementHotel_CI4_New/public/admin/fasilitas/save" method="post">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="id" value="<?= $f['id'] ?>">
                                 <input type="hidden" name="akomodasi_id" value="<?= $akomodasi['id'] ?>">

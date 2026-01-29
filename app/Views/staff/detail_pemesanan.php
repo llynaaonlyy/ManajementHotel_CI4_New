@@ -99,12 +99,12 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/staff/dashboard" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/staff/dashboard" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
@@ -251,7 +251,7 @@
                         <div class="mb-3">
                             <label class="form-label">Keterangan</label>
                             <textarea class="form-control" name="keterangan" rows="3" 
-                                      placeholder="Tambahkan keterangan (opsional)"></textarea>
+                            placeholder="Tambahkan keterangan (opsional)"></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary w-100">
