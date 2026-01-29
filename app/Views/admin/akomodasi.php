@@ -167,7 +167,7 @@
                     <?php foreach($akomodasi as $item): ?>
                         <div class="col-md-6 col-lg-6 ps-3 pe-3">
                             <div class="akomodasi-card">
-                               <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $item['foto_utama']) ?>"
+                               <img src="<?= base_url('uploads/akomodasi/' . $item['foto_utama']) ?>"
                                     class="card-img-top"
                                     alt="<?= esc($item['nama']) ?>">
                                 <div class="card-body">
