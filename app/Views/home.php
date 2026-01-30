@@ -464,6 +464,11 @@
             .top-bar {
                 padding: 15px 0;
             }
+
+            .rating {
+                text-align: left;
+                padding-left: 10px; 
+            }
         }
         
         @media (max-width: 576px) {
