@@ -9,24 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+
         .logo {
             font-size: 28px;
             font-weight: bold;
             color: white;
             text-decoration: none;
         }
+
         .user-menu {
             display: flex;
         }
+
         .user-name {
             color: white;
             margin-right: 10px;
             font-weight: 500;
         }
+
         .profil-icon {
             width: 40px;
             height: 40px;
@@ -40,13 +47,16 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .profil-icon:hover {
             transform: scale(1.1);
         }
+
         .dropdown-menu {
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
         .stat-card {
             background: white;
             border-radius: 15px;
@@ -55,10 +65,12 @@
             margin-bottom: 20px;
             transition: all 0.3s;
         }
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
+
         .stat-icon {
             width: 60px;
             height: 60px;
@@ -70,15 +82,18 @@
             color: white;
             margin-bottom: 15px;
         }
+
         .stat-number {
             font-size: 36px;
             font-weight: bold;
             color: #333;
         }
+
         .stat-label {
             color: #666;
             font-size: 14px;
         }
+
         .booking-card {
             background: white;
             border-radius: 12px;
@@ -87,9 +102,11 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             transition: all 0.3s;
         }
+
         .booking-card:hover {
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
+
         .status-badge {
             padding: 6px 15px;
             border-radius: 20px;
@@ -97,26 +114,29 @@
             font-weight: 600;
             text-transform: uppercase;
         }
+
         .status-pending { background: #ffc107; color: #333; }
         .status-confirmed { background: #28a745; color: white; }
         .status-checked-in { background: #17a2b8; color: white; }
         .status-checked-out { background: #6c757d; color: white; }
         .status-cancelled { background: #dc3545; color: white; }
+
         .content-area {
             padding: 30px;
             background: #f8f9fa;
             min-height: calc(100vh - 70px);
         }
+
         .page-title {
             font-size: 28px;
             font-weight: bold;
             color: #333;
             margin-bottom: 25px;
         }
+
         /* ===============================
         SIDEBAR HAMBURGER MENU
         =============================== */
-
         /* Sidebar base */
         .sidebar {
             position: fixed;
