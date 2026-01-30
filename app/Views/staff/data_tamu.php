@@ -106,6 +106,9 @@
         @media (min-width: 768px) {
             .content-area {
                 margin-left: 240px;
+                padding: 30px;
+                background: #f8f9fa;
+                min-height: calc(100vh - 70px);
             }
         }
 
@@ -221,13 +224,13 @@
                     <span>Hotelku</span>
                 </div>
 
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar">
                     <i class="fas fa-bed me-2"></i>Kelola Kamar
                 </a>
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu" class="active">
                     <i class="fas fa-users me-2"></i>Data Tamu
                 </a>
             </div>

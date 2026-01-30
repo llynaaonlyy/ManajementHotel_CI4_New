@@ -100,12 +100,6 @@
             gap: 8px;
         }
 
-        .content-area {
-            padding: 30px;
-            background: #f8f9fa;
-            min-height: calc(100vh - 70px);
-        }
-
         .room-card {
             background: white;
             border-radius: 12px;
@@ -116,6 +110,15 @@
 
         .status-available { color: #28a745; }
         .status-maintenance { color: #dc3545; }
+
+        @media (min-width: 768px) {
+            .content-area {
+                margin-left: 240px;
+                padding: 30px;
+                background: #f8f9fa;
+                min-height: calc(100vh - 70px);
+            }
+        }
 
         /* ===============================
         MOBILE MODE
@@ -229,10 +232,10 @@
                     <span>Hotelku</span>
                 </div>
 
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar" class="active">
                     <i class="fas fa-bed me-2"></i>Kelola Kamar
                 </a>
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu">
