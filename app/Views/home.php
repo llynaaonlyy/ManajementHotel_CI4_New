@@ -440,9 +440,8 @@
             }
             
             .card-akomodasi {
-                margin-left: 0 !important;    
-                width: 100% !important;        
-                padding: 20px; 
+                margin: 10px auto;  /* Center card */
+                width: 90%;  /* Lebar card sedikit lebih kecil biar nggak terlalu besar */
             }
 
             .card-body {
