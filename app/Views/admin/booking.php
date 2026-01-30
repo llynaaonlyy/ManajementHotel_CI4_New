@@ -172,7 +172,7 @@
 
         <div class="alert alert-info mb-4">
             <i class="fas fa-info-circle me-2"></i>
-            Admin hanya dapat <strong>melihat</strong> data booking.
+            Admin hanya dapat <strong>melihat dan menghapus</strong> data booking.
         </div>
 
         <?php if(empty($booking)): ?>

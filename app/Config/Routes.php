@@ -70,11 +70,10 @@ $routes->post('/profil/delete', 'User::deleteAccount');
 $routes->get('/histori', 'User::histori');
 
 // New Profile Routes
-$routes->get('profile', 'Profile::index');
-$routes->get('profile/edit', 'Profile::edit');
-$routes->post('profile/update', 'Profile::update');
-$routes->post('profile/change-password', 'Profile::changePassword');
-$routes->get('profile/delete', 'Profile::delete');
+$routes->get('profile', 'User::profil');
+$routes->get('profile/edit', 'User::detailAkun');
+$routes->post('profile/update', 'User::updateProfil');
+$routes->get('profile/delete', 'User::deleteAccount');
 
 // Auth logout
 $routes->get('auth/logout', 'Auth::logout'); 

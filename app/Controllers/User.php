@@ -32,6 +32,18 @@ class User extends BaseController
         
         return view('profil', ['user' => $user]);
     }
+
+    public function detailAkun()
+    {
+        if (!$this->session->get('logged_in')) {
+            return redirect()->to('auth/login');
+        }
+        
+        $userId = $this->session->get('user_id');
+        $user = $this->userModel->find($userId);
+        
+        return view('edit_detail_akun', ['user' => $user]);
+    }
     
     public function updateProfil()
     {

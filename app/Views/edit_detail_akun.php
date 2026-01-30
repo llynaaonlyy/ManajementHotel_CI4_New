@@ -280,7 +280,8 @@
             <form id="profileForm" method="POST" action="<?php echo base_url('profile/update'); ?>">
                 <div class="form-group">
                     <label for="nama">Nama Lengkap</label>
-                    <input type="text" id="nama" name="nama" value="<?php echo htmlspecialchars($user['nama'] ?? ''); ?>" required>
+                    <input type="text" id="nama" name="nama" value="<?php echo old('nama', $user['nama']); ?>" required>
+                    <span class="error-message"><?php echo session()->getFlashdata('errors')['nama'] ?? ''; ?></span>
                     <span class="error-message" id="namaError"></span>
                 </div>
 
@@ -292,7 +293,7 @@
 
                 <div class="form-group">
                     <label for="telepon">Nomor Telepon</label>
-                    <input type="tel" id="telepon" name="telepon" value="<?php echo htmlspecialchars($user['no_telp'] ?? ''); ?>" pattern="^[0-9]{10,15}$">
+                    <input type="tel" id="telepon" name="telepon" value="<?php echo old('telepon', $user['no_telp']); ?>" pattern="^[0-9]{10,15}$">
                     <span class="error-message" id="teleponError"></span>
                 </div>
 
