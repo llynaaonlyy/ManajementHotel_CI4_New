@@ -425,7 +425,7 @@
             .search-box { 
                 margin-top: 20px;
             }
-            
+
             .image-container {
                 height: 200px;
             }
@@ -433,26 +433,34 @@
             .user-name { 
                 display: none;
             }
-            
+
             .filter-btn {
                 padding: 10px 20px;
                 font-size: 14px;
             }
-            
+
+            /* Centering card */
+            .row {
+                display: flex;
+                justify-content: center; 
+                flex-wrap: wrap;  
+            }
+
             .card-akomodasi {
-                margin: 10px auto;  /* Center card */
-                width: 90%;  /* Lebar card sedikit lebih kecil biar nggak terlalu besar */
+                margin: 10px auto;  
+                width: 90%;  
+                max-width: 500px; 
             }
 
             .card-body {
                 padding: 20px;
-                text-align: center;  /* Center text in card */
+                text-align: center;
             }
 
             .price {
                 font-size: 22px;
             }
-            
+
             .top-bar {
                 padding: 15px 0;
             }
@@ -569,7 +577,7 @@
                     <p class="text-muted">Coba kata kunci lain atau ubah filter pencarian</p>
                 </div>
             <?php else: ?>
-                <div class="row g-4">
+                <div class="row">
                     <?php foreach($akomodasi as $item): ?>
                         <div class="col-lg-4 col-md-6 col-12">
                             <a href="/ana/ManajementHotel_CI4_New/public/detail/<?= $item['id'] ?>" class="card-link">
