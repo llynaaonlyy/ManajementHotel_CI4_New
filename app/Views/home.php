@@ -439,10 +439,17 @@
                 font-size: 14px;
             }
             
+            .card-akomodasi {
+                margin: 10px auto;  
+                width: 90%;  
+                max-width: 500px; 
+            }
+
             .card-body {
                 padding: 20px;
+                text-align: center; 
             }
-            
+
             .price {
                 font-size: 22px;
             }
