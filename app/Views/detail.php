@@ -553,7 +553,7 @@
             <?php if (!empty($foto)): ?>
                 <?php foreach ($foto as $index => $f): ?>
                     <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-                        <img src="<?= base_url('/ana/ManajementHotel_CI4_New/public/uploads/akomodasi/' . $f['foto']) ?>"
+                        <img src="<?= base_url('uploads/akomodasi/' . $f['foto']) ?>"
                             class="d-block w-100 carousel-img"
                             alt="Foto <?= $index + 1 ?>">
                     </div>

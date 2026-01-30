@@ -24,14 +24,15 @@
         }
         
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #ffffff;
             padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         @keyframes slideDown {
@@ -48,7 +49,7 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: white;
+            color: #2563eb;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -57,9 +58,9 @@
         }
         
         .logo:hover {
-            color: white;
+            color: #1e40af;
             transform: scale(1.05);
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            text-shadow: none;
         }
         
         .logo i {
@@ -76,25 +77,25 @@
         }
         
         .user-name {
-            color: white;
+            color: #1f2937;
             margin-right: 10px;
             font-weight: 500;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: none;
         }
         
         .profil-icon {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: white;
+            background: #eaf2ff;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #667eea;
+            color: #2563eb;
             font-size: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
         }
         
         .profil-icon:hover {
@@ -127,7 +128,7 @@
         }
         
         .dropdown-item:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
             transform: translateX(5px);
         }
@@ -136,7 +137,7 @@
             background: white;
             border-radius: 50px;
             padding: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
         }
         
@@ -159,13 +160,14 @@
         .search-box button {
             border-radius: 50px;
             padding: 12px 35px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             border: none;
             transition: all 0.3s ease;
             font-weight: 600;
         }
         
         .search-box button:hover {
+            background: #1e40af;
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
@@ -200,10 +202,10 @@
             display: inline-block;
             padding: 12px 30px;
             margin-right: 15px;
-            border: 2px solid #667eea;
+            border: 2px solid #2563eb;
             border-radius: 30px;
             background: white;
-            color: #667eea;
+            color: #2563eb;
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 600;
@@ -211,18 +213,18 @@
         }
         
         .filter-btn:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
             position: relative;
             z-index: 10;
         }
         
         .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         }
         
         .card-akomodasi {
@@ -257,7 +259,7 @@
             position: relative;
             overflow: hidden;
             height: 260px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #eaf2ff;
         }
         
         .card-akomodasi img {
@@ -277,7 +279,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #eaf2ff;
             color: white;
             font-size: 60px;
         }
@@ -305,18 +307,10 @@
             50% { transform: scale(1.05); }
         }
         
-        .badge-hotel { 
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-        }
-        
-        .badge-villa { 
-            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-        }
-        
-        .badge-apart { 
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-        }
-        
+        .badge-hotel { background: #22c55e; }
+        .badge-villa { background: #f59e0b; }
+        .badge-apart { background: #2563eb; }
+
         .rating {
             color: #FFC107;
             font-weight: bold;
@@ -324,7 +318,7 @@
             align-items: center;
             gap: 5px;
             padding: 5px 12px;
-            background: #FFF9E6;
+            background: #fef3c7;
             border-radius: 20px;
         }
         
@@ -338,9 +332,10 @@
         }
         
         .price {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: none;
+            color: #2563eb;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: initial;
             background-clip: text;
             font-size: 26px;
             font-weight: bold;
@@ -355,7 +350,7 @@
         }
         
         .location i {
-            color: #667eea;
+            color: #2563eb;
         }
         
         .alert {
