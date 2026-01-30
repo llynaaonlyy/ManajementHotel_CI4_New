@@ -72,6 +72,7 @@ $routes->get('/histori', 'User::histori');
 // New Profile Routes
 $routes->get('profile', 'User::profil');
 $routes->get('profile/edit', 'User::detailAkun');
+$routes->get('profile/edit', 'User::detailAkun');
 $routes->post('profile/update', 'User::updateProfil');
 $routes->get('profile/delete', 'User::deleteAccount');
 
