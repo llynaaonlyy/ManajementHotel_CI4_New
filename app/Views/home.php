@@ -418,46 +418,48 @@
         }
         
         @media (max-width: 768px) {
-            .logo { 
-                font-size: 22px;
-            }
-            
-            .search-box { 
-                margin-top: 20px;
-            }
-            
-            .image-container {
-                height: 200px;
-            }
-            
-            .user-name { 
-                display: none;
-            }
-            
-            .filter-btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            
-            .card-akomodasi {
-                margin: 10px auto;  
-                width: 90%;  
-                max-width: 500px; 
-            }
+    .logo { 
+        font-size: 22px;
+    }
+    
+    .search-box { 
+        margin-top: 20px;
+    }
+    
+    .image-container {
+        height: 200px;
+    }
+    
+    .user-name { 
+        display: none;
+    }
+    
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .card-akomodasi {
+        margin: 10px auto;  /* Center card */
+        width: 95%;  /* Lebar card sedikit lebih kecil biar nggak terlalu besar */
+        max-width: 500px;  /* Max-width biar card ga terlalu lebar */
+        padding-left: 10px;  /* Tambahkan sedikit padding kiri */
+        padding-right: 10px; /* Tambahkan sedikit padding kanan */
+    }
 
-            .card-body {
-                padding: 20px;
-                text-align: center; 
-            }
+    .card-body {
+        padding: 20px;
+        text-align: center;  /* Center text in card */
+    }
 
-            .price {
-                font-size: 22px;
-            }
-            
-            .top-bar {
-                padding: 15px 0;
-            }
-        }
+    .price {
+        font-size: 22px;
+    }
+    
+    .top-bar {
+        padding: 15px 0;
+    }
+}
         
         @media (max-width: 576px) {
             .badge-tipe {
