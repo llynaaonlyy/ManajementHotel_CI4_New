@@ -48,18 +48,18 @@
 
         /* SIDEBAR */
        .sidebar {
-        width: 250px;
-        background: #ffffff;
-        position: fixed;
-        top: 70px;
-        bottom: 0;
-        left: 0;
-        padding-top: 20px;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-        border-right: 1px solid #e0e0e0;
-        transition: transform 0.3s ease;
-        z-index: 1001;  /* TAMBAHKAN INI */
-    }
+            width: 250px;
+            background: #ffffff;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+            border-right: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+            z-index: 1001;  /* TAMBAHKAN INI */
+        }
 
         .sidebar a {
             display: block;
@@ -93,7 +93,7 @@
             color: #2c3e50;
             cursor: pointer;
             padding: 8px;
-            margin-right: 15px;  /* GANTI dari 15px jadi 12px */
+            margin-right: 15px; 
         }
 
         /* MOBILE RESPONSIVE */
