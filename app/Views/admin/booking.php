@@ -146,8 +146,12 @@
 
             /* URUTAN MOBILE */
             .booking-card .text-end {
-                text-align: left;  /* Pindah ke kiri */
-                margin-top: 15px;   /* Sedikit jarak */
+                text-align: left;  
+                margin-top: 15px;   
+            }
+
+            .booking-card .fw-bold {
+                margin-bottom: 8px;  
             }
 
             .action-status {
