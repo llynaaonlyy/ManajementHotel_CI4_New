@@ -12,20 +12,24 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 15px 0;
         }
+        
         .logo {
             font-size: 28px;
             font-weight: bold;
             color: white;
             text-decoration: none;
         }
+
         .user-menu {
             display: flex;
         }
+
         .user-name {
             color: white;
             margin-right: 10px;
             font-weight: 500;
         }
+
         .profil-icon {
             width: 40px;
             height: 40px;
@@ -39,18 +43,21 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .profil-icon:hover {
             transform: scale(1.1);
         }
+
         .dropdown-menu {
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .sidebar {
-            background: #2c3e50;
-            min-height: calc(100vh - 70px);
-            padding: 20px 0;
-        }
+
+        /* ===============================
+        SIDEBAR HAMBURGER MENU
+        =============================== */
+
+        /* Sidebar base */
         .sidebar {
             position: fixed;
             top: 70px;
@@ -82,29 +89,68 @@
             background: rgba(255,255,255,0.15);
             border-left: 4px solid #fff;
         }
-        .content-area {
-            padding: 30px;
-            background: #f8f9fa;
-            min-height: calc(100vh - 70px);
+
+        /* Sidebar header (default: hidden) */
+        .sidebar-header {
+            display: none;
+            color: #fff;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            align-items: center;
+            gap: 8px;
         }
-         /* ===============================
+
+        /* Content desktop */
+        @media (min-width: 768px) {
+            .content-area {
+                margin-left: 240px;
+            }
+        }
+
+        /* ===============================
         MOBILE MODE
         =============================== */
         @media (max-width: 767px) {
 
-            /* Sidebar hidden by default */
+            .logo {
+                font-size: 25px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+            .logo i {
+                font-size: 25px;
+            }
+
+            .top-bar {
+                padding: 10px 0;
+            }
+
+            .profil-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+
             .sidebar {
                 transform: translateX(-100%);
                 top: 0;
                 height: 100vh;
-                padding-top: 80px;
+                padding-top: 0;
+            }
+
+            .sidebar-header {
+                display: flex;
             }
 
             .sidebar.show {
                 transform: translateX(0);
             }
 
-            /* Backdrop */
             .sidebar-backdrop {
                 display: none;
                 position: fixed;
@@ -170,6 +216,11 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="sidebar" id="sidebar">
+                <div class="sidebar-header d-md-none">
+                    <i class="fas fa-hotel"></i>
+                    <span>Hotelku</span>
+                </div>
+
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
@@ -221,7 +272,7 @@
                                                     <span class="badge bg-primary"><?= $t['total_pemesanan'] ?> pemesanan</span>
                                                 </td>
                                                 <td>
-                                                    <a href="/staff/tamu/<?= $t['id'] ?>" class="btn btn-sm btn-info text-white">
+                                                    <a href="/ana/ManajementHotel_CI4_New/public/staff/tamu/<?= $t['id'] ?>" class="btn btn-sm btn-info text-white">
                                                         <i class="fas fa-eye me-1"></i>Detail
                                                     </a>
                                                 </td>
@@ -253,6 +304,5 @@
         backdrop.classList.remove('show');
     });
     </script>
-
 </body>
 </html>

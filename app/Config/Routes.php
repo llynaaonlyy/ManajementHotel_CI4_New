@@ -80,6 +80,7 @@ $routes->get('profile/delete', 'Profile::delete');
 $routes->get('auth/logout', 'Auth::logout'); 
 
 // Staff Update Status
+$routes->get('staff/profil_staff', 'Staff::profilStaff');
 $routes->post('staff/update-status', 'Staff::updateStatus');
 
 // Dashboard Admin

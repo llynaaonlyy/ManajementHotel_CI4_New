@@ -156,7 +156,7 @@
             color: #fff;
             padding: 15px 20px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.2);
             align-items: center;
             gap: 8px;
@@ -175,7 +175,7 @@
         @media (max-width: 767px) {
 
             .logo {
-                font-size: 18px;
+                font-size: 25px;
                 display: flex;
                 align-items: center;
                 gap: 6px;
@@ -183,7 +183,7 @@
             }
 
             .logo i {
-                font-size: 18px;
+                font-size: 25px;
             }
 
             .top-bar {
@@ -228,7 +228,6 @@
                 padding: 15px;
             }
         }
-       
     </style>
 </head>
 <body>
