@@ -118,7 +118,7 @@
         @media (max-width: 767px) {
 
             .logo {
-                font-size: 25px;
+                font-size: 28px;
                 display: flex;
                 align-items: center;
                 gap: 6px;
@@ -126,7 +126,7 @@
             }
 
             .logo i {
-                font-size: 25px;
+                font-size: 28px;
             }
 
             .top-bar {

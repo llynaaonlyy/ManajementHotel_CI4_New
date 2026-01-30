@@ -318,6 +318,6 @@ public function updateStatus()
         $userId = $this->session->get('user_id');
         $user = $this->userModel->find($userId);
         
-        return view('/staff/profil_staff', ['user' => $user]);
+        return view('/ana/ManajementHotel_CI4_New/public/staff/profil_staff', ['user' => $user]);
     }
 }
