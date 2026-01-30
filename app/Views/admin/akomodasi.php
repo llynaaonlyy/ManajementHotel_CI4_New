@@ -93,7 +93,7 @@
             color: #2c3e50;
             cursor: pointer;
             padding: 8px;
-            margin-right: 15px;
+            margin-right: 15px;  /* GANTI dari 15px jadi 12px */
         }
 
         /* MOBILE RESPONSIVE */
@@ -111,8 +111,9 @@
             }
 
             .content-area {
-                margin-left: 0;
-                max-width: 100%;
+                margin-left: 0 !important;    /* TAMBAHKAN INI */
+                width: 100% !important;        /* TAMBAHKAN INI */
+                padding: 15px;                 /* OPSIONAL: padding lebih kecil di mobile */
             }
 
             /* Overlay ketika sidebar terbuka */
@@ -141,10 +142,10 @@
             padding: 20px;
             background: #f8f9fa;
             min-height: calc(100vh - 70px);
-            max-width: calc(100% - 250px);
-            margin-right: auto;
+            width: calc(100% - 250px);
             overflow-x: hidden;
         }
+
         .akomodasi-card {
             background: white;
             border-radius: 12px;
@@ -184,13 +185,13 @@
 </head>
 <body>
     <div class="top-bar">
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
-            <i class="fas fa-hotel"></i> Hotelku Admin
-        </a>
-
         <button class="hamburger-btn" id="hamburgerBtn">
             <i class="fas fa-bars"></i>
         </button>
+
+        <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
+            <i class="fas fa-hotel"></i> Hotelku Admin
+        </a>
 
         <div class="ms-auto dropdown">
             <a href="#" class="text-dark dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
