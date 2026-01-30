@@ -85,6 +85,8 @@ $routes->post('staff/update-status', 'Staff::updateStatus');
 
 // Dashboard Admin
 $routes->get('dashboard', 'Admin::dashboard');
+$routes->get('admin/profil_admin', 'Admin::profilAdmin');
+$routes->post('admin/profil_admin/update', 'Admin::updateProfilAdmin');
     
 // Akomodasi
 $routes->get('admin/akomodasi', 'Admin::akomodasi');
