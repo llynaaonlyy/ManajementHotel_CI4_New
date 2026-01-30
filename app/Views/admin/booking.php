@@ -136,6 +136,32 @@
             .sidebar-overlay.active {
                 display: block;
             }
+
+             .action-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            /* URUTAN MOBILE */
+            .action-status {
+                order: 1;
+                width: auto;
+            }
+
+            .action-detail {
+                order: 2;
+            }
+
+            .action-delete {
+                order: 3;
+            }
+
+            /* Biar sejajar rapi */
+            .action-wrapper > * {
+                font-size: 12px;
+            }
         }
         .sidebar a i {
             width: 20px;
@@ -258,23 +284,32 @@
                     </div>
 
                     <div class="text-end mt-3 mt-md-0">
+
+                        <!-- HARGA (TETAP DI ATAS) -->
                         <div class="fw-bold text-primary mb-1">
                             Rp <?= number_format($b['total_harga'], 0, ',', '.') ?>
                         </div>
-                        <span class="status <?= $b['status'] ?>">
-                            <?= ucfirst($b['status']) ?>
-                        </span>
-                        <br>
-                        <button class="btn btn-sm btn-info text-white mt-2"
-                                data-bs-toggle="modal"
-                                data-bs-target="#detail<?= $b['id'] ?>">
-                            <i class="fas fa-eye"></i> Detail
-                        </button>
-                        <a href="/ana/ManajementHotel_CI4_New/public/admin/booking/delete/<?= $b['id'] ?>" 
-                           class="btn btn-sm btn-danger mt-2" 
-                           onclick="return confirm('Apakah Anda yakin ingin menghapus booking ini? Tindakan ini tidak dapat dibatalkan!')">
-                            <i class="fas fa-trash"></i> Hapus
-                        </a>
+
+                        <!-- STATUS + AKSI (MOBILE DI BAWAH) -->
+                        <div class="action-wrapper justify-content-end">
+
+                            <span class="status <?= $b['status'] ?> action-status">
+                                <?= ucfirst($b['status']) ?>
+                            </span>
+
+                            <button class="btn btn-sm btn-info text-white action-detail"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#detail<?= $b['id'] ?>">
+                                <i class="fas fa-eye"></i> Detail
+                            </button>
+
+                            <a href="/ana/ManajementHotel_CI4_New/public/admin/booking/delete/<?= $b['id'] ?>" 
+                            class="btn btn-sm btn-danger action-delete"
+                            onclick="return confirm('Apakah Anda yakin ingin menghapus booking ini? Tindakan ini tidak dapat dibatalkan!')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </a>
+
+                        </div>
                     </div>
 
                 </div>
