@@ -218,7 +218,7 @@
 <div class="dashboard-wrapper">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar d-none d-md-block">
+    <aside class="sidebar">
         <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="active"><i class="fas fa-home me-2"></i>Dashboard</a>
         <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
         <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
