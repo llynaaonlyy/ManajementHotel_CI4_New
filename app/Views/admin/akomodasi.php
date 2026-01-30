@@ -122,7 +122,7 @@
                 <?= esc($user['nama']) ?>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">Profil</a></li>
+                <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/admin/profil_admin">Profil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">Logout</a></li>
             </ul>
