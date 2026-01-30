@@ -257,12 +257,12 @@
     <div class="top-bar">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="/home" class="logo">
+                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/profil" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
