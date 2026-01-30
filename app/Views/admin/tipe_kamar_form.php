@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
+            background: #ffffff;
+            padding: 23px 0;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
+
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
             text-decoration: none;
         }
+
+        .logo i {
+            color: #3498db;
+        }
+
         .form-container {
             max-width: 900px;
             margin: 40px auto;
@@ -24,6 +32,44 @@
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+         /* =====================
+        MOBILE RESPONSIVE
+        ===================== */
+        @media (max-width: 768px) {
+
+            /* Logo dikecilin */
+            .logo {
+                font-size: 16px;
+            }
+
+            .logo i {
+                font-size: 16px;
+            }
+
+            /* Padding top bar lebih rapih */
+            .top-bar {
+                padding: 23px 0;
+            }
+
+            /* FORM BIAR GA NEMPEL LAYAR */
+            .form-container {
+                margin: 20px 12px;
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            /* Judul form */
+            .form-container h2 {
+                font-size: 18px;
+            }
+
+            /* Tombol simpan & batal */
+            .form-container .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -37,7 +83,7 @@
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar" class="text-white">
+                    <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar" class="text-secondary fw-semibold">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
