@@ -150,6 +150,18 @@
             border-left: 4px solid #fff;
         }
 
+        /* Sidebar header (default: hidden) */
+        .sidebar-header {
+            display: none;
+            color: #fff;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            align-items: center;
+            gap: 8px;
+        }
+
         /* Content desktop */
         @media (min-width: 768px) {
             .content-area {
@@ -162,19 +174,43 @@
         =============================== */
         @media (max-width: 767px) {
 
-            /* Sidebar hidden by default */
+            .logo {
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+            .logo i {
+                font-size: 18px;
+            }
+
+            .top-bar {
+                padding: 10px 0;
+            }
+
+            .profil-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+
             .sidebar {
                 transform: translateX(-100%);
                 top: 0;
                 height: 100vh;
-                padding-top: 80px;
+                padding-top: 0;
+            }
+
+            .sidebar-header {
+                display: flex;
             }
 
             .sidebar.show {
                 transform: translateX(0);
             }
 
-            /* Backdrop */
             .sidebar-backdrop {
                 display: none;
                 position: fixed;
@@ -192,6 +228,7 @@
                 padding: 15px;
             }
         }
+       
     </style>
 </head>
 <body>
@@ -240,6 +277,11 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="sidebar" id="sidebar">
+                <div class="sidebar-header d-md-none">
+                    <i class="fas fa-hotel"></i>
+                    <span>Hotelku</span>
+                </div>
+
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>

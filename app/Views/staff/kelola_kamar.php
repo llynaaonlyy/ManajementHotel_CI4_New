@@ -46,21 +46,40 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        /* ===============================
+        SIDEBAR HAMBURGER MENU
+        =============================== */
+        /* Sidebar base */
         .sidebar {
-            background: #2c3e50;
-            min-height: calc(100vh - 70px);
-            padding: 20px 0;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 240px;
+            height: calc(100vh - 70px);
+            background: linear-gradient(180deg, #5a67d8, #6b46c1);
+            padding-top: 20px;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+            z-index: 1050;
         }
+
+        /* Sidebar links */
         .sidebar a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
+            color: #fff;
+            padding: 14px 22px;
             display: block;
-            transition: all 0.3s;
+            font-weight: 500;
+            text-decoration: none;
         }
-        .sidebar a:hover, .sidebar a.active {
-            background: #34495e;
-            border-left: 4px solid #667eea;
+
+        .sidebar a i {
+            width: 20px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255,255,255,0.15);
+            border-left: 4px solid #fff;
         }
         .content-area {
             padding: 30px;
@@ -76,6 +95,41 @@
         }
         .status-available { color: #28a745; }
         .status-maintenance { color: #dc3545; }
+         /* ===============================
+        MOBILE MODE
+        =============================== */
+        @media (max-width: 767px) {
+
+            /* Sidebar hidden by default */
+            .sidebar {
+                transform: translateX(-100%);
+                top: 0;
+                height: 100vh;
+                padding-top: 80px;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            /* Backdrop */
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 1040;
+            }
+
+            .sidebar-backdrop.show {
+                display: block;
+            }
+
+            .content-area {
+                margin-left: 0;
+                padding: 15px;
+            }
+    }
     </style>
 </head>
 <body>
@@ -83,7 +137,12 @@
     <div class="top-bar">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-6">
+                <div class="col-md-6 col-6 d-flex align-items-center">
+                    <!-- Hamburger (mobile only) -->
+                    <button class="btn btn-link text-white d-md-none me-2" id="menuToggle">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+
                     <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
@@ -118,17 +177,18 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-2 p-0 sidebar d-none d-md-block">
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard">
+            <div class="sidebar" id="sidebar">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar" class="active">
+                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar">
                     <i class="fas fa-bed me-2"></i>Kelola Kamar
                 </a>
                 <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu">
                     <i class="fas fa-users me-2"></i>Data Tamu
                 </a>
             </div>
+            <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
             <!-- Content -->
             <div class="col-md-10 content-area">
@@ -205,5 +265,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const toggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+
+    toggle?.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+        backdrop.classList.toggle('show');
+    });
+
+    backdrop?.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        backdrop.classList.remove('show');
+    });
+    </script>
+
 </body>
 </html>
