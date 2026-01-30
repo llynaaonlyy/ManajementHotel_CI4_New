@@ -145,6 +145,11 @@
             }
 
             /* URUTAN MOBILE */
+            .booking-card .text-end {
+                text-align: left;  /* Pindah ke kiri */
+                margin-top: 15px;   /* Sedikit jarak */
+            }
+
             .action-status {
                 order: 1;
                 width: auto;
@@ -212,6 +217,21 @@
 
         .dashboard-wrapper {
             width: 100%;
+        }
+
+        @media (min-width: 769px) {
+            .booking-card .action-wrapper {
+                margin-top: 10px;
+            }
+
+            /* Kasih jarak lebih antara status dan detail/hapus */
+            .text-end .status {
+                margin-bottom: 10px;
+            }
+
+            .action-wrapper button, .action-wrapper a {
+                margin-left: 8px; /* Kasih jarak sedikit antara button */
+            }
         }
     </style>
 </head>
