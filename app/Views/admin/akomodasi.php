@@ -111,9 +111,9 @@
             }
 
             .content-area {
-                margin-left: 0 !important;    /* TAMBAHKAN INI */
-                width: 100% !important;        /* TAMBAHKAN INI */
-                padding: 15px;                 /* OPSIONAL: padding lebih kecil di mobile */
+                margin-left: 0 !important;    
+                width: 100% !important;        
+                padding: 15px;                 
             }
 
             /* Overlay ketika sidebar terbuka */

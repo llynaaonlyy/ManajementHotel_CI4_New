@@ -112,9 +112,9 @@
             }
 
             .content-area {
-                margin-left: 0 !important;    /* TAMBAHKAN INI */
-                width: 100% !important;        /* TAMBAHKAN INI */
-                padding: 15px;                 /* OPSIONAL: padding lebih kecil di mobile */
+                margin-left: 0 !important;    
+                width: 100% !important;        
+                padding: 15px;                 
             }
 
             /* Overlay ketika sidebar terbuka */
@@ -172,20 +172,6 @@
         .stat-number {
             font-size: 32px;
             font-weight: 700;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            .content-area {
-                margin-left: 0;
-                width: 100%;
-            }
         }
     </style>
 </head>
