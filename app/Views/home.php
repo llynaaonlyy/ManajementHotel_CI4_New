@@ -74,7 +74,7 @@
         }
         
         .user-menu {
-            padding-left: 15px;
+            padding-left: 20px;
         }
         
         .user-name {
