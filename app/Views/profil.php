@@ -603,7 +603,9 @@
                 </svg>
             </div>
             <div class="user-info">
-                <div class="greeting">Halo, Pengguna</div>
+                <div class="greeting">
+                    Halo, <?= esc(session()->get('nama')) ?>
+                </div>
                 <a href="/ana/ManajementHotel_CI4_New/public/profile/edit" class="edit-link">
                     <i class="fas fa-edit"></i> Edit Detail Akun
                 </a>

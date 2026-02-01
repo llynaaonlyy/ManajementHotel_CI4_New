@@ -514,15 +514,14 @@
                 </div>
                 <div class="col-md-2 col-6 text-end order-md-3 order-2">
                     <div class="user-menu d-flex align-items-center justify-content-end">
-    <!-- <span class="user-name d-none d-md-inline">
-        <?= esc(session()->get('nama')) ?>
-    </span> -->
+                    <!-- <span class="user-name d-none d-md-inline">
+                        <?= esc(session()->get('nama')) ?>
+                    </span> -->
 
-    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="profil-icon ms-2">
-        <i class="fas fa-user"></i>
-    </a>
-</div>
-
+                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="profil-icon ms-2">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
                 </div>
             </div>
         </div>
