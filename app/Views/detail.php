@@ -83,6 +83,7 @@
         }
 
         .top-bar a.text-white {
+            background: #3b71e7 !important;
             text-decoration: none;
             transition: all 0.3s ease;
             padding: 8px 15px;
