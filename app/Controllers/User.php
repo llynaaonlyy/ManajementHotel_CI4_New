@@ -58,7 +58,7 @@ class User extends BaseController
         $rules = [
             'nama' => 'required|min_length[3]',
             'email' => "required|valid_email|is_unique[users.email,id,{$userId}]",
-            'no_telp' => 'required|numeric|min_length[10]'
+            'no_telp' => 'permit_empty|numeric|min_length[10]|max_length[15]'
         ];
         
         if (!$this->validate($rules)) {

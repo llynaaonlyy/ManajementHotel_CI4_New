@@ -514,7 +514,9 @@
                 </div>
                 <div class="col-md-2 col-6 text-end order-md-3 order-2">
                     <div class="user-menu d-flex align-items-center justify-content-end">
-                        <span class="user-name d-none d-md-inline"><?= esc(session('nama')) ?></span>
+                        <span class="user-name d-none d-md-inline">
+                            <?= esc(session()->get('nama')) ?>
+                        </span>
                         <div class="dropdown">
                             <a href="#" class="profil-icon" data-bs-toggle="dropdown">
                                 <i class="fas fa-user"></i>

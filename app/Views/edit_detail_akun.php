@@ -293,7 +293,8 @@
 
                 <div class="form-group">
                     <label for="telepon">Nomor Telepon</label>
-                    <input type="tel" id="telepon" name="telepon" value="<?php echo old('telepon', $user['no_telp']); ?>" pattern="^[0-9]{10,15}$">
+                    <input type="tel" id="no_telp" name="no_telp"
+                        value="<?= old('no_telp', $user['no_telp']); ?>">
                     <span class="error-message" id="teleponError"></span>
                 </div>
 
