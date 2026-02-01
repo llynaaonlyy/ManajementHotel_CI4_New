@@ -586,37 +586,29 @@ body {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
+
+        .top-bar a.text-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #2563eb !important;
+    background: #ffffff;
+    border: 1.5px solid #2563eb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-bar a.text-white:hover {
+    background: #2563eb;
+    color: #ffffff !important;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
         
-        .profil-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: #eaf2ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2563eb;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-        }
-        
-        .profil-icon:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
 /* ================= CAROUSEL ================= */
 #photoCarousel {
@@ -634,11 +626,30 @@ body {
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 48px;
-    height: 48px;
-    background: rgba(37, 99, 235, 0.8);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    background: rgba(37, 99, 235, 0.85);
     border-radius: 50%;
+    opacity: 0;
+    transition: 0.3s ease;
 }
+
+#photoCarousel:hover .carousel-control-prev,
+#photoCarousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
 
 /* ================= SECTION TITLE ================= */
 .section-title {
@@ -695,13 +706,7 @@ body {
 }
 
 /* ================= POLICY ================= */
-.policy-box {
-    background: var(--bg-main);
-    border: 1px solid var(--blue-border);
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: var(--shadow-soft);
-}
+
 
 /* ================= ROOM CARD ================= */
 .room-card {
@@ -729,6 +734,28 @@ body {
     font-size: 30px;
     font-weight: 800;
 }
+
+.top-bar a.text-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #2563eb !important;
+    background: #ffffff;
+    border: 1.5px solid #2563eb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-bar a.text-white:hover {
+    background: #2563eb;
+    color: #ffffff !important;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
 
 /* ================= BUTTON ================= */
 .btn-pesan {
@@ -773,24 +800,31 @@ body {
     background: var(--blue-main) !important;
 }
 
-/* ================= DATE INPUT ================= */
-.date-input-group {
-    background: var(--bg-main);
-    border: 1px solid var(--blue-border);
-    border-radius: 16px;
-    padding: 22px;
-    margin: 30px 0;
-    box-shadow: var(--shadow-soft);
+/* === NEON BLUE BORDER EFFECT === */
+.date-input-group,
+.policy-box {
+    position: relative;
+    background: #ffffff;
+    border-radius: 18px;
+    z-index: 1;
 }
 
-.date-input-group .form-control {
-    border-radius: 10px;
-    border: 1px solid var(--blue-border);
-}
-
-.date-input-group .form-control:focus {
-    border-color: var(--blue-main);
-    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.2);
+.date-input-group::before,
+.policy-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        120deg,
+        #3b82f6,
+        #60a5fa,
+        #3b82f6
+    );
+    border-radius: 20px;
+    z-index: -1;
+    box-shadow: 
+        0 0 15px rgba(59, 130, 246, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.4);
 }
 
 /* ================= ALERT ================= */
