@@ -79,7 +79,7 @@
         
         .user-name {
             color: #1f2937;
-            margin-left: 40px;
+            margin-left: 20px;
             font-weight: 500;
             text-shadow: none;
         }
@@ -513,7 +513,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-2 col-6 text-end order-md-3 order-2">
+                <div class="col-md-2 col-6 ms-auto d-flex justify-content-end">
                     <div class="user-menu d-flex align-items-center justify-content-end">
                         <span class="user-name d-none d-md-inline">
                             <?= esc(session()->get('nama')) ?>
