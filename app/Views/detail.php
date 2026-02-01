@@ -6,7 +6,7 @@
     <title><?= esc($akomodasi['nama']) ?> - Hotelku</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -514,7 +514,339 @@
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }
-    </style>
+    </style> -->
+    <style>
+    :root {
+    --blue-main: #2563eb;      /* biru utama */
+    --blue-soft: #eaf2ff;      /* biru sangat lembut */
+    --blue-border: #dbeafe;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --bg-main: #ffffff;
+    --shadow-soft: 0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    color: var(--text-dark);
+}
+
+.top-bar {
+            background: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #1e40af;
+            transform: scale(1.05);
+            text-shadow: none;
+        }
+        
+        .logo i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .profil-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #eaf2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+        
+        .profil-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+/* ================= CAROUSEL ================= */
+#photoCarousel {
+    max-height: 420px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    margin: 25px 20px 60px;
+}
+
+.carousel-img {
+    height: 420px;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 48px;
+    height: 48px;
+    background: rgba(37, 99, 235, 0.8);
+    border-radius: 50%;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 50px 0 24px;
+    color: var(--text-dark);
+    position: relative;
+    padding-left: 14px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blue-main);
+    border-radius: 10px;
+}
+
+/* ================= HIGHLIGHT ================= */
+.highlight-item {
+    background: var(--bg-main);
+    border: 1px solid var(--blue-border);
+    border-left: 5px solid var(--blue-main);
+    padding: 16px 18px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: var(--blue-soft);
+    transform: translateX(6px);
+}
+
+/* ================= FASILITAS ================= */
+.facility-item {
+    display: inline-block;
+    padding: 10px 22px;
+    margin: 6px;
+    background: var(--blue-soft);
+    border-radius: 999px;
+    color: var(--blue-main);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.facility-item:hover {
+    background: var(--blue-main);
+    color: #fff;
+}
+
+/* ================= POLICY ================= */
+.policy-box {
+    background: var(--bg-main);
+    border: 1px solid var(--blue-border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ================= ROOM CARD ================= */
+.room-card {
+    background: var(--bg-main);
+    border: 1px solid var(--blue-border);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue-main);
+}
+
+.room-card img {
+    border-radius: 12px;
+}
+
+/* ================= PRICE ================= */
+.room-price {
+    color: var(--blue-main);
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* ================= BUTTON ================= */
+.btn-pesan {
+    background: var(--blue-main);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.btn-pesan:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+}
+
+.btn-disabled {
+    background: #e5e7eb !important;
+    color: #9ca3af !important;
+    cursor: not-allowed;
+}
+
+/* ================= BADGE ================= */
+.badge-available {
+    background: #22c55e;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+.badge-maintenance {
+    background: #ef4444;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+.badge.bg-primary {
+    background: var(--blue-main) !important;
+}
+
+/* ================= DATE INPUT ================= */
+.date-input-group {
+    background: var(--bg-main);
+    border: 1px solid var(--blue-border);
+    border-radius: 16px;
+    padding: 22px;
+    margin: 30px 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.date-input-group .form-control {
+    border-radius: 10px;
+    border: 1px solid var(--blue-border);
+}
+
+.date-input-group .form-control:focus {
+    border-color: var(--blue-main);
+    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.2);
+}
+
+/* ================= ALERT ================= */
+.alert-info {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-border);
+    color: var(--blue-main);
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* ================= MAP ================= */
+.ratio iframe {
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .carousel-img {
+        height: 300px;
+    }
+
+    #photoCarousel {
+        max-height: 300px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .room-price {
+        font-size: 26px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
 </head>
 <body>
     <!-- Top Bar -->

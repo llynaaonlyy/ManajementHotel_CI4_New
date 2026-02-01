@@ -72,17 +72,6 @@
             50% { transform: translateY(-5px); }
         }
         
-        .user-menu {
-            position: relative;
-        }
-        
-        .user-name {
-            color: #1f2937;
-            margin-right: 10px;
-            font-weight: 500;
-            text-shadow: none;
-        }
-        
         .profil-icon {
             width: 45px;
             height: 45px;
@@ -103,14 +92,6 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
         
-        .dropdown-menu {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: none;
-            overflow: hidden;
-            animation: fadeIn 0.3s ease;
-        }
-        
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -120,17 +101,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        
-        .dropdown-item {
-            padding: 12px 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .dropdown-item:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateX(5px);
         }
         
         .search-box {
@@ -514,10 +484,6 @@
                 </div>
                 <div class="col-md-2 col-6 text-end order-md-3 order-2">
                     <div class="user-menu d-flex align-items-center justify-content-end">
-                    <!-- <span class="user-name d-none d-md-inline">
-                        <?= esc(session()->get('nama')) ?>
-                    </span> -->
-
                     <a href="/ana/ManajementHotel_CI4_New/public/profil" class="profil-icon ms-2">
                         <i class="fas fa-user"></i>
                     </a>
