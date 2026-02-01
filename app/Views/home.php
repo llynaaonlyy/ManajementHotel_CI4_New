@@ -74,12 +74,12 @@
         }
         
         .user-menu {
-            padding-right: 15px;
+            padding-left: 15px;
         }
         
         .user-name {
             color: #1f2937;
-            margin-left: 15px;
+            margin-left: 25px;
             font-weight: 500;
             text-shadow: none;
         }
