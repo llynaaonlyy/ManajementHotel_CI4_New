@@ -6,7 +6,7 @@
     <title><?= esc($akomodasi['nama']) ?> - Hotelku</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -19,14 +19,52 @@
         }
         
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            background: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #1e40af;
+            transform: scale(1.05);
+            text-shadow: none;
+        }
+        
+        .logo i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         :root {
@@ -44,21 +82,6 @@
             }
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .logo:hover {
-            color: white;
-            transform: scale(1.05);
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
         .top-bar a.text-white {
             text-decoration: none;
             transition: all 0.3s ease;
@@ -67,68 +90,48 @@
         }
 
         .top-bar a.text-white:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #2563eb;
             transform: translateX(-5px);
         }
 
         #photoCarousel {
-            max-height: 450px;
-            overflow: hidden;
-            border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            margin-top: 25px;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
+    max-height: 420px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    margin: 25px 20px 60px;
+}
 
-        .carousel-img {
-            height: 450px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+.carousel-img {
+    height: 420px;
+    object-fit: cover;
+}
 
-        .carousel-item:hover .carousel-img {
-            transform: scale(1.05);
-        }
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    background: rgba(37, 99, 235, 0.85);
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.3s ease;
+}
 
-        .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
+#photoCarousel:hover .carousel-control-prev,
+#photoCarousel:hover .carousel-control-next {
+    opacity: 1;
+}
 
-        .carousel-indicators button.active {
-            width: 30px;
-            border-radius: 6px;
-        }
+.carousel-control-prev {
+    left: 20px;
+}
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 60px;
-            height: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(102, 126, 234, 0.8);
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        #photoCarousel:hover .carousel-control-prev,
-        #photoCarousel:hover .carousel-control-next {
-            opacity: 1;
-        }
-
-        .carousel-control-prev {
-            left: 20px;
-        }
-
-        .carousel-control-next {
-            right: 20px;
-        }
+.carousel-control-next {
+    right: 20px;
+}
 
         .section-title {
             font-size: 28px;
@@ -514,8 +517,8 @@
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }
-    </style> -->
-    <style>
+    </style> 
+    <!-- <style>
     :root {
     --blue-main: #2563eb;      /* biru utama */
     --blue-soft: #eaf2ff;      /* biru sangat lembut */
@@ -538,7 +541,7 @@ body {
     color: var(--text-dark);
 }
 
-.top-bar {
+        .top-bar {
             background: #ffffff;
             padding: 20px 0;
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
@@ -879,7 +882,7 @@ html {
         transform: translateY(0);
     }
 }
-</style>
+</style> -->
 
 </head>
 <body>
