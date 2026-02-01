@@ -79,7 +79,7 @@
         
         .user-name {
             color: #1f2937;
-            margin-left: 25px;
+            margin-left: 40px;
             font-weight: 500;
             text-shadow: none;
         }
