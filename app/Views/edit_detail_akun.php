@@ -351,29 +351,6 @@
         document.getElementById('passwordForm')?.addEventListener('submit', function(e) {
             let isValid = true;
             clearPasswordErrors();
-
-            const oldPassword = document.getElementById('oldPassword').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (oldPassword.length < 1) {
-                document.getElementById('oldPasswordError').textContent = 'Password lama harus diisi';
-                isValid = false;
-            }
-
-            if (newPassword.length < 6) {
-                document.getElementById('newPasswordError').textContent = 'Password baru minimal 6 karakter';
-                isValid = false;
-            }
-
-            if (newPassword !== confirmPassword) {
-                document.getElementById('confirmPasswordError').textContent = 'Konfirmasi password tidak sesuai';
-                isValid = false;
-            }
-
-            if (!isValid) {
-                e.preventDefault();
-            }
         });
 
         // Close modal when clicking outside

@@ -38,10 +38,10 @@ class User extends BaseController
         if (!$this->session->get('logged_in')) {
             return redirect()->to('auth/login');
         }
-        
+
         $userId = $this->session->get('user_id');
         $user = $this->userModel->find($userId);
-        
+
         return view('edit_detail_akun', ['user' => $user]);
     }
     
@@ -77,7 +77,9 @@ class User extends BaseController
         $this->session->set('nama', $data['nama']);
         $this->session->set('email', $data['email']);
         
-        return redirect()->to('/edit_detail_akun')->with('success', 'Profil berhasil diupdate!');
+        return redirect()
+        ->to('/profile/edit')
+        ->with('success', 'Profil berhasil diupdate!');
     }
     
     public function deleteAccount()
