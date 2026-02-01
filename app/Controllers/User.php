@@ -77,7 +77,7 @@ class User extends BaseController
         $this->session->set('nama', $data['nama']);
         $this->session->set('email', $data['email']);
         
-        return redirect()->to('/profil')->with('success', 'Profil berhasil diupdate!');
+        return redirect()->to('/edit_detail_akun')->with('success', 'Profil berhasil diupdate!');
     }
     
     public function deleteAccount()
