@@ -74,8 +74,7 @@
         }
         
         .user-menu {
-            position: relative;
-            margin-right: -10px; 
+            padding-right: 10px;
         }
         
         .user-name {
@@ -422,7 +421,6 @@
         @media (max-width: 768px) {
             .logo { 
                 font-size: 22px;
-                margin-left: -10px;
             }
             
             .search-box { 
@@ -517,13 +515,28 @@
                 </div>
                 <div class="col-md-2 col-6 text-end order-md-3 order-2">
                     <div class="user-menu d-flex align-items-center justify-content-end">
-                    <span class="user-name d-none d-md-inline">
-                        <?= esc(session()->get('nama')) ?>
-                    </span>
-
-                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="profil-icon ms-2">
-                        <i class="fas fa-user"></i>
-                    </a>
+                        <span class="user-name d-none d-md-inline">
+                            <?= esc(session()->get('nama')) ?>
+                        </span>
+                        <div class="dropdown">
+                            <a href="#" class="profil-icon" data-bs-toggle="dropdown">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">
+                                        <i class="fas fa-user-circle me-2"></i>Profil
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
