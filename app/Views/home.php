@@ -85,7 +85,6 @@
         }
         
         .profil-icon {
-            padding-left: 15px;
             width: 45px;
             height: 45px;
             border-radius: 50%;
