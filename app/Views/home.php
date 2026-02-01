@@ -75,7 +75,7 @@
         
         .user-menu {
             position: relative;
-            padding-right: 10px;
+            margin-right: -10px; 
         }
         
         .user-name {
@@ -422,6 +422,7 @@
         @media (max-width: 768px) {
             .logo { 
                 font-size: 22px;
+                margin-left: -10px;
             }
             
             .search-box { 
