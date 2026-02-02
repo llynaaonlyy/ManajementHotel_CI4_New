@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -30,7 +30,7 @@
             text-align: center;
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -47,13 +47,13 @@
             border: 2px solid #e0e0e0;
         }
         .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25);
+            border-color: #2563eb;
+            box-shadow: 0 0 0 0.2rem rgba(37,99,235,0.25);
         }
         .btn-login {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             border: none;
             border-radius: 10px;
             color: white;
@@ -62,18 +62,18 @@
         }
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+            box-shadow: 0 5px 20px rgba(37,99,235,0.4);
         }
         .forgot-password {
             font-size: 14px;
             font-weight: 500;
-            color: #667eea;
+            color: #2563eb;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .forgot-password:hover {
-            color: #764ba2;
+            color: #1e40af;
             text-decoration: underline;
         }
         .divider {
@@ -164,8 +164,14 @@
                         <span class="input-group-text">
                             <i class="fas fa-lock"></i>
                         </span>
-                        <input type="password" class="form-control" name="password" 
-                               placeholder="Masukkan password Anda" required>
+                        <input type="password" 
+                            class="form-control" 
+                            name="password" 
+                            id="password"
+                            placeholder="Masukkan password Anda" required>
+                        <span class="input-group-text" style="cursor:pointer;" onclick="togglePassword()">
+                            <i class="fas fa-eye" id="toggleIcon"></i>
+                        </span>
                     </div>
                 </div>
 
@@ -187,8 +193,8 @@
             <div class="text-center">
                 <p class="mb-0">
                     Belum punya akun? 
-                    <a href="<?= site_url('auth/register') ?>" style="color: #667eea; font-weight: 600; text-decoration: none;">
-                        Daftar Sekarang
+                    <a href="<?= site_url('auth/register') ?>" 
+                        style="color: #2563eb; font-weight: 600; text-decoration: none;"> Daftar Sekarang
                     </a>
                 </p>
                 <p class="mt-3">
@@ -201,5 +207,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
 </body>
 </html>

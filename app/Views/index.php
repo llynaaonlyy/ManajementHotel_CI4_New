@@ -448,7 +448,6 @@
         
         .stat-item:hover {
             transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45);
         }
         
         .stat-number {
