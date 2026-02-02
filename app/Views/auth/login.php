@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: #f8fafc;
+            background: #f1f5f9;
             min-height: 100vh;
             display: flex;
             align-items: center;

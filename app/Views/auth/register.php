@@ -162,17 +162,21 @@
                     <div class="invalid-feedback"></div>
                 </div>
 
-                <div class="input-group">
-                    <span class="input-group-text">
-                        <i class="fas fa-lock"></i>
-                    </span>
+                <div class="mb-3">
+                    <label class="form-label">Password <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
 
-                    <input type="password" class="form-control" name="password" id="password"
-                        placeholder="Minimal 6 karakter" required>
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Minimal 6 karakter" required>
 
-                    <span class="input-group-text toggle-password" data-target="password" style="cursor:pointer;">
-                        <i class="fas fa-eye"></i>
-                    </span>
+                        <span class="input-group-text toggle-password" data-target="password" style="cursor:pointer;">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="invalid-feedback"></div>
                 </div>
 
                 <div class="mb-4">
