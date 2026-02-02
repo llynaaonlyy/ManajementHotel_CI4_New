@@ -37,20 +37,20 @@
         }
         
         .logo {
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all 0.3s ease;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s ease;
         }
         
         .logo:hover {
+            color: #1e40af;
             transform: scale(1.05);
+            text-shadow: none;
         }
         
         .logo i {
@@ -77,7 +77,7 @@
             left: 50%;
             width: 0;
             height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -88,8 +88,8 @@
         
         .btn-nav-login {
             background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea !important;
+            border: 2px solid #2563eb;
+            color: #2563eb !important;
             padding: 10px 30px;
             border-radius: 30px;
             font-weight: 700;
@@ -97,14 +97,14 @@
         }
         
         .btn-nav-login:hover {
-            background: #667eea;
+            background: #2563eb;
             color: white !important;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
         }
         
         .btn-nav-register {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             border: none;
             color: white !important;
             padding: 10px 30px;
@@ -116,12 +116,12 @@
         
         .btn-nav-register:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
         }
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -268,20 +268,20 @@
         
         .btn-primary-custom {
             background: white;
-            color: #667eea;
+            color: #2563eb;
             box-shadow: 0 8px 25px rgba(255,255,255,0.3);
             animation: fadeInUp 1.4s ease;
         }
         
         .btn-primary-custom:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
             color: #ffffff;
         }
         
         .btn-outline-custom {
             background: transparent;
-            color: white;
+            color: #2563eb;
             border: 3px solid white;
             animation: fadeInUp 1.6s ease;
         }
@@ -342,7 +342,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 5px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             border-radius: 3px;
         }
         
@@ -383,13 +383,13 @@
         
         .feature-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(102,126,234,0.25);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
             border-color: rgba(102, 126, 234, 0.3);
         }
         
         .feature-icon {
             font-size: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -417,7 +417,7 @@
         
         /* Stats Section */
         .stats-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             padding: 100px 0;
             color: white;
             position: relative;
@@ -526,7 +526,7 @@
         }
         
         footer a:hover {
-            color: #667eea !important;
+            color: #3b82f6 !important;
             transform: translateX(5px);
         }
         
@@ -548,7 +548,7 @@
         }
         
         .social-links a:hover {
-            background: #667eea;
+            color: #3b82f6 !important;
             transform: translateY(-5px);
         }
         
