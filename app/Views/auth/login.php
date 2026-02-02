@@ -73,7 +73,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
         .forgot-password:hover {
             color: #1e40af;
             text-decoration: underline;

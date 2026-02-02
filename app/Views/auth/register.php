@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f1f5f9;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -24,13 +24,15 @@
             background: white;
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                0 20px 50px rgba(0, 0, 0, 0.12);
         }
         .logo {
             text-align: center;
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -47,13 +49,13 @@
             border: 2px solid #e0e0e0;
         }
         .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25);
+            border-color: #2563eb;
+            box-shadow: 0 0 0 0.2rem rgba(37,99,235,0.25);
         }
         .btn-register {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             border: none;
             border-radius: 10px;
             color: white;
@@ -62,7 +64,7 @@
         }
         .btn-register:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+            box-shadow: 0 5px 20px rgba(37,99,235,0.4);
         }
         .divider {
             text-align: center;
@@ -160,19 +162,17 @@
                     <div class="invalid-feedback"></div>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Password <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                        <input type="password" class="form-control" name="password" id="password"
-                               placeholder="Minimal 6 karakter" required>
-                    </div>
-                    <div class="password-strength text-muted">
-                        <small>Password harus minimal 6 karakter</small>
-                    </div>
-                    <div class="invalid-feedback"></div>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-lock"></i>
+                    </span>
+
+                    <input type="password" class="form-control" name="password" id="password"
+                        placeholder="Minimal 6 karakter" required>
+
+                    <span class="input-group-text toggle-password" data-target="password" style="cursor:pointer;">
+                        <i class="fas fa-eye"></i>
+                    </span>
                 </div>
 
                 <div class="mb-4">
@@ -199,7 +199,7 @@
             <div class="text-center">
                 <p class="mb-0">
                     Sudah punya akun? 
-                    <a href="<?= site_url('auth/login') ?>" style="color: #667eea; font-weight: 600; text-decoration: none;">
+                    <a href="<?= site_url('auth/login') ?>" style="color: #2563eb; font-weight: 600; text-decoration: none;">">
                         Login di sini
                     </a>
                 </p>
@@ -213,6 +213,22 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
     <script>
         // Client-side validation
         document.getElementById('registerForm').addEventListener('submit', function(e) {
