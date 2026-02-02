@@ -203,7 +203,7 @@
             <div class="text-center">
                 <p class="mb-0">
                     Sudah punya akun? 
-                    <a href="<?= site_url('auth/login') ?>" style="color: #2563eb; font-weight: 600; text-decoration: none;">">
+                    <a href="<?= site_url('auth/login') ?>" style="color: #2563eb; font-weight: 600; text-decoration: none;">
                         Login di sini
                     </a>
                 </p>
