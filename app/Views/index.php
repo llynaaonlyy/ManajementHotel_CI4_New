@@ -27,7 +27,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-            padding: 25px 0;
+            padding: 23px 0;
             transition: all 0.3s ease;
         }
         
@@ -267,7 +267,7 @@
         }
         
         .btn-primary-custom {
-            background: white;
+            background: #2563eb;
             color: #ffffff;
             box-shadow: 0 8px 25px rgba(255,255,255,0.3);
             animation: fadeInUp 1.4s ease;
@@ -275,20 +275,21 @@
         
         .btn-primary-custom:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            background: #ffffff;
             color: #2563eb;
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
         }
         
         .btn-outline-custom {
             background: transparent;
-            color: #2563eb;
-            border: 3px solid white;
+            color: #ffffff;
+            border: 3px solid #ffffff;
             animation: fadeInUp 1.6s ease;
         }
         
         .btn-outline-custom:hover {
             background: white;
-            color: #667eea;
+            color: #2563eb;
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(255,255,255,0.4);
         }
@@ -436,6 +437,7 @@
         }
         
         .stat-item {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             text-align: center;
             margin-bottom: 30px;
             position: relative;
@@ -446,6 +448,7 @@
         
         .stat-item:hover {
             transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45);
         }
         
         .stat-number {
