@@ -19,7 +19,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #90b8e08a;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -54,7 +54,9 @@
             background: white;
             border-radius: 30px;
             padding: 50px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                0 20px 50px rgba(0, 0, 0, 0.12);
             position: relative;
             overflow: hidden;
         }
@@ -66,7 +68,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             background-size: 200% 100%;
             animation: gradient 3s ease infinite;
         }
@@ -153,7 +155,7 @@
         }
         
         .booking-code {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
             padding: 30px;
             border-radius: 20px;
@@ -221,7 +223,7 @@
             border-radius: 30px;
             font-weight: 700;
             margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
             animation: fadeIn 0.8s ease 0.6s both, wiggle 1s ease 1s;
             text-transform: uppercase;
             font-size: 14px;
@@ -257,7 +259,7 @@
             color: #333;
             font-size: 20px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #3b82f6;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -267,7 +269,7 @@
             content: '';
             width: 5px;
             height: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             border-radius: 3px;
         }
         
@@ -295,7 +297,7 @@
         }
         
         .detail-row .label i {
-            color: #667eea;
+            color: #3b82f6;
             width: 20px;
             text-align: center;
         }
@@ -319,7 +321,7 @@
         }
         
         .total-row .value {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 50%, #3b82f6 50%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -343,7 +345,7 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 20%, #3b82f6 80%);
             border: none;
             padding: 15px 40px;
             border-radius: 30px;
@@ -604,7 +606,7 @@
                 Detail pemesanan akan segera dikirim ke email Anda. Mohon bersabar dan jika sudah dikirim silakan cek untuk informasi lebih lanjut.
             </div>
 
-            <a href="/ana/ManajementHotel_CI4_New/public/home" class="btn btn-primary btn-lg mt-3">
+            <a href="<?= base_url('/home') ?>" class="btn btn-primary btn-lg mt-3">
                 <span>
                     <i class="fas fa-home me-2"></i>Kembali ke Beranda
                 </span>

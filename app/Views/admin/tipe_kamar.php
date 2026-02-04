@@ -19,7 +19,7 @@
             background: #ffffff;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 30px;
             position: fixed;
             top: 0;
             left: 0;
@@ -170,32 +170,32 @@
         <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
             <i class="fas fa-hotel"></i> Hotelku Admin
         </a>
-
-        <div class="ms-auto dropdown">
-            <a href="#" class="text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
-                <i class="fas fa-user-shield me-2"></i>
-                <?= esc($user['nama']) ?>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">Profil</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">Logout</a></li>
-            </ul>
-        </div>
     </div>
 
     <!-- LAYOUT -->
     <div class="dashboard-wrapper">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard"><i class="fas fa-home me-2"></i>Dashboard</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar" class="active"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/booking"><i class="fas fa-calendar-check me-2"></i>Data Booking</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/users"><i class="fas fa-users me-2"></i>Manajemen User</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/laporan"><i class="fas fa-file-pdf me-2"></i>Laporan</a>
-        </aside>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="<?= base_url('admin/dashboard') ?>">
+            <i class="fas fa-home me-2"></i>Dashboard
+        </a>
+        <a href="<?= base_url('admin/akomodasi') ?>">
+            <i class="fas fa-building me-2"></i>Kelola Akomodasi
+        </a>
+        <a href="<?= base_url('admin/tipe-kamar') ?>" class="active">
+            <i class="fas fa-bed me-2"></i>Kelola Tipe Kamar
+        </a>
+        <a href="<?= base_url('admin/booking') ?>">
+            <i class="fas fa-calendar-check me-2"></i>Data Booking
+        </a>
+        <a href="<?= base_url('admin/users') ?>">
+            <i class="fas fa-users me-2"></i>Manajemen User
+        </a>
+        <a href="<?= base_url('admin/laporan') ?>">
+            <i class="fas fa-file-pdf me-2"></i>Laporan
+        </a>
+    </aside>
 
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 

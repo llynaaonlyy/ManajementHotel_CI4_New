@@ -24,15 +24,16 @@
             padding-bottom: 50px;
         }
         
-        .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+       .top-bar {
+            background: #ffffff;
+            padding: 23px 0;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         @keyframes slideDown {
@@ -49,7 +50,7 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: white;
+            color: #2563eb;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -58,9 +59,9 @@
         }
         
         .logo:hover {
-            color: white;
+            color: #1e40af;
             transform: scale(1.05);
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            text-shadow: none;
         }
         
         .logo i {
@@ -71,24 +72,40 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
-        
-        .back-link {
-            color: white;
+
+        :root {
+            --topbar-height: 90px; 
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .text-white{
+            background: #3bb1e7 !important;
             text-decoration: none;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 25px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
         }
         
-        .back-link:hover {
-            color: white;
-            background: rgba(255,255,255,0.2);
-            transform: translateX(-5px);
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
         
         .booking-container {
@@ -112,7 +129,7 @@
         .page-title {
             text-align: center;
             margin-bottom: 40px;
-            color: #333;
+            color: #1f2937;
             font-weight: 700;
             font-size: 32px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -141,21 +158,21 @@
         }
         
         .info-card:hover {
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.1);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.1);
             transform: translateY(-3px);
         }
         
         .section-title {
             font-size: 22px;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid #669bea;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -164,8 +181,8 @@
         .section-title::before {
             content: '';
             width: 6px;
-            height: 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 29px;
+            background: #669bea;
             border-radius: 3px;
         }
         
@@ -173,7 +190,7 @@
             display: flex;
             justify-content: space-between;
             padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #66666685;
             transition: all 0.3s ease;
             align-items: center;
         }
@@ -198,7 +215,7 @@
         }
         
         .detail-label i {
-            color: #667eea;
+            color: #66afea;
             width: 20px;
             text-align: center;
         }
@@ -207,6 +224,11 @@
             color: #333;
             font-weight: 600;
             text-align: right;
+        }
+
+        .badge.bg-primary {
+            background-color: #2196F3; 
+            color: #fff;
         }
         
         .payment-option {
@@ -237,10 +259,10 @@
         }
         
         .payment-option:hover {
-            border-color: #667eea;
             background: #f8f9ff;
             transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.1);
         }
         
         .payment-option input[type="radio"] {
@@ -248,13 +270,13 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
-            accent-color: #667eea;
+            accent-color: #66b5ea;
         }
         
         .payment-option.selected {
-            border-color: #667eea;
             background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.1);
             transform: scale(1.02);
         }
         
@@ -265,7 +287,7 @@
             right: 20px;
             width: 30px;
             height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196F3 0%, #1E88E5 100%);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -290,10 +312,11 @@
             padding: 30px;
             border-radius: 20px;
             background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.1);
             text-align: center;
             animation: scaleIn 0.4s ease;
-            border: 3px solid #667eea;
+            border: 3px solid #66a4ea;
         }
         
         @keyframes scaleIn {
@@ -333,7 +356,7 @@
             font-size: 28px;
             font-weight: bold;
             margin: 20px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196F3 0%, #1E88E5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -341,16 +364,24 @@
         
         .qris-qr {
             padding: 20px;
-            border: 3px dashed #667eea;
+            border: 3px dashed #1E88E5;
             border-radius: 15px;
             display: inline-block;
             background: white;
             animation: pulse 2s infinite;
+            box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+            border-color: rgba(33, 150, 243, 0.1);
+        }
+
+        .qris-img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
         }
         
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+                box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.1);
             }
             50% {
                 box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
@@ -365,7 +396,7 @@
         
         .total-price h3,
         .detail-row.fw-bold .detail-value {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -373,7 +404,7 @@
         }
         
         .btn-submit {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196F3 0%, #1E88E5 100%);
             color: white;
             padding: 18px;
             border: none;
@@ -407,7 +438,7 @@
         
         .btn-submit:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 12px 30px rgba(102, 203, 234, 0.5);
         }
         
         .btn-submit:active {
@@ -438,7 +469,7 @@
         }
         
         .form-control:focus, textarea.form-control:focus {
-            border-color: #667eea;
+            border-color: #1565C0;
             box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
             outline: none;
         }
@@ -629,7 +660,7 @@
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="/ana/ManajementHotel_CI4_New/public/detail/<?= $akomodasi['id'] ?>" class="back-link">
+                    <a href="/ana/ManajementHotel_CI4_New/public/detail/<?= $akomodasi['id'] ?>" class="text-white">
                         <i class="fas fa-arrow-left"></i>Kembali
                     </a>
                 </div>
@@ -642,7 +673,7 @@
             <i class="fas fa-clipboard-check"></i> Detail Pemesanan
         </h2>
 
-        <form action="/ana/ManajementHotel_CI4_New/public/pemesanan/proses" method="post" enctype="multipart/form-data" id="bookingForm">
+        <form action="<?= base_url('/pemesanan/proses') ?>" method="post" enctype="multipart/form-data" id="bookingForm">
             <input type="hidden" name="tipe_kamar_id" value="<?= $tipe_kamar['id'] ?>">
             <input type="hidden" name="tanggal_checkin" value="<?= $checkin ?>">
             <input type="hidden" name="tanggal_checkout" value="<?= $checkout ?>">
@@ -817,7 +848,11 @@
                     </div>
 
                     <div class="qris-qr">
-                        <div id="qrcode"></div>
+                        <img 
+                            src="<?= base_url('uploads/qris/qris_hotelku.JPEG') ?>" 
+                            alt="QRIS Hotelku"
+                            class="img-fluid qris-img"
+                        >
                     </div>
                     
                     <div class="qris-footer">
@@ -871,7 +906,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         const paymentInfoCard = document.getElementById('paymentInfoCard');
         const buktiCard = document.getElementById('buktiPembayaranCard');
@@ -952,36 +986,16 @@
         const qrisWrapper = document.getElementById('qris-wrapper');
         const metodeRadios = document.querySelectorAll('input[name="metode_pembayaran"]');
 
-        const totalHarga = <?= $total_akhir ?>;
-
-        function generateQRIS() {
-            document.getElementById("qrcode").innerHTML = "";
-
-            const payload = `
-        QRIS
-        Hotelku
-        TOTAL:${totalHarga}
-        REF:${Date.now()}
-            `.trim();
-
-            new QRCode(document.getElementById("qrcode"), {
-                text: payload,
-                width: 200,
-                height: 200
-            });
-        }
-
         metodeRadios.forEach(radio => {
             radio.addEventListener('change', function () {
                 if (this.value === 'qris') {
                     qrisWrapper.classList.remove('d-none');
-                    generateQRIS();
                 } else {
                     qrisWrapper.classList.add('d-none');
                 }
             });
         });
-        </script>
+    </script>
 
 </body>
 </html>

@@ -8,238 +8,212 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .top-bar {
-        position: sticky; 
-        top: 0; 
-        z-index: 1000; 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 15px 0;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        body {
+            margin: 0;
+            background: #f4f6f9;
         }
-        
+
+        /* TOP BAR */
+        .top-bar {
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 700;
             text-decoration: none;
         }
 
-        .user-menu {
+        .logo i {
+            color: #3498db;
+        }
+
+        /* LAYOUT */
+        .dashboard-wrapper {
             display: flex;
+            padding-top: 70px;
+            min-height: 100vh;
         }
 
-        .user-name {
-            color: white;
-            margin-right: 10px;
-            font-weight: 500;
-        }
-
-        .profil-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #667eea;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .profil-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .dropdown-menu {
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* ===============================
-        SIDEBAR HAMBURGER MENU
-        =============================== */
-
-        /* Sidebar base */
+        /* SIDEBAR */
         .sidebar {
+            width: 250px;
+            background: #ffffff;
             position: fixed;
             top: 70px;
+            bottom: 0;
             left: 0;
-            width: 240px;
-            height: calc(100vh - 70px);
-            background: linear-gradient(180deg, #5a67d8, #6b46c1);
             padding-top: 20px;
-            transform: translateX(0);
+            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+            border-right: 1px solid #e0e0e0;
             transition: transform 0.3s ease;
-            z-index: 1050;
+            z-index: 1001;  /* TAMBAHKAN INI */
         }
 
-        /* Sidebar links */
         .sidebar a {
-            color: #fff;
-            padding: 14px 22px;
             display: block;
-            font-weight: 500;
+            padding: 12px 24px;
+            color: #2c3e50;
             text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
         }
 
-        .sidebar a i {
-            width: 20px;
+        .sidebar a:hover {
+            background: #f8f9fa;
+            border-left-color: #3498db;
+            color: #3498db;
         }
 
-        .sidebar a:hover,
         .sidebar a.active {
-            background: rgba(255,255,255,0.15);
-            border-left: 4px solid #fff;
-        }
-
-        /* Sidebar header (default: hidden) */
-        .sidebar-header {
-            display: none;
-            color: #fff;
-            padding: 15px 20px;
+            background: #e3f2fd;
+            border-left-color: #3498db;
+            color: #3498db;
             font-weight: 600;
-            font-size: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            align-items: center;
-            gap: 8px;
         }
 
-        /* Content desktop */
-        @media (min-width: 768px) {
-            .content-area {
-                margin-left: 240px;
-                padding: 30px;
-                background: #f8f9fa;
-                min-height: calc(100vh - 70px);
+        /* HAMBURGER BUTTON */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 15px; 
+        }
+
+        .content-area {
+            padding: 30px;
+            background: #f8f9fa;
+            min-height: calc(100vh - 70px);
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .top-bar {
+                height: 56px;
+                padding: 0 16px;
             }
-        }
-
-        /* ===============================
-        MOBILE MODE
-        =============================== */
-        @media (max-width: 767px) {
 
             .logo {
-                font-size: 28px;
-                display: flex;
+                font-size: 16px;
+                display: inline-flex;
                 align-items: center;
                 gap: 6px;
                 white-space: nowrap;
             }
 
             .logo i {
-                font-size: 28px;
-            }
-
-            .top-bar {
-                padding: 10px 0;
-            }
-
-            .profil-icon {
-                width: 34px;
-                height: 34px;
                 font-size: 16px;
+            }
+
+            .hamburger-btn {
+                display: block;
+                font-size: 18px;
+                padding: 4px;
+                margin-right: 8px;
             }
 
             .sidebar {
                 transform: translateX(-100%);
-                top: 0;
-                height: 100vh;
-                padding-top: 0;
             }
 
-            .sidebar-header {
-                display: flex;
-            }
-
-            .sidebar.show {
+            .sidebar.active {
                 transform: translateX(0);
             }
 
-            .sidebar-backdrop {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0,0,0,0.4);
-                z-index: 1040;
+            .content-area {
+                margin-left: 0 !important;    
+                width: 100% !important;        
+                padding: 15px;                 
             }
 
-            .sidebar-backdrop.show {
+            /* Overlay ketika sidebar terbuka */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+
+            .sidebar-overlay.active {
                 display: block;
             }
 
-            .content-area {
-                margin-left: 0;
-                padding: 15px;
             }
-        }
+            .sidebar a i {
+                width: 20px;
+                text-align: center;
+            }
+
+            /* CONTENT */
+            .content-area {
+                margin-left: 250px;
+                padding: 20px;
+                background: #f8f9fa;
+                min-height: calc(100vh - 70px);
+                width: calc(100% - 250px);
+                overflow-x: hidden;
+            }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
+     <!-- TOP BAR -->
     <div class="top-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-6 col-6 d-flex align-items-center">
-                    <!-- Hamburger (mobile only) -->
-                    <button class="btn btn-link text-white d-md-none me-2" id="menuToggle">
-                        <i class="fas fa-bars fa-lg"></i>
-                    </button>
+        <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
 
-                    <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
-                        <i class="fas fa-hotel"></i> Hotelku
-                    </a>
-                </div>
-                <div class="col-md-auto col-6 ms-auto text-end order-md-3 order-2">
-                    <div class="user-menu d-flex align-items-center justify-content-end">
-                        <span class="user-name d-none d-md-inline"><?= esc(session('nama')) ?></span>
-                        <div class="dropdown">
-                            <a href="#" class="profil-icon" data-bs-toggle="dropdown">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/staff/profil_staff">
-                                        <i class="fas fa-user-circle me-2"></i>Profil
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">
-                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard" class="logo">
+                <i class="fas fa-hotel"></i> Hotelku Pegawai
+            </a>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="sidebar" id="sidebar">
-                <div class="sidebar-header d-md-none">
-                    <i class="fas fa-hotel"></i>
-                    <span>Hotelku</span>
-                </div>
+    <!-- LAYOUT -->
+    <div class="dashboard-wrapper">
 
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/dashboard">
-                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                </a>
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/kelola-kamar">
-                    <i class="fas fa-bed me-2"></i>Kelola Kamar
-                </a>
-                <a href="/ana/ManajementHotel_CI4_New/public/staff/data-tamu" class="active">
-                    <i class="fas fa-users me-2"></i>Data Tamu
-                </a>
-            </div>
-            <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <a href="<?= base_url('staff/dashboard') ?>">
+                <i class="fas fa-home me-2"></i>Dashboard
+            </a>
+            <a href="<?= base_url('staff/kelola-kamar') ?>">
+                <i class="fas fa-bed me-2"></i>Kelola Kamar
+            </a>
+            <a href="<?= base_url('staff/data-tamu') ?>" class="active">
+                <i class="fas fa-users me-2"></i>Data Tamu
+            </a>
+        </aside>
 
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
             <!-- Content -->
             <div class="col-md-10 content-area">
                 <h2 class="mb-4"><i class="fas fa-users me-2"></i>Data Tamu</h2>

@@ -25,7 +25,7 @@
         
         .top-bar {
             background: #ffffff;
-            padding: 20px 0;
+            padding: 23px 0;
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
@@ -47,7 +47,7 @@
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 31px;
             font-weight: bold;
             color: #2563eb;
             text-decoration: none;
@@ -73,8 +73,8 @@
         }
         
         .profil-icon {
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             background: #eaf2ff;
             display: flex;
@@ -484,10 +484,10 @@
                 </div>
                 <div class="col-md-2 col-6 text-end order-md-3 order-2">
                     <div class="user-menu d-flex align-items-center justify-content-end">
-                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="profil-icon ms-2">
+                    <a href="<?= base_url('profil') ?>" class="profil-icon ms-2">
                         <i class="fas fa-user"></i>
                     </a>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -507,16 +507,16 @@
     <!-- Filter Tabs -->
     <div class="container">
         <div class="filter-tabs">
-            <a href="/ana/ManajementHotel_CI4_New/public/home?tipe=semua" class="filter-btn <?= $tipe_aktif == 'semua' ? 'active' : '' ?>">
+            <a href="<?= base_url('/home?tipe=semua') ?>" class="filter-btn <?= $tipe_aktif == 'semua' ? 'active' : '' ?>">
                 <i class="fas fa-th"></i> Semua
             </a>
-            <a href="/ana/ManajementHotel_CI4_New/public/home?tipe=hotel" class="filter-btn <?= $tipe_aktif == 'hotel' ? 'active' : '' ?>">
+            <a href="<?= base_url('/home?tipe=hotel') ?>" class="filter-btn <?= $tipe_aktif == 'hotel' ? 'active' : '' ?>">
                 <i class="fas fa-hotel"></i> Hotel
             </a>
-            <a href="/ana/ManajementHotel_CI4_New/public/home?tipe=villa" class="filter-btn <?= $tipe_aktif == 'villa' ? 'active' : '' ?>">
+            <a href="<?= base_url('/home?tipe=villa') ?>" class="filter-btn <?= $tipe_aktif == 'villa' ? 'active' : '' ?>">
                 <i class="fas fa-home"></i> Villa
             </a>
-            <a href="/ana/ManajementHotel_CI4_New/public/home?tipe=apart" class="filter-btn <?= $tipe_aktif == 'apart' ? 'active' : '' ?>">
+            <a href="<?= base_url('/home?tipe=apart') ?>" class="filter-btn <?= $tipe_aktif == 'apart' ? 'active' : '' ?>">
                 <i class="fas fa-building"></i> Apartemen
             </a>
         </div>
@@ -535,7 +535,7 @@
                 <div class="row">
                     <?php foreach($akomodasi as $item): ?>
                         <div class="col-lg-4 col-md-6 col-12">
-                            <a href="/ana/ManajementHotel_CI4_New/public/detail/<?= $item['id'] ?>" class="card-link">
+                            <a href="<?= base_url('detail/' . $item['id']) ?>" class="card-link">
                                 <div class="card card-akomodasi">
                                     <div class="image-container">
                                         <?php if(!empty($item['foto_utama']) && file_exists('uploads/akomodasi/' . $item['foto_utama'])): ?>

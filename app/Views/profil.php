@@ -13,92 +13,128 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container,
+        .card,
+        .modal-content {
+            max-width: 100%;
+        }
+
+        .modal {
+            padding: 15px;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #eaf2ff;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            background: #ffffff;
+            padding: 1px 0;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #1e40af;
+            transform: scale(1.05);
+            text-shadow: none;
+        }
+        
+        .logo i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
-        /* Animated Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            pointer-events: none;
-            z-index: 0;
+        :root {
+            --topbar-height: 90px; 
         }
 
-        /* Top Bar */
-       .top-bar a.text-white {
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .text-white{
+            background: #3bb1e7 !important;
             text-decoration: none;
             transition: all 0.3s ease;
             padding: 8px 15px;
             border-radius: 20px;
         }
 
-        .top-bar a.text-white:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-5px);
-        }
-
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+        .text-white:hover {
+            background: #256ac5 !important;
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
         }
 
-        .logo:hover {
-            color: white;
-            transform: scale(1.05);
+        .top-bar .container {
+            max-width: 87%;
         }
 
-        .back-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+        @media (min-width: 769px) {
+            .top-bar {
+                padding: 6px 0;
+            }
 
-        .back-link:hover {
-            color: white;
-            transform: translateX(-5px);
+            .top-bar .container {
+                padding: 0 28px;
+            }
+
+            .top-bar .logo {
+                margin-left: 6px;
+            }
+
+            .top-bar a.text-white {
+                margin-right: 6px;
+            }
         }
 
         /* Container */
@@ -123,9 +159,6 @@
             animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
 
         @keyframes fadeInUp {
             from {
@@ -140,7 +173,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
         }
 
         /* Header Card */
@@ -148,19 +181,19 @@
             display: flex;
             align-items: center;
             gap: 25px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(102, 197, 234, 0.1) 0%, rgba(75, 95, 162, 0.1) 100%);
         }
 
         .user-icon {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 24px rgba(102, 192, 234, 0.3);
             animation: pulse 2s ease-in-out infinite;
             position: relative;
         }
@@ -171,7 +204,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             opacity: 0.5;
             animation: ripple 2s ease-out infinite;
         }
@@ -202,7 +235,7 @@
         .greeting {
             font-size: 24px;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -210,7 +243,7 @@
         }
 
         .edit-link {
-            color: #667eea;
+            color: #3b83f6b9;
             text-decoration: none;
             font-size: 15px;
             display: inline-flex;
@@ -228,7 +261,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3b82f6;
             transition: width 0.3s;
         }
 
@@ -237,7 +270,7 @@
         }
 
         .edit-link:hover {
-            color: #764ba2;
+            color: #3b82f6;
             transform: translateX(3px);
         }
 
@@ -249,7 +282,7 @@
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 3px solid transparent;
-            border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+            border-image: linear-gradient(90deg, #3b82f6, #2563eb) 1;
             position: relative;
         }
 
@@ -260,7 +293,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
 
         /* Menu Items */
@@ -286,7 +319,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(102, 164, 234, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -295,14 +328,14 @@
         }
 
         .menu-item:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(102, 159, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
             transform: translateX(8px);
-            border-color: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 148, 234, 0.3);
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
         }
 
         .menu-item span {
-            color: #374151;
+            color: #373d51;
             font-weight: 600;
             font-size: 15px;
             position: relative;
@@ -310,7 +343,7 @@
         }
 
         .menu-item .arrow {
-            color: #667eea;
+            color: #3b82f6;
             font-size: 20px;
             transition: transform 0.3s;
         }
@@ -390,7 +423,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 100%, #3b82f6 0%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -398,7 +431,7 @@
 
         .modal-body {
             margin-bottom: 25px;
-            color: #4b5563;
+            color: #4b5c63;
             line-height: 1.8;
             font-size: 15px;
         }
@@ -444,12 +477,12 @@
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(102, 159, 234, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(102, 164, 234, 0.4);
         }
 
         .btn-secondary {
@@ -479,7 +512,7 @@
             padding: 18px;
             border-radius: 12px;
             margin-bottom: 12px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #2196f3;
             transition: all 0.3s;
         }
 
@@ -495,7 +528,7 @@
         }
 
         .info-box span {
-            color: #667eea;
+            color: #669fea;
             font-weight: 600;
         }
 
@@ -510,7 +543,7 @@
         }
 
         .modal-content::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 100%, #3b82f6 0%);
             border-radius: 10px;
         }
 
@@ -518,6 +551,11 @@
         @media (max-width: 768px) {
             .container {
                 padding: 0 15px;
+            }
+
+            .modal-content {
+                margin: 0 auto;
+                max-height: 90vh;
             }
 
             .card {
@@ -576,23 +614,22 @@
     </style>
 </head>
 <body>
-
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
-                        <i class="fas fa-hotel"></i> Hotelku
-                    </a>
-                </div>
-                <div class="col-6 text-end">
-                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
-                        <i class="fas fa-arrow-left me-2"></i>Kembali
-                    </a>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
+                            <i class="fas fa-hotel"></i> Hotelku
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
+                            <i class="fas fa-arrow-left me-2"></i>Kembali
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="container">
@@ -606,7 +643,7 @@
                 <div class="greeting">
                     Halo, <?= esc(session()->get('nama')) ?>
                 </div>
-                <a href="/ana/ManajementHotel_CI4_New/public/profile/edit" class="edit-link">
+                <a href="<?= base_url('/profile/edit') ?>" class="edit-link">
                     <i class="fas fa-edit"></i> Edit Detail Akun
                 </a>
             </div>

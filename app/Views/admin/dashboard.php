@@ -19,7 +19,7 @@
             background: #ffffff;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 30px;
             position: fixed;
             top: 0;
             left: 0;
@@ -83,6 +83,42 @@
             border-left-color: #3498db;
             color: #3498db;
             font-weight: 600;
+        }
+
+        .profil-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #eaf2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+        
+        .profil-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .user-menu-wrapper {
+            margin-left: auto;
+            padding-right: 6px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* HAMBURGER BUTTON */
@@ -187,17 +223,13 @@
             <i class="fas fa-hotel"></i> Hotelku Admin
         </a>
 
-    <div class="ms-auto dropdown">
-        <a href="#" class="text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
-            <i class="fas fa-user-shield me-2"></i>
-            <?= esc($user['nama']) ?>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/profil">Profil</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">Logout</a></li>
-        </ul>
-    </div>
+        <div class="user-menu-wrapper">
+            <div class="user-menu d-flex align-items-center justify-content-end">
+                <a href="<?= base_url('profil_admin') ?>" class="profil-icon ms-2">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
 </div>
 
 <!-- LAYOUT -->
@@ -205,12 +237,24 @@
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="active"><i class="fas fa-home me-2"></i>Dashboard</a>
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/booking"><i class="fas fa-calendar-check me-2"></i>Data Booking</a>
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/users"><i class="fas fa-users me-2"></i>Manajemen User</a>
-        <a href="/ana/ManajementHotel_CI4_New/public/admin/laporan"><i class="fas fa-file-pdf me-2"></i>Laporan</a>
+        <a href="<?= base_url('admin/dashboard') ?>" class="active">
+            <i class="fas fa-home me-2"></i>Dashboard
+        </a>
+        <a href="<?= base_url('admin/akomodasi') ?>">
+            <i class="fas fa-building me-2"></i>Kelola Akomodasi
+        </a>
+        <a href="<?= base_url('admin/tipe-kamar') ?>">
+            <i class="fas fa-bed me-2"></i>Kelola Tipe Kamar
+        </a>
+        <a href="<?= base_url('admin/booking') ?>">
+            <i class="fas fa-calendar-check me-2"></i>Data Booking
+        </a>
+        <a href="<?= base_url('admin/users') ?>">
+            <i class="fas fa-users me-2"></i>Manajemen User
+        </a>
+        <a href="<?= base_url('admin/laporan') ?>">
+            <i class="fas fa-file-pdf me-2"></i>Laporan
+        </a>
     </aside>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>

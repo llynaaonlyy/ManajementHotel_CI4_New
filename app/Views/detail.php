@@ -20,7 +20,7 @@
         
         .top-bar {
             background: #ffffff;
-            padding: 20px 0;
+            padding: 23px 0;
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
@@ -82,57 +82,59 @@
             }
         }
 
-        .top-bar a.text-white {
-            background: #3b71e7 !important;
+        .text-white{
+            background: #3bb1e7 !important;
             text-decoration: none;
             transition: all 0.3s ease;
             padding: 8px 15px;
             border-radius: 20px;
         }
 
-        .top-bar a.text-white:hover {
-            background: #2563eb;
-            transform: translateX(-5px);
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
         }
 
         #photoCarousel {
-    max-height: 420px;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: var(--shadow-soft);
-    margin: 25px 20px 60px;
-}
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            margin: 25px 20px 60px;
+        }
 
-.carousel-img {
-    height: 420px;
-    object-fit: cover;
-}
+        .carousel-img {
+            height: 420px;
+            object-fit: cover;
+        }
 
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    background: rgba(37, 99, 235, 0.85);
-    border-radius: 50%;
-    opacity: 0;
-    transition: 0.3s ease;
-}
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            background: rgba(37, 99, 235, 0.85);
+            border-radius: 50%;
+            opacity: 0;
+            transition: 0.3s ease;
+        }
 
-#photoCarousel:hover .carousel-control-prev,
-#photoCarousel:hover .carousel-control-next {
-    opacity: 1;
-}
+        #photoCarousel:hover .carousel-control-prev,
+        #photoCarousel:hover .carousel-control-next {
+            opacity: 1;
+        }
 
-.carousel-control-prev {
-    left: 20px;
-}
+        .carousel-control-prev {
+            left: 20px;
+        }
 
-.carousel-control-next {
-    right: 20px;
-}
+        .carousel-control-next {
+            right: 20px;
+        }
 
         .section-title {
             font-size: 28px;
@@ -150,7 +152,7 @@
             top: 0;
             height: 100%;
             width: 5px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            background: #306fc7;
             border-radius: 10px;
             animation: expandHeight 0.8s ease-out;
         }
@@ -175,12 +177,17 @@
             }
         }
 
+        .badge-akomodasi {
+            background-color: #007bff; 
+            color: #fff; 
+        }
+
         .highlight-item {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 18px;
             border-radius: 12px;
             margin-bottom: 12px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #3b83f6;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
@@ -214,7 +221,7 @@
             margin: 6px;
             background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
             border-radius: 25px;
-            color: #667eea;
+            color: #3b83f6;
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -224,22 +231,22 @@
         .facility-item:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 30%, #3b82f6 70%);
             color: white;
         }
 
         .policy-box {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            background: linear-gradient(135deg, #e6fbff 100%, #cdf9ff 0%);
             padding: 25px;
             border-radius: 15px;
-            border: 2px solid #ffc107;
-            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.2);
+            border: 2px solid #0755ff;
+            box-shadow: 0 5px 20px rgba(7, 85, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .policy-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.3);
+            box-shadow: 0 8px 30px rgba(7, 164, 255, 0.3);
         }
 
         .room-card {
@@ -249,7 +256,7 @@
             padding: 25px;
             margin-bottom: 25px;
             transition: all 0.4s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19);
             position: relative;
             overflow: hidden;
         }
@@ -261,7 +268,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(102, 155, 234, 0.1) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -271,26 +278,27 @@
         }
 
         .room-card:hover {
+            background: white;
             border-color: #667eea;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.25);
+            box-shadow: 0 10px 40px rgba(102, 144, 234, 0.25);
             transform: translateY(-8px);
         }
 
         .room-card img {
             border-radius: 12px;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
         }
 
         .room-card:hover img {
-            transform: scale(1.08);
+            transform: scale(1);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .room-price {
-            color: #667eea;
+            color: #131eb4d8;
             font-size: 32px;
             font-weight: 800;
-            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             animation: pulse 2s ease-in-out infinite;
         }
 
@@ -304,7 +312,7 @@
         }
 
         .btn-pesan {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 30%, #3b82f6 70%);
             color: white;
             border: none;
             padding: 14px 35px;
@@ -335,7 +343,7 @@
         }
 
         .btn-pesan:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: linear-gradient(135deg, #2563eb 30%, #3b82f6 70%);
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
@@ -346,8 +354,9 @@
         }
 
         .btn-disabled {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
-            color: #ffffff !important;
+            background: linear-gradient(135deg, #ffef0b 100%, #dcd135 0%) !important;
+            box-shadow: 0 2px 8px rgb(0, 0, 0);
+            color: #000000 !important;
             cursor: not-allowed;
             padding: 14px 35px;
             border-radius: 30px;
@@ -356,7 +365,7 @@
         }
 
         .badge-available {
-            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            background: linear-gradient(135deg, #22a316 30%, #16a322 70%);
             color: white;
             padding: 6px 14px;
             border-radius: 20px;
@@ -530,359 +539,6 @@
     --shadow-soft: 0 10px 30px rgba(37, 99, 235, 0.08);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fafb;
-    color: var(--text-dark);
-}
-
-        .top-bar {
-            background: #ffffff;
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            animation: slideDown 0.5s ease-out;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #2563eb;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .logo:hover {
-            color: #1e40af;
-            transform: scale(1.05);
-            text-shadow: none;
-        }
-        
-        .logo i {
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .top-bar a.text-white {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-weight: 600;
-    color: #2563eb !important;
-    background: #ffffff;
-    border: 1.5px solid #2563eb;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.top-bar a.text-white:hover {
-    background: #2563eb;
-    color: #ffffff !important;
-    transform: translateX(-4px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-}
-
-        
-
-/* ================= CAROUSEL ================= */
-#photoCarousel {
-    max-height: 420px;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: var(--shadow-soft);
-    margin: 25px 20px 60px;
-}
-
-.carousel-img {
-    height: 420px;
-    object-fit: cover;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    background: rgba(37, 99, 235, 0.85);
-    border-radius: 50%;
-    opacity: 0;
-    transition: 0.3s ease;
-}
-
-#photoCarousel:hover .carousel-control-prev,
-#photoCarousel:hover .carousel-control-next {
-    opacity: 1;
-}
-
-.carousel-control-prev {
-    left: 20px;
-}
-
-.carousel-control-next {
-    right: 20px;
-}
-
-
-/* ================= SECTION TITLE ================= */
-.section-title {
-    font-size: 26px;
-    font-weight: 700;
-    margin: 50px 0 24px;
-    color: var(--text-dark);
-    position: relative;
-    padding-left: 14px;
-}
-
-.section-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--blue-main);
-    border-radius: 10px;
-}
-
-/* ================= HIGHLIGHT ================= */
-.highlight-item {
-    background: var(--bg-main);
-    border: 1px solid var(--blue-border);
-    border-left: 5px solid var(--blue-main);
-    padding: 16px 18px;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    transition: 0.3s ease;
-}
-
-.highlight-item:hover {
-    background: var(--blue-soft);
-    transform: translateX(6px);
-}
-
-/* ================= FASILITAS ================= */
-.facility-item {
-    display: inline-block;
-    padding: 10px 22px;
-    margin: 6px;
-    background: var(--blue-soft);
-    border-radius: 999px;
-    color: var(--blue-main);
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.facility-item:hover {
-    background: var(--blue-main);
-    color: #fff;
-}
-
-/* ================= POLICY ================= */
-
-
-/* ================= ROOM CARD ================= */
-.room-card {
-    background: var(--bg-main);
-    border: 1px solid var(--blue-border);
-    border-radius: 18px;
-    padding: 24px;
-    margin-bottom: 24px;
-    transition: 0.3s ease;
-    box-shadow: var(--shadow-soft);
-}
-
-.room-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--blue-main);
-}
-
-.room-card img {
-    border-radius: 12px;
-}
-
-/* ================= PRICE ================= */
-.room-price {
-    color: var(--blue-main);
-    font-size: 30px;
-    font-weight: 800;
-}
-
-.top-bar a.text-white {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-weight: 600;
-    color: #2563eb !important;
-    background: #ffffff;
-    border: 1.5px solid #2563eb;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.top-bar a.text-white:hover {
-    background: #2563eb;
-    color: #ffffff !important;
-    transform: translateX(-4px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-}
-
-
-/* ================= BUTTON ================= */
-.btn-pesan {
-    background: var(--blue-main);
-    color: #fff;
-    border: none;
-    padding: 14px 32px;
-    border-radius: 999px;
-    font-weight: 700;
-    transition: 0.3s ease;
-}
-
-.btn-pesan:hover {
-    background: #1e40af;
-    transform: translateY(-2px);
-}
-
-.btn-disabled {
-    background: #e5e7eb !important;
-    color: #9ca3af !important;
-    cursor: not-allowed;
-}
-
-/* ================= BADGE ================= */
-.badge-available {
-    background: #22c55e;
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-}
-
-.badge-maintenance {
-    background: #ef4444;
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-}
-
-.badge.bg-primary {
-    background: var(--blue-main) !important;
-}
-
-/* === NEON BLUE BORDER EFFECT === */
-.date-input-group,
-.policy-box {
-    position: relative;
-    background: #ffffff;
-    border-radius: 18px;
-    z-index: 1;
-}
-
-.date-input-group::before,
-.policy-box::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(
-        120deg,
-        #3b82f6,
-        #60a5fa,
-        #3b82f6
-    );
-    border-radius: 20px;
-    z-index: -1;
-    box-shadow: 
-        0 0 15px rgba(59, 130, 246, 0.6),
-        0 0 30px rgba(59, 130, 246, 0.4);
-}
-
-/* ================= ALERT ================= */
-.alert-info {
-    background: var(--blue-soft);
-    border: 1px solid var(--blue-border);
-    color: var(--blue-main);
-    font-weight: 600;
-    border-radius: 12px;
-}
-
-/* ================= MAP ================= */
-.ratio iframe {
-    border-radius: 14px;
-    box-shadow: var(--shadow-soft);
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-    .carousel-img {
-        height: 300px;
-    }
-
-    #photoCarousel {
-        max-height: 300px;
-    }
-
-    .section-title {
-        font-size: 22px;
-    }
-
-    .room-price {
-        font-size: 26px;
-    }
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.fade-in {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 </style> -->
 
 </head>
@@ -952,8 +608,7 @@ html {
                 <div class="fade-in">
                     <h1 class="mb-3"><?= esc($akomodasi['nama']) ?></h1>
                     <div class="mb-4">
-                        <span class="badge bg-primary text-uppercase"><?= esc($akomodasi['tipe']) ?></span>
-                        <span class="ms-3">
+                        <span class="badge badge-akomodasi text-uppercase"><?= esc($akomodasi['tipe']) ?></span>
                             <i class="fas fa-star text-warning"></i> 
                             <strong><?= number_format($akomodasi['rating'], 1) ?></strong>
                         </span>
@@ -1087,9 +742,8 @@ html {
                                     </div>
                                     <small class="text-muted d-block mb-3">/ malam</small>
                                     <?php if ($tk['status'] === 'available'): ?>
-                                        <a href="/ana/ManajementHotel_CI4_New/public/#" 
-                                        class="btn btn-pesan w-100 btn-booking"
-                                        data-kamar-id="<?= $tk['id'] ?>">
+                                        <a href="<?= base_url('pemesanan/' . $tk['id']) ?>"
+                                        class="btn btn-pesan w-100">
                                             Pesan Sekarang
                                         </a>
                                     <?php else: ?>

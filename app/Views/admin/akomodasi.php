@@ -18,7 +18,7 @@
             background: #ffffff;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 30px;
             position: fixed;
             top: 0;
             left: 0;
@@ -178,9 +178,9 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-        .badge-hotel { background: #4CAF50; color: white; }
-        .badge-villa { background: #FF9800; color: white; }
-        .badge-apart { background: #2196F3; color: white; }
+        .badge-hotel { background: #22c55e; color: white; }
+        .badge-villa { background: #f59e0b; color: white; }
+        .badge-apart { background: #2563eb; color: white; }
     </style>
 </head>
 <body>
@@ -192,18 +192,6 @@
         <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard" class="logo">
             <i class="fas fa-hotel"></i> Hotelku Admin
         </a>
-
-        <div class="ms-auto dropdown">
-            <a href="#" class="text-dark dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
-                <i class="fas fa-user-shield me-2"></i>
-                <?= esc($user['nama']) ?>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="/ana/ManajementHotel_CI4_New/public/admin/profil_admin">Profil</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="/ana/ManajementHotel_CI4_New/public/logout">Logout</a></li>
-            </ul>
-        </div>
     </div>
 
     <!-- LAYOUT -->
@@ -211,11 +199,24 @@
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/dashboard"><i class="fas fa-home me-2"></i>Dashboard</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="active"><i class="fas fa-building me-2"></i>Kelola Akomodasi</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar"><i class="fas fa-bed me-2"></i>Kelola Tipe Kamar</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/booking"><i class="fas fa-calendar-check me-2"></i>Data Booking</a>                <a href="/ana/ManajementHotel_CI4_New/public/admin/users"><i class="fas fa-users me-2"></i>Manajemen User</a>
-            <a href="/ana/ManajementHotel_CI4_New/public/admin/laporan"><i class="fas fa-file-pdf me-2"></i>Laporan</a>
+            <a href="<?= base_url('admin/dashboard') ?>">
+                <i class="fas fa-home me-2"></i>Dashboard
+            </a>
+            <a href="<?= base_url('admin/akomodasi') ?>" class="active">
+                <i class="fas fa-building me-2"></i>Kelola Akomodasi
+            </a>
+            <a href="<?= base_url('admin/tipe-kamar') ?>">
+                <i class="fas fa-bed me-2"></i>Kelola Tipe Kamar
+            </a>
+            <a href="<?= base_url('admin/booking') ?>">
+                <i class="fas fa-calendar-check me-2"></i>Data Booking
+            </a>
+            <a href="<?= base_url('admin/users') ?>">
+                <i class="fas fa-users me-2"></i>Manajemen User
+            </a>
+            <a href="<?= base_url('admin/laporan') ?>">
+                <i class="fas fa-file-pdf me-2"></i>Laporan
+            </a>
         </aside>
 
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -232,7 +233,7 @@
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="mb-0">
-                        <i class="fas fa-building me-2" style="color: #667eea;"></i>
+                        <i class="fas fa-building text-primary me-2"></i>
                         Kelola Akomodasi
                     </h2>
                     <a href="/ana/ManajementHotel_CI4_New/public/admin/akomodasi/tambah" class="btn btn-primary">

@@ -163,19 +163,29 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Password <span class="text-danger">*</span></label>
+                    <label class="form-label">
+                        Password <span class="text-danger">*</span>
+                    </label>
+
                     <div class="input-group">
                         <span class="input-group-text">
                             <i class="fas fa-lock"></i>
                         </span>
 
-                        <input type="password" class="form-control" name="password" id="password"
-                            placeholder="Minimal 6 karakter" required>
+                        <input type="password"
+                            class="form-control"
+                            name="password"
+                            id="password"
+                            placeholder="Minimal 6 karakter"
+                            required>
 
-                        <span class="input-group-text toggle-password" data-target="password" style="cursor:pointer;">
+                        <span class="input-group-text toggle-password"
+                            data-target="password"
+                            style="cursor:pointer;">
                             <i class="fas fa-eye"></i>
                         </span>
                     </div>
+
                     <div class="invalid-feedback"></div>
                 </div>
 
@@ -218,20 +228,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function togglePassword() {
-            const passwordInput = document.getElementById("password");
-            const toggleIcon = document.getElementById("toggleIcon");
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                const icon = this.querySelector('i');
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            }
-        }
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye");
+                }
+            });
+        });
     </script>
     <script>
         // Client-side validation

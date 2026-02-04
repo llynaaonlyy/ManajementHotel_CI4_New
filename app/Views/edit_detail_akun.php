@@ -21,19 +21,63 @@
         }
 
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 23px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #ffffff;
+            padding: 1px 0;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid #e5e7eb;
         }
         .logo {
-            margin: 104px;
             font-size: 28px;
             font-weight: bold;
-            color: white;
+            color: #2563eb;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
         }
+        
+        .logo:hover {
+            color: #1e40af;
+            transform: scale(1.05);
+            text-shadow: none;
+        }
+        
+        .logo i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        :root {
+            --topbar-height: 90px; 
+        }
+
         .text-white{
-            margin: 104px;
+            background: #3bb1e7 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
+        }
+
+        .top-bar .container {
+            max-width: 87%;
         }
 
         .container {
@@ -60,7 +104,7 @@
 
         .info-alert {
             background: #eff6ff;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #3b92f6;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -76,7 +120,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #374151;
+            color: #374551;
             font-weight: 500;
         }
 
@@ -93,22 +137,6 @@
             outline: none;
             border-color: #333;
             box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
-        }
-
-        .form-group input.error {
-            border-color: #dc2626;
-        }
-
-        .error-message {
-            color: #dc2626;
-            font-size: 13px;
-            margin-top: 5px;
-        }
-
-        .success-message {
-            color: #10b981;
-            font-size: 13px;
-            margin-top: 5px;
         }
 
         .button-group {
@@ -129,21 +157,21 @@
         }
 
         .btn-primary {
-            background: #333;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
         }
 
         .btn-primary:hover {
-            background: #555;
+            background: linear-gradient(135deg, #2563eb 100%, #3b82f6 0%);
         }
 
         .btn-secondary {
-            background: #e5e7eb;
-            color: #374151;
+            background: #6b7280b0;
+            color: #ffffff;
         }
 
         .btn-secondary:hover {
-            background: #d1d5db;
+            background: #6b7280;
         }
 
         .password-section {
@@ -254,17 +282,20 @@
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
     <div class="top-bar">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
-                        <i class="fas fa-hotel"></i> Hotelku
-                    </a>
-                </div>
-                <div class="col-6 text-end">
-                    <a href="/ana/ManajementHotel_CI4_New/public/profil" class="text-white">
-                        <i class="fas fa-arrow-left me-2"></i>Kembali
-                    </a>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
+                            <i class="fas fa-hotel"></i> Hotelku
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
+                            <i class="fas fa-arrow-left me-2"></i>Kembali
+                        </a>
+                    </div>
                 </div>
             </div>
     </div>
