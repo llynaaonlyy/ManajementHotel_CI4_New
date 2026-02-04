@@ -849,7 +849,7 @@
 
                     <div class="qris-qr">
                         <img 
-                            src="<?= base_url('uploads/qris/qris_hotelku.JPEG') ?>" 
+                            src="<?= base_url('uploads/qris/qris_hotelku.jpeg') ?>" 
                             alt="QRIS Hotelku"
                             class="img-fluid qris-img"
                         >
