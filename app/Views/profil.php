@@ -99,22 +99,7 @@
                 opacity: 1;
             }
         }
-
-        .text-white{
-            background: #3bb1e7 !important;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 20px;
-        }
-
-        .text-white:hover {
-            background: #256ac5 !important;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
-            transform: translateY(-2px);
-        }
-
+        
         .top-bar .container {
             max-width: 87%;
         }
@@ -493,6 +478,7 @@
         .btn-secondary:hover {
             background: #d1d5db;
             transform: translateY(-2px);
+            color: #111827;
         }
 
         .btn-danger {
@@ -545,6 +531,30 @@
         .modal-content::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, #2563eb 100%, #3b82f6 0%);
             border-radius: 10px;
+        }
+
+        .modal-content.soft-scroll {
+            scrollbar-color: #93c5fd #eaf2ff;
+            scrollbar-width: thin;
+        }
+
+        .modal-content.soft-scroll::-webkit-scrollbar-track {
+            background: #eaf2ff;
+        }
+
+        .modal-content.soft-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
+        }
+
+        .btn-soft-blue {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-soft-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         /* Responsive */
@@ -661,7 +671,7 @@
                 <span><i class="fas fa-question-circle me-2"></i>Bantuan</span>
                 <span class="arrow">›</span>
             </div>
-            <div class="menu-item" onclick="window.location.href='/ana/ManajementHotel_CI4_New/public/histori'">
+            <div class="menu-item" onclick="window.location.href='<?= base_url('histori') ?>'">
                 <span><i class="fas fa-history me-2"></i>Lihat Histori</span>
                 <span class="arrow">›</span>
             </div>
@@ -684,7 +694,7 @@
 
     <!-- Modal Tentang Kami -->
     <div id="modalTentangKami" class="modal">
-        <div class="modal-content">
+        <div class="modal-content soft-scroll">
             <div class="modal-header">
                 <i class="fas fa-info-circle me-2"></i>Tentang Kami
             </div>
@@ -707,7 +717,7 @@
                 </p>
             </div>
             <div class="modal-buttons">
-                <button class="btn btn-primary" onclick="closeModal('modalTentangKami')">
+                <button class="btn btn-soft-blue" onclick="closeModal('modalTentangKami')">
                     <i class="fas fa-check me-2"></i>Tutup
                 </button>
             </div>
@@ -716,7 +726,7 @@
 
     <!-- Modal Bantuan -->
     <div id="modalBantuan" class="modal">
-        <div class="modal-content">
+        <div class="modal-content soft-scroll">
             <div class="modal-header">
                 <i class="fas fa-headset me-2"></i>Bantuan
             </div>
@@ -753,7 +763,7 @@
                 </div>
             </div>
             <div class="modal-buttons">
-                <button class="btn btn-primary" onclick="closeModal('modalBantuan')">
+                <button class="btn btn-soft-blue" onclick="closeModal('modalBantuan')">
                     <i class="fas fa-check me-2"></i>Tutup
                 </button>
             </div>
@@ -762,7 +772,7 @@
 
     <!-- Modal Konfirmasi Logout -->
     <div id="modalLogout" class="modal">
-        <div class="modal-content">
+        <div class="modal-content soft-scroll">
             <div class="modal-header">
                 <i class="fas fa-sign-out-alt me-2"></i>Konfirmasi Keluar
             </div>
@@ -773,7 +783,7 @@
                 <button class="btn btn-secondary" onclick="closeModal('modalLogout')">
                     <i class="fas fa-times me-2"></i>Batal
                 </button>
-                <button class="btn btn-primary" onclick="logout()">
+                <button class="btn btn-soft-blue" onclick="logout()">
                     <i class="fas fa-check me-2"></i>Ya, Keluar
                 </button>
             </div>
