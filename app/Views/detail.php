@@ -743,7 +743,8 @@
                                     <small class="text-muted d-block mb-3">/ malam</small>
                                     <?php if ($tk['status'] === 'available'): ?>
                                         <a href="<?= base_url('pemesanan/' . $tk['id']) ?>"
-                                        class="btn btn-pesan w-100">
+                                        class="btn btn-pesan w-100 btn-booking"
+                                        data-kamar-id="<?= $tk['id'] ?>">
                                             Pesan Sekarang
                                         </a>
                                     <?php else: ?>
