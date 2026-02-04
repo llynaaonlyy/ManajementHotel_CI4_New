@@ -31,14 +31,30 @@ class PemesananController extends BaseController
 
         $akomodasi = $this->akomodasiModel->find($tipeKamar['akomodasi_id']);
 
-        // ambil tanggal
-        $checkin  = $this->request->getGet('checkin') ?? date('Y-m-d');
-        $checkout = $this->request->getGet('checkout') ?? date('Y-m-d', strtotime('+1 day'));
+        // ambil tanggal (robust: validasi & fallback)
+        $checkinRaw  = $this->request->getGet('checkin');
+        $checkoutRaw = $this->request->getGet('checkout');
 
-        // hitung malam
-        $date1 = new \DateTime($checkin);
-        $date2 = new \DateTime($checkout);
-        $jumlahMalam = $date2->diff($date1)->days;
+        $checkinDate = \DateTime::createFromFormat('Y-m-d', (string) $checkinRaw);
+        $checkoutDate = \DateTime::createFromFormat('Y-m-d', (string) $checkoutRaw);
+
+        if (!$checkinDate) {
+            $checkinDate = new \DateTime('today');
+        }
+
+        if (!$checkoutDate) {
+            $checkoutDate = (clone $checkinDate)->modify('+1 day');
+        }
+
+        if ($checkoutDate <= $checkinDate) {
+            $checkoutDate = (clone $checkinDate)->modify('+1 day');
+        }
+
+        $checkin = $checkinDate->format('Y-m-d');
+        $checkout = $checkoutDate->format('Y-m-d');
+
+        // hitung malam (minimal 1)
+        $jumlahMalam = max(1, $checkoutDate->diff($checkinDate)->days);
 
         // hitung harga
         $hargaDasar = $tipeKamar['harga_per_malam'] * $jumlahMalam;
