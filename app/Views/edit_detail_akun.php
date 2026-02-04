@@ -292,7 +292,7 @@
                         </a>
                     </div>
                     <div class="col-6 text-end">
-                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="text-white">
+                        <a href="/ana/ManajementHotel_CI4_New/public/profil" class="text-white">
                             <i class="fas fa-arrow-left me-2"></i>Kembali
                         </a>
                     </div>

@@ -99,6 +99,21 @@
                 opacity: 1;
             }
         }
+
+        .text-white{
+            background: #3bb1e7 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
+        }
         
         .top-bar .container {
             max-width: 87%;
