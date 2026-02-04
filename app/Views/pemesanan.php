@@ -848,11 +848,7 @@
                     </div>
 
                     <div class="qris-qr">
-                        <img 
-                            src="<?= base_url('uploads/qris/qris_hotelku.jpeg') ?>" 
-                            alt="QRIS Hotelku"
-                            class="img-fluid qris-img"
-                        >
+                        <img src="<?= base_url('uploads/qris/qris_hotelku.jpg') ?>" alt="QRIS Hotelku" class="img-fluid qris-img">
                     </div>
                     
                     <div class="qris-footer">
