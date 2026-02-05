@@ -37,15 +37,23 @@
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
             border-bottom: 1px solid #e5e7eb;
-            padding-top: env(safe-area-inset-top);
         }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
         .logo {
             font-size: 28px;
             font-weight: bold;
@@ -76,6 +84,17 @@
             --topbar-height: 90px; 
         }
 
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .text-white{
             background: #3bb1e7 !important;
             text-decoration: none;
@@ -90,10 +109,9 @@
             box-shadow: 0 4px 15px rgba(37,99,235,0.3);
             transform: translateY(-2px);
         }
-
+        
         .top-bar .container {
-            max-width: 100%;
-            padding: 0 20px;
+            max-width: 87%;
         }
 
         .container {
