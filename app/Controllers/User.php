@@ -21,37 +21,57 @@ class User extends BaseController
 
     }
     
-    public function profil()
+    private function getCurrentUser()
     {
         if (!$this->session->get('logged_in')) {
+            return null;
+        }
+
+        $userId = $this->session->get('user_id');
+        if ($userId) {
+            return $this->userModel->find($userId);
+        }
+
+        $email = $this->session->get('email');
+        if ($email) {
+            $user = $this->userModel->where('email', $email)->first();
+            if ($user) {
+                $this->session->set('user_id', $user['id']);
+            }
+            return $user;
+        }
+
+        return null;
+    }
+
+    public function profil()
+    {
+        $user = $this->getCurrentUser();
+        if (!$user) {
             return redirect()->to('auth/login');
         }
-        
-        $userId = $this->session->get('user_id');
-        $user = $this->userModel->find($userId);
-        
+
         return view('profil', ['user' => $user]);
     }
 
     public function detailAkun()
     {
-        if (!$this->session->get('logged_in')) {
+        $user = $this->getCurrentUser();
+        if (!$user) {
             return redirect()->to('auth/login');
         }
-
-        $userId = $this->session->get('user_id');
-        $user = $this->userModel->find($userId);
 
         return view('edit_detail_akun', ['user' => $user]);
     }
     
     public function updateProfil()
     {
-        if (!$this->session->get('logged_in')) {
+        $user = $this->getCurrentUser();
+        if (!$user) {
             return redirect()->to('auth/login');
         }
-        
-        $userId = $this->session->get('user_id');
+
+        $userId = $user['id'];
         
         $validation = \Config\Services::validation();
         
@@ -84,11 +104,12 @@ class User extends BaseController
     
     public function deleteAccount()
     {
-        if (!$this->session->get('logged_in')) {
+        $user = $this->getCurrentUser();
+        if (!$user) {
             return redirect()->to('auth/login');
         }
-        
-        $userId = $this->session->get('user_id');
+
+        $userId = $user['id'];
         
         // Hapus user dari database
         $this->userModel->delete($userId);
@@ -101,7 +122,12 @@ class User extends BaseController
 
     public function histori()
     {
-        $userId = $this->session->get('user_id');
+        $user = $this->getCurrentUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
+        $userId = $user['id'];
         
         // Ambil semua pemesanan user ini dari database
         $histori = $this->pemesananModel->getHistoriByUser($userId);
