@@ -97,8 +97,7 @@
             <?= $tipe_kamar ? 'Edit' : 'Tambah' ?> Tipe Kamar
         </h2>
 
-        <!-- <form action="<?= site_url('/ana/ManajementHotel_CI4_New/public/admin/tipe-kamar/save') ?>" method="post" enctype="multipart/form-data"> -->
-        <form action="/ana/ManajementHotel_CI4_New/public/admin/akomodasi/tipe-kamar/save" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('admin/tipe-kamar/save') ?>" method="post" enctype="multipart/form-data">
 
             <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= $tipe_kamar['id'] ?? '' ?>">
