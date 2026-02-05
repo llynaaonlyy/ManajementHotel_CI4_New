@@ -20,16 +20,31 @@
             padding: 0;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: env(safe-area-inset-top);
+            background: #ffffff;
+            z-index: 999;
+        }
+
         .top-bar {
             background: #ffffff;
             padding: 1px 0;
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             position: sticky;
             top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
             z-index: 1000;
             backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease-out;
             border-bottom: 1px solid #e5e7eb;
+            padding-top: env(safe-area-inset-top);
         }
         .logo {
             font-size: 28px;
@@ -265,12 +280,19 @@
             }
 
             .top-bar {
-                padding: 0;
+                padding: 6px 0;
             }
 
             .top-bar .container {
-                max-width: 100%;
-                padding: 0 12px;
+                padding: 0 28px;
+            }
+
+            .top-bar .logo {
+                margin-left: 6px;
+            }
+
+            .top-bar a.text-white {
+                margin-right: 6px;
             }
 
             .card {
