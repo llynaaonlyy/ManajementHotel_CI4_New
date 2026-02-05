@@ -63,6 +63,7 @@ class Auth extends BaseController
         }
         
         // 🔥 SET SESSION DULU
+        $this->session->regenerate(true);
         $this->session->set([
             'user_id'   => $user['id'],
             'nama'      => $user['nama'],

@@ -16,6 +16,29 @@ class PemesananController extends BaseController
         $this->tipeKamarModel = new \App\Models\TipeKamarModel();
         $this->session = \Config\Services::session();
     }
+
+    private function resolveSessionUser(): ?array
+    {
+        $userId = $this->session->get('user_id');
+        $userEmail = $this->session->get('email');
+
+        $userModel = new \App\Models\UserModel();
+        $user = null;
+
+        if ($userId) {
+            $user = $userModel->find($userId);
+        }
+
+        if ($user && $userEmail && $user['email'] !== $userEmail) {
+            $user = $userModel->where('email', $userEmail)->first();
+        }
+
+        if (!$user && $userEmail) {
+            $user = $userModel->where('email', $userEmail)->first();
+        }
+
+        return $user ?: null;
+    }
     
     public function form($tipeKamarId)
     {
@@ -88,6 +111,11 @@ class PemesananController extends BaseController
         if (!$this->session->get('logged_in')) {
             return redirect()->to('auth/login');
         }
+
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
         
         $validation = \Config\Services::validation();
         
@@ -131,7 +159,7 @@ class PemesananController extends BaseController
         $totalAkhir = $hargaDasar + $biayaAdminPpn;
         
        $data = [
-            'user_id' => $this->session->get('user_id'),
+            'user_id' => $user['id'],
             'akomodasi_id' => $akomodasi['id'],
             'tipe_kamar_id' => $tipeKamar['id'],
             'tanggal_checkin' => $this->request->getPost('tanggal_checkin'),
@@ -157,6 +185,11 @@ class PemesananController extends BaseController
         if (!$this->session->get('logged_in')) {
             return redirect()->to('auth/login');
         }
+
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
         
         $pemesanan = $this->pemesananModel->getDetailPemesanan($id);
         
@@ -165,7 +198,7 @@ class PemesananController extends BaseController
         }
         
         // Pastikan pemesanan milik user yang login
-        if ($pemesanan['user_id'] != $this->session->get('user_id')) {
+        if ($pemesanan['user_id'] != $user['id']) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
         

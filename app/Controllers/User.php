@@ -124,9 +124,12 @@ class User extends BaseController
         }
 
         $userId = $user['id'];
+        if (empty($userId)) {
+            return redirect()->back()->with('error', 'Akun tidak ditemukan');
+        }
         
         // Hapus user dari database
-        $this->userModel->delete($userId);
+        $this->userModel->where('id', $userId)->delete();
         
         // Destroy session
         $this->session->destroy();
