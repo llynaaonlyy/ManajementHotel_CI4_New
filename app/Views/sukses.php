@@ -1,15 +1,3 @@
-<?php
-if (!function_exists('formatBookingCode')) {
-    function formatBookingCode(array $row): string
-    {
-        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
-        if (empty($bookingId)) {
-            return 'HK00000';
-        }
-        return 'HK' . str_pad((string) $bookingId, 5, '0', STR_PAD_LEFT);
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -540,7 +528,7 @@ if (!function_exists('formatBookingCode')) {
             <div class="booking-code">
                 <i class="fas fa-ticket-alt booking-code-icon"></i>
                 <small>Kode Booking</small>
-                <h3><?= formatBookingCode($pemesanan) ?></h3>
+                <h3>HK<?= str_pad($pemesanan['id'], 6, '0', STR_PAD_LEFT) ?></h3>
             </div>
 
             <div class="status-badge">

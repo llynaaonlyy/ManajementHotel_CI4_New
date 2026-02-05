@@ -1,15 +1,3 @@
-<?php
-if (!function_exists('formatBookingCode')) {
-    function formatBookingCode(array $row): string
-    {
-        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
-        if (empty($bookingId)) {
-            return 'HK00000';
-        }
-        return 'HK' . str_pad((string) $bookingId, 5, '0', STR_PAD_LEFT);
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -334,7 +322,7 @@ if (!function_exists('formatBookingCode')) {
                 <div class="booking-card d-flex justify-content-between align-items-center flex-wrap">
 
                     <div>
-                        <strong><?= formatBookingCode($b) ?></strong><br>
+                        <strong>HK<?= str_pad($b['id'], 6, '0', STR_PAD_LEFT) ?></strong><br>
                         <?= esc($b['nama_tamu']) ?>
                         <div class="booking-meta">
                             <?= esc($b['nama_tipe']) ?> ·

@@ -20,27 +20,6 @@ class User extends BaseController
         $this->pemesananModel = new PemesananModel();
 
     }
-
-    private function resolveSessionUser(): ?array
-    {
-        $userId = $this->session->get('user_id');
-        $userEmail = $this->session->get('email');
-
-        $user = null;
-        if ($userId) {
-            $user = $this->userModel->find($userId);
-        }
-
-        if ($user && $userEmail && $user['email'] !== $userEmail) {
-            $user = $this->userModel->where('email', $userEmail)->first();
-        }
-
-        if (!$user && $userEmail) {
-            $user = $this->userModel->where('email', $userEmail)->first();
-        }
-
-        return $user ?: null;
-    }
     
     public function profil()
     {
@@ -48,11 +27,9 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
-
+        $userId = $this->session->get('user_id');
+        $user = $this->userModel->find($userId);
+        
         return view('profil', ['user' => $user]);
     }
 
@@ -62,10 +39,8 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
 
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
+        $userId = $this->session->get('user_id');
+        $user = $this->userModel->find($userId);
 
         return view('edit_detail_akun', ['user' => $user]);
     }
@@ -76,12 +51,7 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
-
-        $userId = $user['id'];
+        $userId = $this->session->get('user_id');
         
         $validation = \Config\Services::validation();
         
@@ -118,18 +88,10 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
-
-        $userId = $user['id'];
-        if (empty($userId)) {
-            return redirect()->back()->with('error', 'Akun tidak ditemukan');
-        }
+        $userId = $this->session->get('user_id');
         
         // Hapus user dari database
-        $this->userModel->where('id', $userId)->delete();
+        $this->userModel->delete($userId);
         
         // Destroy session
         $this->session->destroy();
@@ -139,24 +101,15 @@ class User extends BaseController
 
     public function histori()
     {
-        if (!$this->session->get('logged_in')) {
-            return redirect()->to('auth/login');
-        }
-
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
-
-        $userId = $user['id'];
+        $userId = $this->session->get('user_id');
         
         // Ambil semua pemesanan user ini dari database
         $histori = $this->pemesananModel->getHistoriByUser($userId);
         
         $data = [
             'user' => [
-                'nama' => $user['nama'],
-                'email' => $user['email']
+                'nama' => $this->session->get('nama'),
+                'email' => $this->session->get('email')
             ],
             'histori' => $histori
         ];

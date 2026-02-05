@@ -1,16 +1,4 @@
 <!-- File: app/Views/staff/dashboard.php -->
-<?php
-if (!function_exists('formatBookingCode')) {
-    function formatBookingCode(array $row): string
-    {
-        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
-        if (empty($bookingId)) {
-            return 'HK00000';
-        }
-        return 'HK' . str_pad((string) $bookingId, 5, '0', STR_PAD_LEFT);
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -411,7 +399,7 @@ if (!function_exists('formatBookingCode')) {
                                     <?php else: ?>
                                         <?php foreach($pemesanan as $p): ?>
                                             <tr>
-                                                <td><strong><?= formatBookingCode($p) ?></strong></td>
+                                                <td><strong>HK<?= str_pad($p['id'], 6, '0', STR_PAD_LEFT) ?></strong></td>
                                                 <td>
                                                     <div><?= esc($p['nama_tamu']) ?></div>
                                                     <small class="text-muted"><?= esc($p['email_tamu']) ?></small>
