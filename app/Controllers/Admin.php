@@ -555,20 +555,25 @@ class Admin extends BaseController
 // DELETE USER (ADMIN & PEGAWAI ONLY)
 public function userDelete($id)
 {
+    if (!$id || !is_numeric($id) || (int)$id <= 0) {
+        return redirect()->to('/admin/users')->with('error', 'ID user tidak valid.');
+    }
+
     $user = $this->userModel->find($id);
+    if (!$user) {
+        return redirect()->to('/admin/users')->with('error', 'User tidak ditemukan.');
+    }
     
     // Proteksi: tidak boleh hapus diri sendiri
     if ($user['id'] == $this->session->get('user_id')) {
         return redirect()->to('/admin/users')->with('error', 'Tidak dapat menghapus akun Anda sendiri!');
     }
-    
-    // Proteksi: hanya boleh hapus admin dan pegawai, bukan pelanggan
-    if ($user['role'] === 'pelanggan') {
-        return redirect()->to('/admin/users')->with('error', 'Pelanggan tidak dapat dihapus dari halaman ini!');
-    }
-    
-    // Hapus user
-    $this->userModel->delete($id);
+
+    // Hapus semua pemesanan user terlebih dahulu
+    $this->pemesananModel->where('user_id', (int)$id)->delete();
+
+    // Hapus user (pakai where agar tidak delete tanpa syarat)
+    $this->userModel->where('id', (int)$id)->delete();
     
     return redirect()->to('/admin/users')->with('success', 'User ' . esc($user['nama']) . ' berhasil dihapus!');
 }

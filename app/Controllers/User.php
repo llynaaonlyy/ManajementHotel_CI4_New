@@ -109,10 +109,16 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
 
-        $userId = $user['id'];
+        $userId = $user['id'] ?? null;
+        if (!$userId || !is_numeric($userId) || (int)$userId <= 0) {
+            return redirect()->back()->with('error', 'Akun tidak valid untuk dihapus.');
+        }
         
-        // Hapus user dari database
-        $this->userModel->delete($userId);
+        // Hapus semua pemesanan user terlebih dahulu
+        $this->pemesananModel->where('user_id', (int)$userId)->delete();
+
+        // Hapus user dari database (pakai where agar tidak delete tanpa syarat)
+        $this->userModel->where('id', (int)$userId)->delete();
         
         // Destroy session
         $this->session->destroy();
