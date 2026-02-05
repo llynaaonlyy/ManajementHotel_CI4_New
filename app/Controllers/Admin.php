@@ -597,7 +597,7 @@ public function profilAdmin()
         $userId = $this->session->get('user_id');
         $user = $this->userModel->find($userId);
         
-        return view('profil_admin', ['user' => $user]);
+        return view('admin/profil_admin', ['user' => $user]);
     }
     
     public function updateProfilAdmin()
@@ -632,7 +632,7 @@ public function profilAdmin()
         $this->session->set('nama', $data['nama']);
         $this->session->set('email', $data['email']);
         
-        return redirect()->to('/profil_admin')->with('success', 'Profil berhasil diupdate!');
+        return redirect()->to('/admin/profil_admin')->with('success', 'Profil berhasil diupdate!');
     }
 
 }

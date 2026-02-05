@@ -21,24 +21,53 @@
         }
 
         .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 23px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e0e0e0;
         }
+
         .logo {
-            margin: 104px;
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+            color: #2c3e50;
+            font-size: 27px;
+            font-weight: 700;
             text-decoration: none;
         }
+
+        .logo i {
+            color: #3498db;
+        }
+
         .text-white{
-            margin: 104px;
+            background: #3bb1e7 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
+        }
+
+        .top-bar .container {
+            max-width: 87%;
         }
 
         .container {
             max-width: 600px;
-            margin: 25px auto;
+            margin: 100px auto;
         }
 
         .card {
@@ -129,12 +158,14 @@
         }
 
         .btn-primary {
-            background: #333;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
         }
 
         .btn-primary:hover {
-            background: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
         }
 
         .btn-secondary {
@@ -144,6 +175,32 @@
 
         .btn-secondary:hover {
             background: #d1d5db;
+            color: #111827;
+        }
+
+        .logout-section {
+            margin-top: 10px;
+        }
+
+        .logout-btn {
+            width: 100%;
+            border: none;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(37, 99, 235, 0.35);
         }
 
         .password-section {
@@ -230,9 +287,108 @@
             background: #d1d5db;
         }
 
+        .logout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .logout-modal.active {
+            display: flex;
+        }
+
+        .logout-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .logout-modal-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .logout-modal-body {
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .logout-modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn-logout-secondary {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-logout-secondary:hover {
+            background: #d1d5db;
+            color: #111827;
+        }
+
+        .btn-logout-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-logout-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+            }
+
+            .top-bar {
+                height: 56px;
+                padding: 0 16px;
+            }
+
+            .logo {
+                font-size: 20px;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+            .logo i {
+                font-size: 20px;
+            }
+
+            .text-white {
+                padding: 6px 12px;
+                font-size: 12px;
+                border-radius: 16px;
             }
 
             .card {
@@ -250,23 +406,40 @@
             .button-group {
                 flex-direction: column;
             }
+
+            .logout-btn {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+
+            .logout-modal-actions {
+                flex-direction: column-reverse;
+            }
+
+            .btn-logout-secondary,
+            .btn-logout-primary {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="top-bar">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <a href="ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="logo">
+                    <a href="<?= base_url('admin/dashboard') ?>" class="logo">
                         <i class="fas fa-hotel"></i> Hotelku
                     </a>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="ana/ManajementHotel_CI4_New/public/admin/akomodasi" class="text-white">
+                    <a href="<?= base_url('admin/dashboard') ?>" class="text-white">
                         <i class="fas fa-arrow-left me-2"></i>Kembali
                     </a>
                 </div>
             </div>
+        </div>
     </div>
     <div class="container">
         <!-- Profil Card -->
@@ -277,7 +450,7 @@
                 <strong>Informasi Penting:</strong> Semua perubahan data profil Anda akan disimpan ke basis data kami. Pastikan informasi yang Anda masukkan benar dan akurat.
             </div>
 
-            <form id="profileForm" method="POST" action="<?php echo base_url('profile/update'); ?>">
+            <form id="profileForm" method="POST" action="<?php echo base_url('admin/profil_admin/update'); ?>">
                 <div class="form-group">
                     <label for="nama">Nama Lengkap</label>
                     <input type="text" id="nama" name="nama" value="<?php echo htmlspecialchars($user['nama'] ?? ''); ?>" required>
@@ -291,13 +464,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="telepon">Nomor Telepon</label>
-                    <input type="tel" id="telepon" name="telepon" value="<?php echo htmlspecialchars($user['no_telp'] ?? ''); ?>" pattern="^[0-9]{10,15}$">
+                    <label for="no_telp">Nomor Telepon</label>
+                    <input type="tel" id="no_telp" name="no_telp" value="<?php echo htmlspecialchars($user['no_telp'] ?? ''); ?>" pattern="^[0-9]{10,15}$">
                     <span class="error-message" id="teleponError"></span>
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="btn btn-secondary" onclick="window.history.back()">Batal</button>
+                    <button type="button" class="btn btn-secondary" onclick="refreshPage()">Batal</button>
                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </div>
             </form>
@@ -314,10 +487,45 @@
                 </div>
             </div>
         </div>
+
+        <div class="card logout-section">
+            <button type="button" class="logout-btn" onclick="confirmLogout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="logout-modal">
+        <div class="logout-modal-content">
+            <div class="logout-modal-title">Yakin mau logout?</div>
+            <div class="logout-modal-body">
+                Kamu akan keluar dari akun ini dan diarahkan ke halaman login.
+            </div>
+            <div class="logout-modal-actions">
+                <button class="btn-logout-secondary" type="button" onclick="closeLogoutModal()">Batal</button>
+                <button class="btn-logout-primary" type="button" onclick="doLogout()">Ya, Logout</button>
+            </div>
+        </div>
     </div>
 
 
     <script>
+        function refreshPage() {
+            window.location.reload();
+        }
+
+        function confirmLogout() {
+            document.getElementById('logoutModal').classList.add('active');
+        }
+
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').classList.remove('active');
+        }
+
+        function doLogout() {
+            window.location.href = "<?= base_url('auth/logout') ?>";
+        }
+
         document.getElementById('profileForm')?.addEventListener('submit', function(e) {
             let isValid = true;
             
@@ -345,13 +553,12 @@
             }
         });
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('modalPassword');
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('logoutModal');
             if (event.target === modal) {
-                closePasswordModal();
+                closeLogoutModal();
             }
-        }
+        });
     </script>
 </body>
 </html>

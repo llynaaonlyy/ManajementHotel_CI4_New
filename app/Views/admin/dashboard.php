@@ -225,7 +225,7 @@
 
         <div class="user-menu-wrapper">
             <div class="user-menu d-flex align-items-center justify-content-end">
-                <a href="<?= base_url('profil_admin') ?>" class="profil-icon ms-2">
+                <a href="<?= base_url('admin/profil_admin') ?>" class="profil-icon ms-2">
                     <i class="fas fa-user"></i>
                 </a>
             </div>
