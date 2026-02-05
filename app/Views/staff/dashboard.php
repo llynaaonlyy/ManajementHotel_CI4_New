@@ -1,4 +1,19 @@
 <!-- File: app/Views/staff/dashboard.php -->
+<?php
+if (!function_exists('formatBookingCode')) {
+    function formatBookingCode(array $row): string
+    {
+        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
+        if (!empty($bookingId)) {
+            return 'HK' . str_pad((string) $bookingId, 6, '0', STR_PAD_LEFT);
+        }
+
+        $seed = ($row['created_at'] ?? '') . '|' . ($row['user_id'] ?? '') . '|' . ($row['tanggal_checkin'] ?? '') . '|' . ($row['total_harga'] ?? '');
+        $num = abs(crc32($seed)) % 1000000;
+        return 'HK' . str_pad((string) $num, 6, '0', STR_PAD_LEFT);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -399,7 +414,7 @@
                                     <?php else: ?>
                                         <?php foreach($pemesanan as $p): ?>
                                             <tr>
-                                                <td><strong>HK<?= str_pad($p['id'], 6, '0', STR_PAD_LEFT) ?></strong></td>
+                                                <td><strong><?= formatBookingCode($p) ?></strong></td>
                                                 <td>
                                                     <div><?= esc($p['nama_tamu']) ?></div>
                                                     <small class="text-muted"><?= esc($p['email_tamu']) ?></small>

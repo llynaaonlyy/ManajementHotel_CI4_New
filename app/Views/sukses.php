@@ -1,3 +1,18 @@
+<?php
+if (!function_exists('formatBookingCode')) {
+    function formatBookingCode(array $row): string
+    {
+        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
+        if (!empty($bookingId)) {
+            return 'HK' . str_pad((string) $bookingId, 6, '0', STR_PAD_LEFT);
+        }
+
+        $seed = ($row['created_at'] ?? '') . '|' . ($row['user_id'] ?? '') . '|' . ($row['tanggal_checkin'] ?? '') . '|' . ($row['total_harga'] ?? '');
+        $num = abs(crc32($seed)) % 1000000;
+        return 'HK' . str_pad((string) $num, 6, '0', STR_PAD_LEFT);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -528,7 +543,7 @@
             <div class="booking-code">
                 <i class="fas fa-ticket-alt booking-code-icon"></i>
                 <small>Kode Booking</small>
-                <h3>HK<?= str_pad($pemesanan['id'], 6, '0', STR_PAD_LEFT) ?></h3>
+                <h3><?= formatBookingCode($pemesanan) ?></h3>
             </div>
 
             <div class="status-badge">

@@ -1,3 +1,18 @@
+<?php
+if (!function_exists('formatBookingCode')) {
+    function formatBookingCode(array $row): string
+    {
+        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
+        if (!empty($bookingId)) {
+            return 'HK' . str_pad((string) $bookingId, 6, '0', STR_PAD_LEFT);
+        }
+
+        $seed = ($row['created_at'] ?? '') . '|' . ($row['user_id'] ?? '') . '|' . ($row['tanggal_checkin'] ?? '') . '|' . ($row['total_harga'] ?? '');
+        $num = abs(crc32($seed)) % 1000000;
+        return 'HK' . str_pad((string) $num, 6, '0', STR_PAD_LEFT);
+    }
+}
+?>
 <!-- File: app/Views/staff/detail_pemesanan.php -->
 <!DOCTYPE html>
 <html lang="id">
@@ -123,7 +138,7 @@
 
         <h2 class="mb-4">
             <i class="fas fa-file-invoice me-2"></i>Detail Pemesanan 
-            <span class="text-primary">HK<?= str_pad($pemesanan['id'], 6, '0', STR_PAD_LEFT) ?></span>
+            <span class="text-primary"><?= formatBookingCode($pemesanan) ?></span>
         </h2>
 
         <div class="row">
@@ -133,7 +148,7 @@
                     <div class="section-title">Informasi Pemesanan</div>
                     <div class="info-row">
                         <span class="info-label">Kode Booking</span>
-                        <span class="info-value">HK<?= str_pad($pemesanan['id'], 6, '0', STR_PAD_LEFT) ?></span>
+                        <span class="info-value"><?= formatBookingCode($pemesanan) ?></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Nama Akomodasi</span>

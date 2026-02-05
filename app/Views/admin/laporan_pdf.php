@@ -1,3 +1,18 @@
+<?php
+if (!function_exists('formatBookingCode')) {
+    function formatBookingCode(array $row): string
+    {
+        $bookingId = $row['id'] ?? $row['pemesanan_id'] ?? $row['id_pemesanan'] ?? null;
+        if (!empty($bookingId)) {
+            return 'HK' . str_pad((string) $bookingId, 6, '0', STR_PAD_LEFT);
+        }
+
+        $seed = ($row['created_at'] ?? '') . '|' . ($row['user_id'] ?? '') . '|' . ($row['tanggal_checkin'] ?? '') . '|' . ($row['total_harga'] ?? '');
+        $num = abs(crc32($seed)) % 1000000;
+        return 'HK' . str_pad((string) $num, 6, '0', STR_PAD_LEFT);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -123,7 +138,7 @@
                 ?>
                     <tr>
                         <td style="text-align: center;"><?= $no++ ?></td>
-                        <td>HK<?= str_pad($p['id'], 6, '0', STR_PAD_LEFT) ?></td>
+                        <td><?= formatBookingCode($p) ?></td>
                         <td><?= esc($p['nama_tamu']) ?></td>
                         <td>
                             <?= esc($p['nama_akomodasi']) ?><br>
