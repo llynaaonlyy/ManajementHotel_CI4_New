@@ -23,12 +23,7 @@ class User extends BaseController
 
     private function resolveSessionUser(): ?array
     {
-        $user = $this->resolveSessionUser();
-        if (!$user) {
-            return redirect()->to('auth/login');
-        }
-
-        $userId = $user['id'];
+        $userId = $this->session->get('user_id');
         $userEmail = $this->session->get('email');
 
         $user = null;
@@ -141,15 +136,24 @@ class User extends BaseController
 
     public function histori()
     {
-        $userId = $this->session->get('user_id');
+        if (!$this->session->get('logged_in')) {
+            return redirect()->to('auth/login');
+        }
+
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
+        $userId = $user['id'];
         
         // Ambil semua pemesanan user ini dari database
         $histori = $this->pemesananModel->getHistoriByUser($userId);
         
         $data = [
             'user' => [
-                'nama' => $this->session->get('nama'),
-                'email' => $this->session->get('email')
+                'nama' => $user['nama'],
+                'email' => $user['email']
             ],
             'histori' => $histori
         ];
