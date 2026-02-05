@@ -17,7 +17,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f5f5f5;
             min-height: 100vh;
-            padding: -10px;
+            padding: 0;
         }
 
         .top-bar {
@@ -77,7 +77,8 @@
         }
 
         .top-bar .container {
-            max-width: 87%;
+            max-width: 100%;
+            padding: 0 20px;
         }
 
         .container {
@@ -260,7 +261,16 @@
 
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 0;
+            }
+
+            .top-bar {
+                padding: 0;
+            }
+
+            .top-bar .container {
+                max-width: 100%;
+                padding: 0 12px;
             }
 
             .card {
@@ -287,12 +297,12 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-6">
-                        <a href="/ana/ManajementHotel_CI4_New/public/home" class="logo">
+                        <a href="<?= base_url('home') ?>" class="logo">
                             <i class="fas fa-hotel"></i> Hotelku
                         </a>
                     </div>
                     <div class="col-6 text-end">
-                        <a href="/ana/ManajementHotel_CI4_New/public/profil" class="text-white">
+                        <a href="<?= base_url('profil') ?>" class="text-white">
                             <i class="fas fa-arrow-left me-2"></i>Kembali
                         </a>
                     </div>

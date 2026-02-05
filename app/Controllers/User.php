@@ -20,6 +20,32 @@ class User extends BaseController
         $this->pemesananModel = new PemesananModel();
 
     }
+
+    private function resolveSessionUser(): ?array
+    {
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
+        $userId = $user['id'];
+        $userEmail = $this->session->get('email');
+
+        $user = null;
+        if ($userId) {
+            $user = $this->userModel->find($userId);
+        }
+
+        if ($user && $userEmail && $user['email'] !== $userEmail) {
+            $user = $this->userModel->where('email', $userEmail)->first();
+        }
+
+        if (!$user && $userEmail) {
+            $user = $this->userModel->where('email', $userEmail)->first();
+        }
+
+        return $user ?: null;
+    }
     
     public function profil()
     {
@@ -27,9 +53,11 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $userId = $this->session->get('user_id');
-        $user = $this->userModel->find($userId);
-        
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
         return view('profil', ['user' => $user]);
     }
 
@@ -39,8 +67,10 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
 
-        $userId = $this->session->get('user_id');
-        $user = $this->userModel->find($userId);
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
 
         return view('edit_detail_akun', ['user' => $user]);
     }
@@ -51,7 +81,12 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $userId = $this->session->get('user_id');
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
+        $userId = $user['id'];
         
         $validation = \Config\Services::validation();
         
@@ -88,7 +123,12 @@ class User extends BaseController
             return redirect()->to('auth/login');
         }
         
-        $userId = $this->session->get('user_id');
+        $user = $this->resolveSessionUser();
+        if (!$user) {
+            return redirect()->to('auth/login');
+        }
+
+        $userId = $user['id'];
         
         // Hapus user dari database
         $this->userModel->delete($userId);
