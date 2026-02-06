@@ -28,6 +28,8 @@ class Staff extends BaseController
     
     public function dashboard()
     {
+        $this->releaseCheckoutStockIfDue();
+
         // Statistik harian
         $today = date('Y-m-d');
         
@@ -51,6 +53,8 @@ class Staff extends BaseController
     // Controller Staff.php
      public function daftarSemuaPemesanan()
     {
+        $this->releaseCheckoutStockIfDue();
+
         // Panggil method dari Model yang ada
         $pemesanan = $this->pemesananModel->getAllPemesananWithDetails();
 
@@ -112,9 +116,9 @@ public function updateStatus()
     $statusLama = $pemesanan['status'];
 
     /* =====================================================
-       🔒 PENGUNCI STATUS FINAL (TAMBAHAN UTAMA)
+       🔒 PENGUNCI STATUS FINAL
        ===================================================== */
-    if (in_array($statusLama, ['confirmed', 'cancelled'])) {
+    if (in_array($statusLama, ['cancelled', 'checked-out'])) {
         return redirect()->back()
             ->with('error', 'Status sudah ' . $statusLama . ' dan tidak dapat diubah.');
     }
@@ -122,9 +126,41 @@ public function updateStatus()
     /* =====================================================
        (OPSIONAL) VALIDASI STATUS BARU
        ===================================================== */
-    if (!in_array($statusBaru, ['confirmed', 'cancelled'])) {
+    if (!in_array($statusBaru, ['confirmed', 'cancelled', 'checked-out'])) {
         return redirect()->back()
             ->with('error', 'Status tidak valid.');
+    }
+
+    // Validasi transisi status
+    if ($statusBaru === 'checked-out' && !in_array($statusLama, ['confirmed', 'check-in'])) {
+        return redirect()->back()
+            ->with('error', 'Status tidak valid untuk checkout.');
+    }
+
+    if ($statusBaru === 'cancelled' && !in_array($statusLama, ['pending', 'confirmed'])) {
+        return redirect()->back()
+            ->with('error', 'Status tidak valid untuk pembatalan.');
+    }
+
+    if ($statusBaru === 'confirmed' && $statusLama !== 'pending') {
+        return redirect()->back()
+            ->with('error', 'Status tidak valid untuk konfirmasi.');
+    }
+
+    // Update stok kamar sesuai perubahan status
+    if ($statusBaru === 'confirmed') {
+        $ok = $this->tipeKamarModel->adjustStock((int) $pemesanan['tipe_kamar_id'], -1);
+        if (!$ok) {
+            return redirect()->back()->with('error', 'Stok kamar habis.');
+        }
+    }
+
+    if ($statusBaru === 'cancelled' && $statusLama === 'confirmed') {
+        $this->tipeKamarModel->adjustStock((int) $pemesanan['tipe_kamar_id'], 1);
+    }
+
+    if ($statusBaru === 'checked-out' && in_array($statusLama, ['confirmed', 'check-in'])) {
+        $this->tipeKamarModel->adjustStock((int) $pemesanan['tipe_kamar_id'], 1);
     }
 
     // Update status
@@ -150,6 +186,27 @@ public function updateStatus()
     return redirect()->to('/staff/pemesanan/' . $pemesananId)
         ->with('success', 'Status pemesanan berhasil diubah menjadi ' . ucfirst($statusBaru));
 }
+
+    private function releaseCheckoutStockIfDue(): void
+    {
+        $now = date('H:i');
+        if ($now < '12:00') {
+            return;
+        }
+
+        $today = date('Y-m-d');
+        $dueCheckouts = $this->pemesananModel
+            ->where('status', 'confirmed')
+            ->where('tanggal_checkout <=', $today)
+            ->findAll();
+
+        foreach ($dueCheckouts as $pemesanan) {
+            $this->tipeKamarModel->adjustStock((int) $pemesanan['tipe_kamar_id'], 1);
+            $this->pemesananModel->update($pemesanan['id'], [
+                'status' => 'checked-out'
+            ]);
+        }
+    }
     
     public function updateCatatanInternal()
     {

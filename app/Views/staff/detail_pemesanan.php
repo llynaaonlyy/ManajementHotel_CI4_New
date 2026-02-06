@@ -315,7 +315,7 @@
                     <div class="section-title">Kelola Status</div>
 
                     <?php
-                        $statusFinal = in_array($pemesanan['status'], ['confirmed', 'cancelled']);
+                        $statusFinal = in_array($pemesanan['status'], ['cancelled', 'checked-out']);
                     ?>
 
                     <?php if($statusFinal): ?>
@@ -335,6 +335,9 @@
                                 <option value="">Pilih Status</option>
                                 <option value="confirmed" <?= $pemesanan['status'] == 'confirmed' ? 'selected' : '' ?>>
                                     Confirmed
+                                </option>
+                                <option value="checked-out" <?= $pemesanan['status'] == 'checked-out' ? 'selected' : '' ?>>
+                                    Checked-out
                                 </option>
                                 <option value="cancelled" <?= $pemesanan['status'] == 'cancelled' ? 'selected' : '' ?>>
                                     Cancelled
