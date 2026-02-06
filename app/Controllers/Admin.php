@@ -54,7 +54,7 @@ class Admin extends BaseController
             ],
             'stats' => [
                 'total_akomodasi' => $this->akomodasiModel->countAll(),
-                'total_pemesanan' => $this->pemesananModel->countAll(),
+                'total_pemesanan' => $this->pemesananModel->db->table('pemesanan')->countAllResults(),
                 'total_users' => $this->userModel->where('role', 'pelanggan')->countAllResults(),
                 'total_pegawai' => $this->userModel->where('role', 'pegawai')->countAllResults()
             ]
