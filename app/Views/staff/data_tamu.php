@@ -253,7 +253,7 @@
                                                     <span class="badge bg-primary"><?= $t['total_pemesanan'] ?> pemesanan</span>
                                                 </td>
                                                 <td>
-                                                    <a href="/ana/ManajementHotel_CI4_New/public/staff/tamu/<?= $t['id'] ?>" class="btn btn-sm btn-info text-white">
+                                                    <a href="<?= base_url('staff/tamu/') ?><?= $t['id'] ?>" class="btn btn-sm btn-info text-white">
                                                         <i class="fas fa-eye me-1"></i>Detail
                                                     </a>
                                                 </td>

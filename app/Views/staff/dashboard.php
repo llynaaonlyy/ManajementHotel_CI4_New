@@ -417,7 +417,7 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <a href="/ana/ManajementHotel_CI4_New/public/staff/pemesanan/<?= $p['id'] ?>" class="btn btn-sm btn-primary">
+                                                    <a href="<?= base_url('staff/pemesanan/') ?><?= $p['id'] ?>" class="btn btn-sm btn-primary">
                                                         <i class="fas fa-eye"></i> Detail
                                                     </a>
                                                 </td>

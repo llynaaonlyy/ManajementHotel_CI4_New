@@ -8,22 +8,90 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
+        body {
+            margin: 0;
+            background: #f4f6f9;
         }
+
+        /* TOP BAR */
+        .top-bar {
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+            color: #2c3e50;
+            font-size: 25px;
+            font-weight: 700;
             text-decoration: none;
         }
+
+        .logo i {
+            color: #3498db;
+        }
+
+         .text-white{
+            background: #3bb1e7 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
+        }
+
+        .top-bar .container-fluid {
+            max-width: 87%;
+        }
+
         .detail-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             margin-bottom: 20px;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 100px auto 24px;
+        }
+
+        @media (max-width: 576px) {
+            .top-bar {
+                padding: 0 14px;
+            }
+            .top-bar .container-fluid {
+                max-width: 100%;
+            }
+            .top-bar .text-end a {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .top-bar .text-end a i {
+                font-size: 12px;
+                margin-right: 6px !important;
+            }
+            .page-container {
+                margin: 86px auto 16px;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
         }
     </style>
 </head>
@@ -46,7 +114,7 @@
         </div>
     </div>
 
-    <div class="container my-4">
+    <div class="container page-container">
         <h2 class="mb-4"><i class="fas fa-user me-2"></i>Detail Tamu</h2>
 
         <div class="row">

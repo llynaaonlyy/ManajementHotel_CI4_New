@@ -8,16 +8,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .top-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 0;
+         body {
+            margin: 0;
+            background: #f4f6f9;
         }
+
+        /* TOP BAR */
+        .top-bar {
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
+            color: #2c3e50;
+            font-size: 25px;
+            font-weight: 700;
             text-decoration: none;
         }
+
+        .logo i {
+            color: #3498db;
+        }
+
+         .text-white{
+            background: #3bb1e7 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .text-white:hover {
+            background: #256ac5 !important;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+            transform: translateY(-2px);
+        }
+
         .detail-card {
             background: white;
             border-radius: 15px;
@@ -25,28 +62,42 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             margin-bottom: 20px;
         }
+
+        .top-bar .container-fluid {
+            max-width: 87%;
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 100px auto 24px;
+        }
+
         .section-title {
             font-size: 18px;
             font-weight: bold;
-            color: #667eea;
+            color: #3498db;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #3498db;
         }
+
         .info-row {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
         }
+
         .info-label {
             color: #666;
             font-weight: 500;
         }
+
         .info-value {
             color: #333;
             font-weight: 600;
         }
+
         .status-badge {
             padding: 8px 20px;
             border-radius: 20px;
@@ -54,6 +105,7 @@
             font-weight: 600;
             text-transform: uppercase;
         }
+
         .status-pending { background: #ffc107; color: #333; }
         .status-confirmed { background: #28a745; color: white; }
         .status-checked-in { background: #17a2b8; color: white; }
@@ -63,10 +115,12 @@
             position: relative;
             padding-left: 30px;
         }
+
         .timeline-item {
             position: relative;
             padding-bottom: 20px;
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -75,10 +129,11 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #667eea;
+            background: #2563eb;
             border: 3px solid white;
-            box-shadow: 0 0 0 2px #667eea;
+            box-shadow: 0 0 0 2px #2563eb;
         }
+
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -88,8 +143,31 @@
             height: calc(100% - 10px);
             background: #e0e0e0;
         }
+        
         .timeline-item:last-child::after {
             display: none;
+        }
+
+        @media (max-width: 576px) {
+            .top-bar {
+                padding: 0 14px;
+            }
+            .top-bar .container-fluid {
+                max-width: 100%;
+            }
+            .top-bar .text-end a {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .top-bar .text-end a i {
+                font-size: 12px;
+                margin-right: 6px !important;
+            }
+            .page-container {
+                margin: 86px auto 16px;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
         }
     </style>
 </head>
@@ -112,7 +190,7 @@
         </div>
     </div>
 
-    <div class="container my-4">
+    <div class="container page-container">
         <?php if(session()->getFlashdata('success')): ?>
             <div class="alert alert-success alert-dismissible fade show">
                 <i class="fas fa-check-circle me-2"></i>
