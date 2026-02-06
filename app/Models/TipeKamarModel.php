@@ -22,18 +22,4 @@ class TipeKamarModel extends Model
                     ->findAll();
     }
 
-    public function adjustStock(int $tipeKamarId, int $delta): bool
-    {
-        $kamar = $this->find($tipeKamarId);
-        if (!$kamar) {
-            return false;
-        }
-
-        $stokBaru = (int) $kamar['stok_kamar'] + $delta;
-        if ($stokBaru < 0) {
-            return false;
-        }
-
-        return (bool) $this->update($tipeKamarId, ['stok_kamar' => $stokBaru]);
-    }
 }
