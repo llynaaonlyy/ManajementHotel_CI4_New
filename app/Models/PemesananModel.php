@@ -71,7 +71,6 @@ class PemesananModel extends Model
     ->findAll();
 }
 
-    
     public function getDetailPemesananFull($id)
     {
         return $this->select('pemesanan.*, 
@@ -103,8 +102,6 @@ class PemesananModel extends Model
                     ->orderBy('pemesanan.created_at', 'DESC')
                     ->findAll();
     }
-    
-    
     public function getAllPemesanan()
     {
         return $this->select('pemesanan.*, akomodasi.nama as nama_akomodasi, tipe_kamar.nama_tipe, users.nama as nama_user')

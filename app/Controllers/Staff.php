@@ -192,11 +192,22 @@ public function updateStatus()
         $this->email->setTo($tamu['email']);
         $this->email->setSubject('Konfirmasi Pemesanan - Hotelku');
         
-        // Email body
-        $message = view('emails/booking_confirmation', [
-            'tamu' => $tamu,
-            'pemesanan' => $pemesanan
-        ]);
+        // Email body (inline HTML to avoid missing view file)
+        $message = "
+            <div style=\"font-family: Arial, sans-serif; line-height: 1.6;\">
+                <h2 style=\"margin: 0 0 12px;\">Konfirmasi Pemesanan</h2>
+                <p>Halo <strong>" . esc($tamu['nama']) . "</strong>,</p>
+                <p>Pemesanan Anda telah dikonfirmasi. Berikut detailnya:</p>
+                <ul>
+                    <li>Kode Booking: HK" . str_pad($pemesanan['id'], 6, '0', STR_PAD_LEFT) . "</li>
+                    <li>Akomodasi: " . esc($pemesanan['nama_akomodasi']) . "</li>
+                    <li>Tipe Kamar: " . esc($pemesanan['nama_tipe']) . "</li>
+                    <li>Check-in: " . date('d F Y', strtotime($pemesanan['tanggal_checkin'])) . "</li>
+                    <li>Check-out: " . date('d F Y', strtotime($pemesanan['tanggal_checkout'])) . "</li>
+                </ul>
+                <p>Terima kasih telah memesan di Hotelku.</p>
+            </div>
+        ";
         
         $this->email->setMessage($message);
         
